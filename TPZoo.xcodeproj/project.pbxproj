@@ -1,0 +1,606 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		65B725F72105BEBC0088DDCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B725F62105BEBC0088DDCB /* AppDelegate.swift */; };
+		65B725F92105BEBC0088DDCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B725F82105BEBC0088DDCB /* ViewController.swift */; };
+		65B725FC2105BEBC0088DDCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B725FA2105BEBC0088DDCB /* Main.storyboard */; };
+		65B725FF2105BEBC0088DDCB /* TPZoo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65B725FD2105BEBC0088DDCB /* TPZoo.xcdatamodeld */; };
+		65B726012105BEBD0088DDCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65B726002105BEBD0088DDCB /* Assets.xcassets */; };
+		65B726042105BEBD0088DDCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B726022105BEBD0088DDCB /* LaunchScreen.storyboard */; };
+		65B7260F2105BEBD0088DDCB /* TPZooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B7260E2105BEBD0088DDCB /* TPZooTests.swift */; };
+		65B7261A2105BEBD0088DDCB /* TPZooUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726192105BEBD0088DDCB /* TPZooUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		65B7260B2105BEBD0088DDCB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65B725EB2105BEBB0088DDCB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65B725F22105BEBC0088DDCB;
+			remoteInfo = TPZoo;
+		};
+		65B726162105BEBD0088DDCB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65B725EB2105BEBB0088DDCB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65B725F22105BEBC0088DDCB;
+			remoteInfo = TPZoo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		65B725F32105BEBC0088DDCB /* TPZoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TPZoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65B725F62105BEBC0088DDCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		65B725F82105BEBC0088DDCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		65B725FB2105BEBC0088DDCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		65B725FE2105BEBC0088DDCB /* TPZoo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TPZoo.xcdatamodel; sourceTree = "<group>"; };
+		65B726002105BEBD0088DDCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		65B726032105BEBD0088DDCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		65B726052105BEBD0088DDCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65B7260A2105BEBD0088DDCB /* TPZooTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TPZooTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		65B7260E2105BEBD0088DDCB /* TPZooTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPZooTests.swift; sourceTree = "<group>"; };
+		65B726102105BEBD0088DDCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65B726152105BEBD0088DDCB /* TPZooUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TPZooUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		65B726192105BEBD0088DDCB /* TPZooUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPZooUITests.swift; sourceTree = "<group>"; };
+		65B7261B2105BEBD0088DDCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		65B725F02105BEBC0088DDCB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B726072105BEBD0088DDCB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B726122105BEBD0088DDCB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		65B725EA2105BEBB0088DDCB = {
+			isa = PBXGroup;
+			children = (
+				65B725F52105BEBC0088DDCB /* TPZoo */,
+				65B7260D2105BEBD0088DDCB /* TPZooTests */,
+				65B726182105BEBD0088DDCB /* TPZooUITests */,
+				65B725F42105BEBC0088DDCB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		65B725F42105BEBC0088DDCB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65B725F32105BEBC0088DDCB /* TPZoo.app */,
+				65B7260A2105BEBD0088DDCB /* TPZooTests.xctest */,
+				65B726152105BEBD0088DDCB /* TPZooUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65B725F52105BEBC0088DDCB /* TPZoo */ = {
+			isa = PBXGroup;
+			children = (
+				65B725F62105BEBC0088DDCB /* AppDelegate.swift */,
+				65B725F82105BEBC0088DDCB /* ViewController.swift */,
+				65B725FA2105BEBC0088DDCB /* Main.storyboard */,
+				65B726002105BEBD0088DDCB /* Assets.xcassets */,
+				65B726022105BEBD0088DDCB /* LaunchScreen.storyboard */,
+				65B726052105BEBD0088DDCB /* Info.plist */,
+				65B725FD2105BEBC0088DDCB /* TPZoo.xcdatamodeld */,
+			);
+			path = TPZoo;
+			sourceTree = "<group>";
+		};
+		65B7260D2105BEBD0088DDCB /* TPZooTests */ = {
+			isa = PBXGroup;
+			children = (
+				65B7260E2105BEBD0088DDCB /* TPZooTests.swift */,
+				65B726102105BEBD0088DDCB /* Info.plist */,
+			);
+			path = TPZooTests;
+			sourceTree = "<group>";
+		};
+		65B726182105BEBD0088DDCB /* TPZooUITests */ = {
+			isa = PBXGroup;
+			children = (
+				65B726192105BEBD0088DDCB /* TPZooUITests.swift */,
+				65B7261B2105BEBD0088DDCB /* Info.plist */,
+			);
+			path = TPZooUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		65B725F22105BEBC0088DDCB /* TPZoo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65B7261E2105BEBD0088DDCB /* Build configuration list for PBXNativeTarget "TPZoo" */;
+			buildPhases = (
+				65B725EF2105BEBC0088DDCB /* Sources */,
+				65B725F02105BEBC0088DDCB /* Frameworks */,
+				65B725F12105BEBC0088DDCB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TPZoo;
+			productName = TPZoo;
+			productReference = 65B725F32105BEBC0088DDCB /* TPZoo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		65B726092105BEBD0088DDCB /* TPZooTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65B726212105BEBD0088DDCB /* Build configuration list for PBXNativeTarget "TPZooTests" */;
+			buildPhases = (
+				65B726062105BEBD0088DDCB /* Sources */,
+				65B726072105BEBD0088DDCB /* Frameworks */,
+				65B726082105BEBD0088DDCB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65B7260C2105BEBD0088DDCB /* PBXTargetDependency */,
+			);
+			name = TPZooTests;
+			productName = TPZooTests;
+			productReference = 65B7260A2105BEBD0088DDCB /* TPZooTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		65B726142105BEBD0088DDCB /* TPZooUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65B726242105BEBD0088DDCB /* Build configuration list for PBXNativeTarget "TPZooUITests" */;
+			buildPhases = (
+				65B726112105BEBD0088DDCB /* Sources */,
+				65B726122105BEBD0088DDCB /* Frameworks */,
+				65B726132105BEBD0088DDCB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65B726172105BEBD0088DDCB /* PBXTargetDependency */,
+			);
+			name = TPZooUITests;
+			productName = TPZooUITests;
+			productReference = 65B726152105BEBD0088DDCB /* TPZooUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		65B725EB2105BEBB0088DDCB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = HSI;
+				TargetAttributes = {
+					65B725F22105BEBC0088DDCB = {
+						CreatedOnToolsVersion = 9.4;
+					};
+					65B726092105BEBD0088DDCB = {
+						CreatedOnToolsVersion = 9.4;
+						TestTargetID = 65B725F22105BEBC0088DDCB;
+					};
+					65B726142105BEBD0088DDCB = {
+						CreatedOnToolsVersion = 9.4;
+						TestTargetID = 65B725F22105BEBC0088DDCB;
+					};
+				};
+			};
+			buildConfigurationList = 65B725EE2105BEBB0088DDCB /* Build configuration list for PBXProject "TPZoo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 65B725EA2105BEBB0088DDCB;
+			productRefGroup = 65B725F42105BEBC0088DDCB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				65B725F22105BEBC0088DDCB /* TPZoo */,
+				65B726092105BEBD0088DDCB /* TPZooTests */,
+				65B726142105BEBD0088DDCB /* TPZooUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		65B725F12105BEBC0088DDCB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B726042105BEBD0088DDCB /* LaunchScreen.storyboard in Resources */,
+				65B726012105BEBD0088DDCB /* Assets.xcassets in Resources */,
+				65B725FC2105BEBC0088DDCB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B726082105BEBD0088DDCB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B726132105BEBD0088DDCB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		65B725EF2105BEBC0088DDCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B725F92105BEBC0088DDCB /* ViewController.swift in Sources */,
+				65B725FF2105BEBC0088DDCB /* TPZoo.xcdatamodeld in Sources */,
+				65B725F72105BEBC0088DDCB /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B726062105BEBD0088DDCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B7260F2105BEBD0088DDCB /* TPZooTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		65B726112105BEBD0088DDCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B7261A2105BEBD0088DDCB /* TPZooUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		65B7260C2105BEBD0088DDCB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65B725F22105BEBC0088DDCB /* TPZoo */;
+			targetProxy = 65B7260B2105BEBD0088DDCB /* PBXContainerItemProxy */;
+		};
+		65B726172105BEBD0088DDCB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65B725F22105BEBC0088DDCB /* TPZoo */;
+			targetProxy = 65B726162105BEBD0088DDCB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		65B725FA2105BEBC0088DDCB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65B725FB2105BEBC0088DDCB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		65B726022105BEBD0088DDCB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				65B726032105BEBD0088DDCB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		65B7261C2105BEBD0088DDCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		65B7261D2105BEBD0088DDCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		65B7261F2105BEBD0088DDCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7L56KQ3ZU2;
+				INFOPLIST_FILE = TPZoo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = HSI.TPZoo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		65B726202105BEBD0088DDCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7L56KQ3ZU2;
+				INFOPLIST_FILE = TPZoo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = HSI.TPZoo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		65B726222105BEBD0088DDCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7L56KQ3ZU2;
+				INFOPLIST_FILE = TPZooTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = HSI.TPZooTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TPZoo.app/TPZoo";
+			};
+			name = Debug;
+		};
+		65B726232105BEBD0088DDCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7L56KQ3ZU2;
+				INFOPLIST_FILE = TPZooTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = HSI.TPZooTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TPZoo.app/TPZoo";
+			};
+			name = Release;
+		};
+		65B726252105BEBD0088DDCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7L56KQ3ZU2;
+				INFOPLIST_FILE = TPZooUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = HSI.TPZooUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TPZoo;
+			};
+			name = Debug;
+		};
+		65B726262105BEBD0088DDCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7L56KQ3ZU2;
+				INFOPLIST_FILE = TPZooUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = HSI.TPZooUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TPZoo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		65B725EE2105BEBB0088DDCB /* Build configuration list for PBXProject "TPZoo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65B7261C2105BEBD0088DDCB /* Debug */,
+				65B7261D2105BEBD0088DDCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65B7261E2105BEBD0088DDCB /* Build configuration list for PBXNativeTarget "TPZoo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65B7261F2105BEBD0088DDCB /* Debug */,
+				65B726202105BEBD0088DDCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65B726212105BEBD0088DDCB /* Build configuration list for PBXNativeTarget "TPZooTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65B726222105BEBD0088DDCB /* Debug */,
+				65B726232105BEBD0088DDCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65B726242105BEBD0088DDCB /* Build configuration list for PBXNativeTarget "TPZooUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65B726252105BEBD0088DDCB /* Debug */,
+				65B726262105BEBD0088DDCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		65B725FD2105BEBC0088DDCB /* TPZoo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				65B725FE2105BEBC0088DDCB /* TPZoo.xcdatamodel */,
+			);
+			currentVersion = 65B725FE2105BEBC0088DDCB /* TPZoo.xcdatamodel */;
+			path = TPZoo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 65B725EB2105BEBB0088DDCB /* Project object */;
+}
