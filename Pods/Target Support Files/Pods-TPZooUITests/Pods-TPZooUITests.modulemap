@@ -1,0 +1,6 @@
+framework module Pods_TPZooUITests {
+  umbrella header "Pods-TPZooUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

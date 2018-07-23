@@ -1,0 +1,6 @@
+framework module Pods_TPZoo {
+  umbrella header "Pods-TPZoo-umbrella.h"
+
+  export *
+  module * { export * }
+}

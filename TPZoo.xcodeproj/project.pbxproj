@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AB91DF21BA53BDD5C9C391C /* Pods_TPZooTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02C7BFE44629838FDE25BB4 /* Pods_TPZooTests.framework */; };
 		65B725F72105BEBC0088DDCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B725F62105BEBC0088DDCB /* AppDelegate.swift */; };
 		65B725F92105BEBC0088DDCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B725F82105BEBC0088DDCB /* ViewController.swift */; };
 		65B725FC2105BEBC0088DDCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B725FA2105BEBC0088DDCB /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 		65B726042105BEBD0088DDCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B726022105BEBD0088DDCB /* LaunchScreen.storyboard */; };
 		65B7260F2105BEBD0088DDCB /* TPZooTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B7260E2105BEBD0088DDCB /* TPZooTests.swift */; };
 		65B7261A2105BEBD0088DDCB /* TPZooUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726192105BEBD0088DDCB /* TPZooUITests.swift */; };
+		A9FBFDF9B4024DD22EB64F07 /* Pods_TPZoo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2996299F7F4E3B7EC80A16F4 /* Pods_TPZoo.framework */; };
+		CE62CBE4F4582674C94E662D /* Pods_TPZooUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49455C8DB5D4314A0D190C5A /* Pods_TPZooUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		276EA0ED17F741293E90DEEF /* Pods-TPZooTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPZooTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TPZooTests/Pods-TPZooTests.release.xcconfig"; sourceTree = "<group>"; };
+		2996299F7F4E3B7EC80A16F4 /* Pods_TPZoo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TPZoo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49455C8DB5D4314A0D190C5A /* Pods_TPZooUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TPZooUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49FC06D1D9E16A9E3258623E /* Pods-TPZoo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPZoo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TPZoo/Pods-TPZoo.debug.xcconfig"; sourceTree = "<group>"; };
 		65B725F32105BEBC0088DDCB /* TPZoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TPZoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B725F62105BEBC0088DDCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65B725F82105BEBC0088DDCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +56,11 @@
 		65B726152105BEBD0088DDCB /* TPZooUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TPZooUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B726192105BEBD0088DDCB /* TPZooUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPZooUITests.swift; sourceTree = "<group>"; };
 		65B7261B2105BEBD0088DDCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76FDF06FBDA874A8FB84B5C1 /* Pods-TPZoo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPZoo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TPZoo/Pods-TPZoo.release.xcconfig"; sourceTree = "<group>"; };
+		A02C7BFE44629838FDE25BB4 /* Pods_TPZooTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TPZooTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8ABFF9C9E49147385EB6020 /* Pods-TPZooTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPZooTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TPZooTests/Pods-TPZooTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CD22843690F7CF10DCC5F78B /* Pods-TPZooUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPZooUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TPZooUITests/Pods-TPZooUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E880777FD646D6E119A3564E /* Pods-TPZooUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPZooUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TPZooUITests/Pods-TPZooUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9FBFDF9B4024DD22EB64F07 /* Pods_TPZoo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AB91DF21BA53BDD5C9C391C /* Pods_TPZooTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +84,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE62CBE4F4582674C94E662D /* Pods_TPZooUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		33CEF49AFD7D425756E417AA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				49FC06D1D9E16A9E3258623E /* Pods-TPZoo.debug.xcconfig */,
+				76FDF06FBDA874A8FB84B5C1 /* Pods-TPZoo.release.xcconfig */,
+				B8ABFF9C9E49147385EB6020 /* Pods-TPZooTests.debug.xcconfig */,
+				276EA0ED17F741293E90DEEF /* Pods-TPZooTests.release.xcconfig */,
+				E880777FD646D6E119A3564E /* Pods-TPZooUITests.debug.xcconfig */,
+				CD22843690F7CF10DCC5F78B /* Pods-TPZooUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		65B725EA2105BEBB0088DDCB = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +111,8 @@
 				65B7260D2105BEBD0088DDCB /* TPZooTests */,
 				65B726182105BEBD0088DDCB /* TPZooUITests */,
 				65B725F42105BEBC0088DDCB /* Products */,
+				33CEF49AFD7D425756E417AA /* Pods */,
+				BF676906115E680C09FBDE1E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +158,16 @@
 			path = TPZooUITests;
 			sourceTree = "<group>";
 		};
+		BF676906115E680C09FBDE1E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2996299F7F4E3B7EC80A16F4 /* Pods_TPZoo.framework */,
+				A02C7BFE44629838FDE25BB4 /* Pods_TPZooTests.framework */,
+				49455C8DB5D4314A0D190C5A /* Pods_TPZooUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65B7261E2105BEBD0088DDCB /* Build configuration list for PBXNativeTarget "TPZoo" */;
 			buildPhases = (
+				7EBFE6A9A737D0C1D125F830 /* [CP] Check Pods Manifest.lock */,
 				65B725EF2105BEBC0088DDCB /* Sources */,
 				65B725F02105BEBC0088DDCB /* Frameworks */,
 				65B725F12105BEBC0088DDCB /* Resources */,
+				BD0EB9BC2F2482E589FF305D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -152,6 +194,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65B726212105BEBD0088DDCB /* Build configuration list for PBXNativeTarget "TPZooTests" */;
 			buildPhases = (
+				04352AB44E2A6E98612EB2D7 /* [CP] Check Pods Manifest.lock */,
 				65B726062105BEBD0088DDCB /* Sources */,
 				65B726072105BEBD0088DDCB /* Frameworks */,
 				65B726082105BEBD0088DDCB /* Resources */,
@@ -170,6 +213,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65B726242105BEBD0088DDCB /* Build configuration list for PBXNativeTarget "TPZooUITests" */;
 			buildPhases = (
+				3A2AD864128859980141AB2D /* [CP] Check Pods Manifest.lock */,
 				65B726112105BEBD0088DDCB /* Sources */,
 				65B726122105BEBD0088DDCB /* Frameworks */,
 				65B726132105BEBD0088DDCB /* Resources */,
@@ -253,6 +297,83 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04352AB44E2A6E98612EB2D7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TPZooTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3A2AD864128859980141AB2D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TPZooUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7EBFE6A9A737D0C1D125F830 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TPZoo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD0EB9BC2F2482E589FF305D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TPZoo/Pods-TPZoo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TPZoo/Pods-TPZoo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		65B725EF2105BEBC0088DDCB /* Sources */ = {
@@ -432,6 +553,7 @@
 		};
 		65B7261F2105BEBD0088DDCB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49FC06D1D9E16A9E3258623E /* Pods-TPZoo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -450,6 +572,7 @@
 		};
 		65B726202105BEBD0088DDCB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76FDF06FBDA874A8FB84B5C1 /* Pods-TPZoo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -468,6 +591,7 @@
 		};
 		65B726222105BEBD0088DDCB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8ABFF9C9E49147385EB6020 /* Pods-TPZooTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -489,6 +613,7 @@
 		};
 		65B726232105BEBD0088DDCB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 276EA0ED17F741293E90DEEF /* Pods-TPZooTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -510,6 +635,7 @@
 		};
 		65B726252105BEBD0088DDCB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E880777FD646D6E119A3564E /* Pods-TPZooUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -530,6 +656,7 @@
 		};
 		65B726262105BEBD0088DDCB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD22843690F7CF10DCC5F78B /* Pods-TPZooUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
