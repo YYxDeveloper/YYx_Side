@@ -12,14 +12,15 @@ import UIKit
 class DecoderManager {
     static let shared =  DecoderManager()
     var animalsData:[AnimalsDataModel.animals]{
-        do {
-            let content = try loadBundleFile(name: "AnimalsJSONData", type: "txt")
-            let JsonData = try JSONDecoder().decode(AnimalsDataModel.self, from: content.data(using: .utf8)!)
-             return JsonData.result.results
-        } catch  {
-            print("\(ERORR_PREFIX)\(error.localizedDescription)")
+//        do {
+//            let content = try loadBundleFile(name: "AnimalsJSONData", type: "txt")
+//            let JsonData = try JSONDecoder().decode(AnimalsDataModel.self, from: content.data(using: .utf8)!)
+//             return JsonData.result.results
+//        } catch  {
+//            print("\(ERORR_PREFIX)\(error.localizedDescription)")
             return [AnimalsDataModel.animals]()
-        }
+//        }
+        //應該讀core data
     }
     
     private func loadBundleFile(name:String,type:String)throws -> String{
@@ -32,16 +33,35 @@ class DecoderManager {
         return contents
     }
     //MARK: CoreData
-    private func coreDataHasSaved() -> Bool{
-        let request: NSFetchRequest<AnimalObject> = AnimalObject.fetchRequest()
-        var enityCount = 0
-        do {
-             enityCount = try getViewContext().count(for: request)
-        } catch {
-            print("\(ERORR_PREFIX)\(error.localizedDescription)")
+    func launchCoreDataOfFirstLaunch() {
+        func checkCoreDataHasSaved() -> Bool{
+            let request: NSFetchRequest<AnimalObject> = AnimalObject.fetchRequest()
+            var enityCount = 0
+            do {
+                enityCount = try getViewContext().count(for: request)
+            } catch {
+                print("\(ERORR_PREFIX)\(error.localizedDescription)")
+            }
+            
+            return enityCount == 0 ? false:true
         }
-    
-        return enityCount == 0 ? false:true
+        if checkCoreDataHasSaved() {
+            
+        }else{
+            //pares json & save to CoreData
+            do {
+                let content = try loadBundleFile(name: "AnimalsJSONData", type: "txt")
+                let JsonData = try JSONDecoder().decode(AnimalsDataModel.self, from: content.data(using: .utf8)!)
+//                return JsonData.result.results
+                
+                //conver to CoreData
+                for info in JsonData.result.results{
+                    self.saveAnimalsCoreData(result: info)
+                }
+            } catch  {
+                print("\(ERORR_PREFIX)\(error.localizedDescription)")
+            }
+        }
     }
     private func getViewContext() -> NSManagedObjectContext{
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return NSManagedObjectContext.init(concurrencyType: .privateQueueConcurrencyType)}
@@ -62,7 +82,10 @@ class DecoderManager {
         }
         
     }
-     func loadAnimalsCoreData()  {
+    private func saveAnimalsCoreData(result:AnimalsDataModel.animals){
+        
+    }
+    func loadAnimalsCoreData()  {
             let request: NSFetchRequest<AnimalObject> = AnimalObject.fetchRequest()
             do {
 //                let enityCount = try context.count(for: request)
@@ -71,5 +94,5 @@ class DecoderManager {
             } catch {
                 print("\(ERORR_PREFIX)\(error.localizedDescription)")
             }
-        }
+    }
 }

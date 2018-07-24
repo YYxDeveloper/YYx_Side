@@ -17,22 +17,7 @@ class MainViewController: UIViewController {
       DecoderManager.shared.loadAnimalsCoreData()
         
     }
-   
-    func loadCoreData()  {
-        
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-            let request: NSFetchRequest<AnimalObject> = AnimalObject.fetchRequest()
-            let context = appDelegate.persistentContainer.viewContext
-            do {
-                let countNum = try context.count(for: request)
-                print("ggg\(countNum)")
-                let arr = try context.fetch(request)
-                 _ = arr.map({print($0.aNameCh ?? "fuck")})
-            } catch {
-                print(error)
-            }
-        }
-    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
