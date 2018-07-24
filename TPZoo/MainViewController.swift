@@ -12,8 +12,9 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let aa = DecoderManager.sharedInstance.animalsData
+        print(aa)
     }
 
     override func didReceiveMemoryWarning() {
