@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import CoreData
+import UIKit
 class DecoderManager {
-    static let sharedInstance =  DecoderManager()
+    static let shared =  DecoderManager()
     var animalsData:[AnimalsDataModel.animals]{
         do {
             let content = try loadBundleFile(name: "AnimalsJSONData", type: "txt")
@@ -29,4 +31,45 @@ class DecoderManager {
         let contents = try String(contentsOfFile: filepath)
         return contents
     }
+    //MARK: CoreData
+    private func coreDataHasSaved() -> Bool{
+        let request: NSFetchRequest<AnimalObject> = AnimalObject.fetchRequest()
+        var enityCount = 0
+        do {
+             enityCount = try getViewContext().count(for: request)
+        } catch {
+            print("\(ERORR_PREFIX)\(error.localizedDescription)")
+        }
+    
+        return enityCount == 0 ? false:true
+    }
+    private func getViewContext() -> NSManagedObjectContext{
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {return NSManagedObjectContext.init(concurrencyType: .privateQueueConcurrencyType)}
+        let context = appDelegate.persistentContainer.viewContext
+        return context
+    }
+    private func saveAnimalsCoreData() {
+        guard let entity = NSEntityDescription.entity(forEntityName: "AnimalObject", in: getViewContext()) else {
+            print("\(ERORR_PREFIX)\(#file):\(#line)")
+            return}
+        let newAnimal = NSManagedObject(entity: entity, insertInto: getViewContext())
+        newAnimal.setValue("myname", forKey: "aNameCh")
+        
+        do {
+            try getViewContext().save()
+        } catch {
+            print("\(ERORR_PREFIX)\(error.localizedDescription)")
+        }
+        
+    }
+     func loadAnimalsCoreData()  {
+            let request: NSFetchRequest<AnimalObject> = AnimalObject.fetchRequest()
+            do {
+//                let enityCount = try context.count(for: request)
+                let arr = try getViewContext().fetch(request)
+                _ = arr.map({print($0.aNameCh ?? "fuck")})
+            } catch {
+                print("\(ERORR_PREFIX)\(error.localizedDescription)")
+            }
+        }
 }
