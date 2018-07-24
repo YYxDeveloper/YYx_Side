@@ -6,7 +6,6 @@ target 'TPZoo' do
   use_frameworks!
 
   # Pods for TPZoo
-	  pod 'SDWebImage', '~> 4.0'
 	  pod 'Alamofire', '~> 4.7'
 
   target 'TPZooTests' do
