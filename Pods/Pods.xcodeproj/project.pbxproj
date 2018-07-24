@@ -16,14 +16,12 @@
 		5B314EB640C26F44444EB35376CEF3B4 /* Pods-TPZooUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D419E420FDD252D61A1B41D0D3559980 /* Pods-TPZooUITests-dummy.m */; };
 		61200D01A1855D7920CEF835C8BE00B0 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCBF1EED873F61C6D46CE37FA5C39D3 /* DispatchQueue+Alamofire.swift */; };
 		62F65AD8DC4F0F9610F4B8B4738EC094 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B030D27CAC730C5EB0F22390645310 /* ServerTrustPolicy.swift */; };
-		74BFB6C7DFBF897F5C5290E6B5242C4E /* Pods-TPZooTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA7DB90349B3D83DAC173ECD3E595E5 /* Pods-TPZooTests-dummy.m */; };
 		7B5FE28C7EA4122B0598738E54DBEBD8 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195D73DD9EF275A3C56569E2B1CA8026 /* SessionDelegate.swift */; };
 		7D8CC01E8C9EFFF9F4D65406CDE0AB66 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D60BC9955B4F7FFA62D7440CB385C11 /* Result.swift */; };
 		831C775DF206084A0FFDE5927DF21D48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
 		834F4D9819C6010E611A7E151B8899C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
 		88D3E478AE3EC391C4613FB448BEB7B7 /* Pods-TPZooUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 53E0A44EB7B8C4978AA79BA904F71D2F /* Pods-TPZooUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8FB574661629D876C86274E03AEC3AB9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		9BE844458398F0A1BBFE6C8BC7443244 /* Pods-TPZooTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D41C00A96F132539DC9B8F1370B39D72 /* Pods-TPZooTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9817CF2D024B20876780EAEC218BBAE8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
 		9ED2BB2981896E0A39EFA365503F58CE /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF006B0AD5765D1BFA8253C2DCBB126 /* AFError.swift */; };
 		A2A6F71B727312BD45CC7A4AAD7B0AB7 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A8AA5F9EDED0A0BDDE7E830BF4AEE0 /* NetworkReachabilityManager.swift */; };
 		A9EEEA7477981DEEBC72432DE9990A4B /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F50F37DFB6DC0B7B9D8C373E5A3EAE /* Alamofire-dummy.m */; };
@@ -31,14 +29,23 @@
 		B65FCF589DA398C3EFE0128064E510EC /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155538D91ACEEEDF82069ACF6C1A02E7 /* MultipartFormData.swift */; };
 		BBEFE2F9CEB73DC7BD97FFA66A0D9D4F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B029DBC43E49A740F12B5E4D2E6DD452 /* Validation.swift */; };
 		BE5C67A07E289FE1F9BE27335B159997 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6639346628280A0D0FAD35196BF56108 /* ParameterEncoding.swift */; };
+		C6A68D6552B3F673345C4116B3FBF46B /* Pods-TPZooTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D41C00A96F132539DC9B8F1370B39D72 /* Pods-TPZooTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB6D60925223897FFA2662667DF83E8A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F47F5C9CDB035C5AFADEBA5BF44F1C /* Response.swift */; };
 		CC2376159A9649976A032B0BB966FE09 /* Pods-TPZoo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 574194F8A61A1C85236DB5C5B008F4BA /* Pods-TPZoo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DD328669D4325B4E785482E2032C2FCE /* Pods-TPZooTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA7DB90349B3D83DAC173ECD3E595E5 /* Pods-TPZooTests-dummy.m */; };
 		EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A46F517F0AF7E85A16D723F6406896 /* Notifications.swift */; };
 		F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F9510473F6FFD7AA66524DB16C2263 /* ResponseSerialization.swift */; };
 		F8B3D3092ED0417E8CDF32033F6122F5 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFCB8C44DE758E906C0BCDA455937B85 /* Alamofire.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0D416A823417944ACB44496FE56EAB67 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 88E9EC28B8B46C3631E6B242B50F4442;
+			remoteInfo = Alamofire;
+		};
 		6346E61E2E3C951473BA4EDC684B42F3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -46,7 +53,7 @@
 			remoteGlobalIDString = 0AC319983388D75C667CEF4F27B39E13;
 			remoteInfo = "Pods-TPZoo";
 		};
-		8A8F6D3D080EC6D687F23EE56ACE0362 /* PBXContainerItemProxy */ = {
+		AE5B157A642F9CE5AC24EA0C02DB3DD7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
@@ -149,11 +156,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D87F89F13790472CD3A1B0DEA29A58C2 /* Frameworks */ = {
+		CC9967019C0A30DDB9C054D36413C506 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FB574661629D876C86274E03AEC3AB9 /* Foundation.framework in Frameworks */,
+				9817CF2D024B20876780EAEC218BBAE8 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,11 +328,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		97B7ED05D5CC9732A67DEE47CEE1D405 /* Headers */ = {
+		387E521AC1E56F56CF8A94AE2DC2F9BF /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BE844458398F0A1BBFE6C8BC7443244 /* Pods-TPZooTests-umbrella.h in Headers */,
+				C6A68D6552B3F673345C4116B3FBF46B /* Pods-TPZooTests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,18 +408,19 @@
 			productReference = 5EF0DB1DF123BF9F525C47E1C2AA7009 /* Pods_TPZooUITests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		C26BC2CD7107A8395C656EE1B8F23019 /* Pods-TPZooTests */ = {
+		FC604FCC7577CA00EC413F571DD5222B /* Pods-TPZooTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4FADCABD5F780EA02DC5B3BE3AF1B207 /* Build configuration list for PBXNativeTarget "Pods-TPZooTests" */;
+			buildConfigurationList = 85B4DCA32E1186CB4F34D4B683E33CA7 /* Build configuration list for PBXNativeTarget "Pods-TPZooTests" */;
 			buildPhases = (
-				56474FCD1AC70BD300ED5157E23EFB85 /* Sources */,
-				D87F89F13790472CD3A1B0DEA29A58C2 /* Frameworks */,
-				97B7ED05D5CC9732A67DEE47CEE1D405 /* Headers */,
+				F3E9DBBBA52FCB6DA02087B508C0354C /* Sources */,
+				CC9967019C0A30DDB9C054D36413C506 /* Frameworks */,
+				387E521AC1E56F56CF8A94AE2DC2F9BF /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				EB2A397333D95590466DB1834D1F601C /* PBXTargetDependency */,
+				73D2BAF7B960ECDE3DB86F1FC81476FA /* PBXTargetDependency */,
+				A00C1EFFA89E1E91A0C290561DE3FDFF /* PBXTargetDependency */,
 			);
 			name = "Pods-TPZooTests";
 			productName = "Pods-TPZooTests";
@@ -442,7 +450,7 @@
 			targets = (
 				88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */,
 				0AC319983388D75C667CEF4F27B39E13 /* Pods-TPZoo */,
-				C26BC2CD7107A8395C656EE1B8F23019 /* Pods-TPZooTests */,
+				FC604FCC7577CA00EC413F571DD5222B /* Pods-TPZooTests */,
 				A0A3C43DAFDF1ED86B6058604CEA9777 /* Pods-TPZooUITests */,
 			);
 		};
@@ -482,19 +490,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		56474FCD1AC70BD300ED5157E23EFB85 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				74BFB6C7DFBF897F5C5290E6B5242C4E /* Pods-TPZooTests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		833AEAB8109F3365FB0E6F28DFC21EDF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				37977E57394322A5045CF755C2AF19E8 /* Pods-TPZoo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F3E9DBBBA52FCB6DA02087B508C0354C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD328669D4325B4E785482E2032C2FCE /* Pods-TPZooTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,60 +515,27 @@
 			target = 88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */;
 			targetProxy = E04D6C3D4FBC2F5FB82FDEE0DE637B01 /* PBXContainerItemProxy */;
 		};
+		73D2BAF7B960ECDE3DB86F1FC81476FA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			target = 88E9EC28B8B46C3631E6B242B50F4442 /* Alamofire */;
+			targetProxy = 0D416A823417944ACB44496FE56EAB67 /* PBXContainerItemProxy */;
+		};
+		A00C1EFFA89E1E91A0C290561DE3FDFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-TPZoo";
+			target = 0AC319983388D75C667CEF4F27B39E13 /* Pods-TPZoo */;
+			targetProxy = AE5B157A642F9CE5AC24EA0C02DB3DD7 /* PBXContainerItemProxy */;
+		};
 		B1E7932A5E012DCE71017E22F7CCFC37 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-TPZoo";
 			target = 0AC319983388D75C667CEF4F27B39E13 /* Pods-TPZoo */;
 			targetProxy = 6346E61E2E3C951473BA4EDC684B42F3 /* PBXContainerItemProxy */;
 		};
-		EB2A397333D95590466DB1834D1F601C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "Pods-TPZoo";
-			target = 0AC319983388D75C667CEF4F27B39E13 /* Pods-TPZoo */;
-			targetProxy = 8A8F6D3D080EC6D687F23EE56ACE0362 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0AF52B095D6EB7DCBF805EA1DEC2C47D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6523A08C3E10BE0FE9974A7C6B177E47 /* Pods-TPZooTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TPZooTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TPZooTests/Pods-TPZooTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		5DC0083F57E9AB706B46C5B5D73B38D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -778,6 +753,46 @@
 			};
 			name = Release;
 		};
+		AC1CD668233D163C20F46F68D289312D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7CDA1125B80DEEA9C6E2F56DA5EFE07 /* Pods-TPZooTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TPZooTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TPZooTests/Pods-TPZooTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		AEEA80476F98EB645C4DD53EB2BB6D88 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -876,44 +891,6 @@
 			};
 			name = Debug;
 		};
-		D1D7651AA696F716125FE6A625CCA370 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E7CDA1125B80DEEA9C6E2F56DA5EFE07 /* Pods-TPZooTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-TPZooTests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-TPZooTests/Pods-TPZooTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		EA0ADC75B20BB62958101306980460E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33A04B5D27E86AF4B84D95E21CF3F452 /* Alamofire.xcconfig */;
@@ -950,6 +927,46 @@
 			};
 			name = Debug;
 		};
+		EAC44F3A72C96BEB0ECD040DD01260EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6523A08C3E10BE0FE9974A7C6B177E47 /* Pods-TPZooTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-TPZooTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-TPZooTests/Pods-TPZooTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -980,11 +997,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4FADCABD5F780EA02DC5B3BE3AF1B207 /* Build configuration list for PBXNativeTarget "Pods-TPZooTests" */ = {
+		85B4DCA32E1186CB4F34D4B683E33CA7 /* Build configuration list for PBXNativeTarget "Pods-TPZooTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D1D7651AA696F716125FE6A625CCA370 /* Debug */,
-				0AF52B095D6EB7DCBF805EA1DEC2C47D /* Release */,
+				AC1CD668233D163C20F46F68D289312D /* Debug */,
+				EAC44F3A72C96BEB0ECD040DD01260EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

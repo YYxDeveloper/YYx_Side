@@ -11,6 +11,7 @@ target 'TPZoo' do
   target 'TPZooTests' do
     inherit! :search_paths
     # Pods for testing
+     pod 'Alamofire', '~> 4.7'
   end
 
   target 'TPZooUITests' do
