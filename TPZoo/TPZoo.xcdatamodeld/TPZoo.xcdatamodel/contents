@@ -1,9 +1,46 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="AnimalObject" representedClassName="AnimalObject" syncable="YES" codeGenerationType="class">
+        <attribute name="aAdopt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aAlsoKnown" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aBehavior" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aCID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aClass" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aCode" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aConservation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aCrisis" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aDiet" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aDistribution" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aFamily" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aFeature" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aGeo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aHabitat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aInterpretation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aKeywords" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aLocation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="aNameCh" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aNameEn" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aNameLatin" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aOrder" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aPhylum" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aPic01ALT" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aPic01URL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aPic02ALT" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aPic02URL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aPic03ALT" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aPic03URL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aPic04ALT" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aPic04URL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aPOIGroup" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aSummary" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aThemeName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aThemeURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aUpdate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aVedioURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="count" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AnimalObject" positionX="-54" positionY="-9" width="128" height="60"/>
+        <element name="AnimalObject" positionX="-54" positionY="-9" width="128" height="615"/>
     </elements>
 </model>
