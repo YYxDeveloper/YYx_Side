@@ -32,7 +32,7 @@ class DataManager {
         let request: NSFetchRequest<AnimalObject> = AnimalObject.fetchRequest()
         do {
             let arr = try getViewContext().fetch(request)
-            _ = arr.map({print($0.aNameCh ?? EMPTY_STRING)})
+//            _ = arr.map({print($0.aNameCh ?? EMPTY_STRING)})
     
         return arr
         } catch {
