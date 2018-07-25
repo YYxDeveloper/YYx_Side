@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 //        self.saveCoreData()
 //        self.loadCoreData()
-      DecoderManager.shared.loadAnimalsCoreData()
+      DataManager.shared.animalsData
         
     }
 

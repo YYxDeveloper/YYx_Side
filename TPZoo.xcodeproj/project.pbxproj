@@ -19,15 +19,13 @@
 		65B7262D2106DFFE0088DDCB /* AnimalsJSONData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 65B7262C2106DFFE0088DDCB /* AnimalsJSONData.txt */; };
 		65B7262E2106DFFE0088DDCB /* AnimalsJSONData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 65B7262C2106DFFE0088DDCB /* AnimalsJSONData.txt */; };
 		65B7262F2106DFFE0088DDCB /* AnimalsJSONData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 65B7262C2106DFFE0088DDCB /* AnimalsJSONData.txt */; };
-		65B726312106E3020088DDCB /* DecoderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726302106E3020088DDCB /* DecoderManager.swift */; };
-		65B726322106E3020088DDCB /* DecoderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726302106E3020088DDCB /* DecoderManager.swift */; };
-		65B726332106E3020088DDCB /* DecoderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726302106E3020088DDCB /* DecoderManager.swift */; };
 		65B726362106F9270088DDCB /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726352106F9270088DDCB /* GlobalConstant.swift */; };
 		65B726372106F9270088DDCB /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726352106F9270088DDCB /* GlobalConstant.swift */; };
 		65B726382106F9270088DDCB /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726352106F9270088DDCB /* GlobalConstant.swift */; };
 		65B7263A2106FA170088DDCB /* AnimalsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726392106FA170088DDCB /* AnimalsDataModel.swift */; };
 		65B7263B2106FA170088DDCB /* AnimalsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726392106FA170088DDCB /* AnimalsDataModel.swift */; };
 		65B7263C2106FA170088DDCB /* AnimalsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726392106FA170088DDCB /* AnimalsDataModel.swift */; };
+		65B726422108012E0088DDCB /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726412108012E0088DDCB /* DataManager.swift */; };
 		A9FBFDF9B4024DD22EB64F07 /* Pods_TPZoo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2996299F7F4E3B7EC80A16F4 /* Pods_TPZoo.framework */; };
 		CE62CBE4F4582674C94E662D /* Pods_TPZooUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49455C8DB5D4314A0D190C5A /* Pods_TPZooUITests.framework */; };
 /* End PBXBuildFile section */
@@ -69,9 +67,9 @@
 		65B7261B2105BEBD0088DDCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65B7262A2106DE8F0088DDCB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		65B7262C2106DFFE0088DDCB /* AnimalsJSONData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AnimalsJSONData.txt; sourceTree = "<group>"; };
-		65B726302106E3020088DDCB /* DecoderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderManager.swift; sourceTree = "<group>"; };
 		65B726352106F9270088DDCB /* GlobalConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstant.swift; sourceTree = "<group>"; };
 		65B726392106FA170088DDCB /* AnimalsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsDataModel.swift; sourceTree = "<group>"; };
+		65B726412108012E0088DDCB /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		76FDF06FBDA874A8FB84B5C1 /* Pods-TPZoo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPZoo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TPZoo/Pods-TPZoo.release.xcconfig"; sourceTree = "<group>"; };
 		A02C7BFE44629838FDE25BB4 /* Pods_TPZooTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TPZooTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8ABFF9C9E49147385EB6020 /* Pods-TPZooTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPZooTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TPZooTests/Pods-TPZooTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -147,7 +145,7 @@
 			children = (
 				65B725F62105BEBC0088DDCB /* AppDelegate.swift */,
 				65B7262A2106DE8F0088DDCB /* MainViewController.swift */,
-				65B726292106DCB30088DDCB /* DecoderManager */,
+				65B726292106DCB30088DDCB /* DataManager */,
 				65B726342106F8910088DDCB /* Utils */,
 				65B725FA2105BEBC0088DDCB /* Main.storyboard */,
 				65B726002105BEBD0088DDCB /* Assets.xcassets */,
@@ -176,14 +174,14 @@
 			path = TPZooUITests;
 			sourceTree = "<group>";
 		};
-		65B726292106DCB30088DDCB /* DecoderManager */ = {
+		65B726292106DCB30088DDCB /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
-				65B726302106E3020088DDCB /* DecoderManager.swift */,
+				65B726412108012E0088DDCB /* DataManager.swift */,
 				65B726392106FA170088DDCB /* AnimalsDataModel.swift */,
 				65B7262C2106DFFE0088DDCB /* AnimalsJSONData.txt */,
 			);
-			path = DecoderManager;
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 		65B726342106F8910088DDCB /* Utils */ = {
@@ -436,9 +434,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65B726312106E3020088DDCB /* DecoderManager.swift in Sources */,
 				65B7263A2106FA170088DDCB /* AnimalsDataModel.swift in Sources */,
 				65B726362106F9270088DDCB /* GlobalConstant.swift in Sources */,
+				65B726422108012E0088DDCB /* DataManager.swift in Sources */,
 				65B725FF2105BEBC0088DDCB /* TPZoo.xcdatamodeld in Sources */,
 				65B725F72105BEBC0088DDCB /* AppDelegate.swift in Sources */,
 				65B7262B2106DE8F0088DDCB /* MainViewController.swift in Sources */,
@@ -451,7 +449,6 @@
 			files = (
 				65B726372106F9270088DDCB /* GlobalConstant.swift in Sources */,
 				65B7263B2106FA170088DDCB /* AnimalsDataModel.swift in Sources */,
-				65B726322106E3020088DDCB /* DecoderManager.swift in Sources */,
 				65B7260F2105BEBD0088DDCB /* TPZooTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,7 +459,6 @@
 			files = (
 				65B726382106F9270088DDCB /* GlobalConstant.swift in Sources */,
 				65B7263C2106FA170088DDCB /* AnimalsDataModel.swift in Sources */,
-				65B726332106E3020088DDCB /* DecoderManager.swift in Sources */,
 				65B7261A2105BEBD0088DDCB /* TPZooUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
