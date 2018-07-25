@@ -112,10 +112,7 @@ class DataManager {
                     print("\(ERORR_PREFIX)\(error.localizedDescription)")
                 }
             })
-            let request: NSFetchRequest<AnimalObject> = AnimalObject.fetchRequest()
-            let arr = try getViewContext().fetch(request)
-//            _ = arr.map({print($0.aNameCh ?? EMPTY_STRING)})
-            print("yyx_\(arr)")
+            
             return loadAnimalsCoreData()
             
         } catch  {
