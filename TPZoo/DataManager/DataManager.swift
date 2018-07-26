@@ -29,7 +29,14 @@ class DataManager {
             print("\(ERORR_PREFIX)\(#file):\(#line)")
             return  [AnimalObject]()
         }
+        
         let request: NSFetchRequest<AnimalObject> = AnimalObject.fetchRequest()
+        
+        let predicate: NSPredicate = NSPredicate(format: "aLocation = %@", "兩棲爬蟲動物館")
+        request.predicate = predicate
+        
+        
+        
         do {
             let arr = try getViewContext().fetch(request)
 //            _ = arr.map({print($0.aNameCh ?? EMPTY_STRING)})
