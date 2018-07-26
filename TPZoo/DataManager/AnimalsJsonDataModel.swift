@@ -8,7 +8,7 @@
 
 import Foundation
 // MARK: Json Model -
-struct AnimalsDataModel:Decodable {
+struct AnimalsJsonDataModel:Decodable {
     let result:Result
     
     

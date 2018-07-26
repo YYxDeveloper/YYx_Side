@@ -11,6 +11,14 @@ import CoreData
 import UIKit
 
 class DataManager {
+    enum locationName{
+        enum area:String{
+            case 臺灣動物區,溫帶動物區,兒童動物區,亞洲熱帶雨林區,澳洲動物區,沙漠動物區,非洲動物區,鳥園區
+        }
+        enum building:String {
+            case 昆蟲館,企鵝館,兩棲爬蟲動物館,無尾熊館,大貓熊館
+        }
+    }
     static let shared =  DataManager()
     var animalsData:[AnimalObject]{
         get{
@@ -23,7 +31,8 @@ class DataManager {
         }
        
     }
-        //MARK: CoreData
+   
+//MARK: CoreData
     private func loadAnimalsCoreData() -> [AnimalObject]{
         guard hasCoreDataSaved() else {
             print("\(ERORR_PREFIX)\(#file):\(#line)")
@@ -32,8 +41,8 @@ class DataManager {
         
         let request: NSFetchRequest<AnimalObject> = AnimalObject.fetchRequest()
         
-        let predicate: NSPredicate = NSPredicate(format: "aLocation = %@", "兩棲爬蟲動物館")
-        request.predicate = predicate
+//        let predicate: NSPredicate = NSPredicate(format: "aLocation = %@", "兩棲爬蟲動物館")
+//        request.predicate = predicate
         
         
         
@@ -66,7 +75,7 @@ class DataManager {
    private func saveJsonToCoreData() -> [AnimalObject] {
         do {
             let content = try loadBundleFile(name: "AnimalsJSONData", type: "txt")
-            let JsonData = try JSONDecoder().decode(AnimalsDataModel.self, from: content.data(using: .utf8)!)
+            let JsonData = try JSONDecoder().decode(AnimalsJsonDataModel.self, from: content.data(using: .utf8)!)
             //                return JsonData.result.results
             _ = JsonData.result.results.map({
                 

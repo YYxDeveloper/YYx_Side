@@ -15,7 +15,10 @@ class MainViewController: UIViewController {
 //        self.saveCoreData()
 //        self.loadCoreData()
      let arr = DataManager.shared.animalsData
-        print(arr[10].aNameCh ?? EMPTY_STRING)
+       
+        
+        
+//        print(arr[10].aNameCh ?? EMPTY_STRING)
     }
 
     override func didReceiveMemoryWarning() {
