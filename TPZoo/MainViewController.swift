@@ -14,11 +14,8 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 //        self.saveCoreData()
 //        self.loadCoreData()
-     let arr = DataManager.shared.animalsData
+//     let arr = DataManager.shared.animalsData
        
-        
-        
-//        print(arr[10].aNameCh ?? EMPTY_STRING)
     }
 
     override func didReceiveMemoryWarning() {

@@ -73,12 +73,25 @@ class DataManager {
             return context
         }
    private func saveJsonToCoreData() -> [AnimalObject] {
+        enum JsonArrangmentItem{
+            case aLocation
+        }
         do {
             let content = try loadBundleFile(name: "AnimalsJSONData", type: "txt")
             let JsonData = try JSONDecoder().decode(AnimalsJsonDataModel.self, from: content.data(using: .utf8)!)
             //                return JsonData.result.results
             _ = JsonData.result.results.map({
-                
+                func arrangeJsonString(witchItem:JsonArrangmentItem,eidteString:String) -> [String] {
+                    func editeaLocationJsonString(eidteString:String) -> [String]{
+                        return [String]()
+                    }
+                    switch witchItem {
+                    case .aLocation:
+                        return editeaLocationJsonString(eidteString:eidteString)
+                    default:
+                        return ["\(ERORR_PREFIX)"]
+                    }
+                }
                 guard let entity = NSEntityDescription.entity(forEntityName: "AnimalObject", in: getViewContext()) else {
                     print("\(ERORR_PREFIX)\(#file):\(#line)")
                     return}

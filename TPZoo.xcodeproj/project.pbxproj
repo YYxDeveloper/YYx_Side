@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2AB91DF21BA53BDD5C9C391C /* Pods_TPZooTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02C7BFE44629838FDE25BB4 /* Pods_TPZooTests.framework */; };
+		654FCA8F210EC79600BA81A3 /* BasicExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654FCA8E210EC79600BA81A3 /* BasicExtension.swift */; };
 		65B725F72105BEBC0088DDCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B725F62105BEBC0088DDCB /* AppDelegate.swift */; };
 		65B725FC2105BEBC0088DDCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B725FA2105BEBC0088DDCB /* Main.storyboard */; };
 		65B725FF2105BEBC0088DDCB /* TPZoo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65B725FD2105BEBC0088DDCB /* TPZoo.xcdatamodeld */; };
@@ -19,9 +20,9 @@
 		65B7262D2106DFFE0088DDCB /* AnimalsJSONData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 65B7262C2106DFFE0088DDCB /* AnimalsJSONData.txt */; };
 		65B7262E2106DFFE0088DDCB /* AnimalsJSONData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 65B7262C2106DFFE0088DDCB /* AnimalsJSONData.txt */; };
 		65B7262F2106DFFE0088DDCB /* AnimalsJSONData.txt in Resources */ = {isa = PBXBuildFile; fileRef = 65B7262C2106DFFE0088DDCB /* AnimalsJSONData.txt */; };
-		65B726362106F9270088DDCB /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726352106F9270088DDCB /* GlobalConstant.swift */; };
-		65B726372106F9270088DDCB /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726352106F9270088DDCB /* GlobalConstant.swift */; };
-		65B726382106F9270088DDCB /* GlobalConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726352106F9270088DDCB /* GlobalConstant.swift */; };
+		65B726362106F9270088DDCB /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726352106F9270088DDCB /* Global.swift */; };
+		65B726372106F9270088DDCB /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726352106F9270088DDCB /* Global.swift */; };
+		65B726382106F9270088DDCB /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726352106F9270088DDCB /* Global.swift */; };
 		65B7263A2106FA170088DDCB /* AnimalsJsonDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726392106FA170088DDCB /* AnimalsJsonDataModel.swift */; };
 		65B7263B2106FA170088DDCB /* AnimalsJsonDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726392106FA170088DDCB /* AnimalsJsonDataModel.swift */; };
 		65B7263C2106FA170088DDCB /* AnimalsJsonDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726392106FA170088DDCB /* AnimalsJsonDataModel.swift */; };
@@ -52,6 +53,7 @@
 		2996299F7F4E3B7EC80A16F4 /* Pods_TPZoo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TPZoo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49455C8DB5D4314A0D190C5A /* Pods_TPZooUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TPZooUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49FC06D1D9E16A9E3258623E /* Pods-TPZoo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPZoo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TPZoo/Pods-TPZoo.debug.xcconfig"; sourceTree = "<group>"; };
+		654FCA8E210EC79600BA81A3 /* BasicExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicExtension.swift; sourceTree = "<group>"; };
 		65B725F32105BEBC0088DDCB /* TPZoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TPZoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B725F62105BEBC0088DDCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65B725FB2105BEBC0088DDCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -67,7 +69,7 @@
 		65B7261B2105BEBD0088DDCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65B7262A2106DE8F0088DDCB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		65B7262C2106DFFE0088DDCB /* AnimalsJSONData.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AnimalsJSONData.txt; sourceTree = "<group>"; };
-		65B726352106F9270088DDCB /* GlobalConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstant.swift; sourceTree = "<group>"; };
+		65B726352106F9270088DDCB /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		65B726392106FA170088DDCB /* AnimalsJsonDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsJsonDataModel.swift; sourceTree = "<group>"; };
 		65B726412108012E0088DDCB /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		76FDF06FBDA874A8FB84B5C1 /* Pods-TPZoo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPZoo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TPZoo/Pods-TPZoo.release.xcconfig"; sourceTree = "<group>"; };
@@ -187,7 +189,8 @@
 		65B726342106F8910088DDCB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				65B726352106F9270088DDCB /* GlobalConstant.swift */,
+				65B726352106F9270088DDCB /* Global.swift */,
+				654FCA8E210EC79600BA81A3 /* BasicExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -435,11 +438,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				65B7263A2106FA170088DDCB /* AnimalsJsonDataModel.swift in Sources */,
-				65B726362106F9270088DDCB /* GlobalConstant.swift in Sources */,
+				65B726362106F9270088DDCB /* Global.swift in Sources */,
 				65B726422108012E0088DDCB /* DataManager.swift in Sources */,
 				65B725FF2105BEBC0088DDCB /* TPZoo.xcdatamodeld in Sources */,
 				65B725F72105BEBC0088DDCB /* AppDelegate.swift in Sources */,
 				65B7262B2106DE8F0088DDCB /* MainViewController.swift in Sources */,
+				654FCA8F210EC79600BA81A3 /* BasicExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -447,7 +451,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65B726372106F9270088DDCB /* GlobalConstant.swift in Sources */,
+				65B726372106F9270088DDCB /* Global.swift in Sources */,
 				65B7263B2106FA170088DDCB /* AnimalsJsonDataModel.swift in Sources */,
 				65B7260F2105BEBD0088DDCB /* TPZooTests.swift in Sources */,
 			);
@@ -457,7 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65B726382106F9270088DDCB /* GlobalConstant.swift in Sources */,
+				65B726382106F9270088DDCB /* Global.swift in Sources */,
 				65B7263C2106FA170088DDCB /* AnimalsJsonDataModel.swift in Sources */,
 				65B7261A2105BEBD0088DDCB /* TPZooUITests.swift in Sources */,
 			);
