@@ -15,7 +15,14 @@ class MainViewController: UIViewController {
 //        self.saveCoreData()
 //        self.loadCoreData()
 //     let arr = DataManager.shared.animalsData
-       
+        
+//        print(Double(dou))
+        
+        let str = "MULTIPOINT ((121.5898494 24.9940697), (121.586726 24.994559), (121.5873295 24.9946641))"
+     
+    let aa =  String.convertCoordinateStringToFloat(targetString: str)
+        print(aa)
+
     }
 
     override func didReceiveMemoryWarning() {

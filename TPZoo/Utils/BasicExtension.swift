@@ -24,6 +24,9 @@ extension String {
         }
         return rangeArray
     }
+    func replace(target: String, withString: String) -> String{
+        return self.replacingOccurrences(of: target, with: withString, options: NSString.CompareOptions.literal, range: nil)
+    }
     static func showFileName(filePath:String) -> String  {
         let ranges = filePath.ranges(of: "/")
         let lastNum = ranges.count
@@ -32,4 +35,39 @@ extension String {
         return onlyFileName
 
     }
+    static func convertCoordinateStringToFloat(targetString:String) -> [(Float,Float)]  {
+        let firstIndex = (targetString.range(of: "(" )?.upperBound)!
+        let lastIndex  = (targetString.range(of: ")",options: .backwards)?.lowerBound)!
+        
+        let str1 = String(targetString[firstIndex..<lastIndex])
+        //(121.5898494 24.9940697), (121.586726 24.994559), (121.5873295 24.9946641)
+        let strs = String(str1).ranges(of: "\\(")
+        //get "(" location
+        
+        var arr = [String]()
+        
+        for index in 0..<strs.count {
+            if index == strs.count - 1{
+                arr.append(String(str1[strs[index].lowerBound...]).replace(target: "(", withString: EMPTY_STRING).replace(target: ")", withString: EMPTY_STRING))
+            }else{
+                arr.append(String(str1[strs[index].lowerBound..<strs[index + 1].lowerBound]).replace(target: "(", withString: EMPTY_STRING).replace(target: "),", withString: EMPTY_STRING))
+            }
+            
+        }
+//        print(arr)//["121.5898494 24.9940697 ", "121.586726 24.994559 ", "121.5873295 24.9946641"]
+        
+        var arr2 = [(Float,Float)]()
+        arr.map({
+            
+            guard let spaceIndex = $0.index(of: Character.init(SPACE_STRING))else {return}
+            
+            
+            if  let lat = Float(String($0[...spaceIndex]).replace(target: SPACE_STRING, withString: EMPTY_STRING)), let lon = Float(String($0[spaceIndex...]).replace(target: SPACE_STRING, withString: EMPTY_STRING)){
+                arr2.append((lat,lon))
+            }
+        })
+//        print(arr2)
+        return arr2
+    }
 }
+

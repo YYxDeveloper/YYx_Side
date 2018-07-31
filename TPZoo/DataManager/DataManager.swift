@@ -80,10 +80,8 @@ class DataManager {
             let content = try loadBundleFile(name: "AnimalsJSONData", type: "txt")
             let JsonData = try JSONDecoder().decode(AnimalsJsonDataModel.self, from: content.data(using: .utf8)!)
             //                return JsonData.result.results
+            typealias howManyCoordinates = Int
             _ = JsonData.result.results.map({
-                func editeaLocationJsonString(eidteString:String) -> [(Double,Double)]{
-                    return [(Double,Double)]()
-                }
                 guard let entity = NSEntityDescription.entity(forEntityName: "AnimalObject", in: getViewContext()) else {
                     print("\(ERORR_PREFIX)\(#file):\(#line)")
                     return}

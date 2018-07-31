@@ -7,6 +7,7 @@
 //
 
 let EMPTY_STRING = ""
+let SPACE_STRING = " "
 let ERORR_PREFIX = "yyxError_"
 let ItIsEmptyString = "it is Empty String"
 
