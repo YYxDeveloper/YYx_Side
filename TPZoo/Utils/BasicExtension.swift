@@ -35,7 +35,10 @@ extension String {
         return onlyFileName
 
     }
-    static func convertCoordinateStringToFloat(targetString:String) -> [(Float,Float)]  {
+    static func convertCoordinateStringToFloat(targetString:String) -> [(Double,Double)]  {
+        guard targetString != EMPTY_STRING else {
+            return [(Double,Double)]()
+        }
         let firstIndex = (targetString.range(of: "(" )?.upperBound)!
         let lastIndex  = (targetString.range(of: ")",options: .backwards)?.lowerBound)!
         
@@ -56,13 +59,13 @@ extension String {
         }
 //        print(arr)//["121.5898494 24.9940697 ", "121.586726 24.994559 ", "121.5873295 24.9946641"]
         
-        var arr2 = [(Float,Float)]()
+        var arr2 = [(Double,Double)]()
         arr.map({
             
             guard let spaceIndex = $0.index(of: Character.init(SPACE_STRING))else {return}
             
             
-            if  let lat = Float(String($0[...spaceIndex]).replace(target: SPACE_STRING, withString: EMPTY_STRING)), let lon = Float(String($0[spaceIndex...]).replace(target: SPACE_STRING, withString: EMPTY_STRING)){
+            if  let lat = Double(String($0[...spaceIndex]).replace(target: SPACE_STRING, withString: EMPTY_STRING)), let lon = Double(String($0[spaceIndex...]).replace(target: SPACE_STRING, withString: EMPTY_STRING)){
                 arr2.append((lat,lon))
             }
         })
