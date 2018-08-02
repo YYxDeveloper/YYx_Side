@@ -24,7 +24,7 @@ class DataManager {
         get{
             if self.hasCoreDataSaved() {
                 //core data
-                return loadAnimalsCoreData()
+                return saveJsonToCoreData()
             }else{
                 return saveJsonToCoreData()
             }
