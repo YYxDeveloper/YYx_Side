@@ -14,9 +14,15 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 //        self.saveCoreData()
 //        self.loadCoreData()
-     let arr = DataManager.shared.animalsData
-        print(arr)
+//     let arr = DataManager.shared.animalsSummaryData
+//        print(arr)
 //        print(Double(dou))
+        
+       print( DataManager.shared.animalsCoordinate)
+        //        let predicate: NSPredicate = NSPredicate(format: "aLocation = %@", "兩棲爬蟲動物館")
+        //        request.predicate = predicate
+       
+        
         
         let str = "MULTIPOINT ((121.5898494 24.9940697), (121.586726 24.994559), (121.5873295 24.9946641))"
      

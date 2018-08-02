@@ -11,4 +11,7 @@ let SPACE_STRING = " "
 let ERORR_PREFIX = "yyxError_"
 let ItIsEmptyString = "it is Empty String"
 
-
+enum yyxErorr:Error{
+    case errorID(id:String)
+    case guardError
+}

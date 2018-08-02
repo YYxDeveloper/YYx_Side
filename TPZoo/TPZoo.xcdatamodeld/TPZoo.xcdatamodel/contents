@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17E202" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="AnimalObject" representedClassName="AnimalObject" syncable="YES">
+    <entity name="AnimalCoordinate" representedClassName="AnimalCoordinate" syncable="YES" codeGenerationType="class">
+        <attribute name="aNameEn" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="lon" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="AnimalSummary" representedClassName="AnimalSummary" syncable="YES" codeGenerationType="class">
         <attribute name="aAdopt" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="aAlsoKnown" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="aBehavior" optional="YES" attributeType="String" syncable="YES"/>
@@ -39,15 +44,9 @@
         <attribute name="aVedioURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="count" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Coordinate" inverseName="newRelationship" inverseEntity="Coordinate" syncable="YES"/>
-    </entity>
-    <entity name="Coordinate" representedClassName="Coordinate" syncable="YES">
-        <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="lon" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AnimalObject" inverseName="newRelationship" inverseEntity="AnimalObject" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AnimalObject" positionX="-54" positionY="-9" width="128" height="628"/>
-        <element name="Coordinate" positionX="232" positionY="150" width="128" height="88"/>
+        <element name="AnimalCoordinate" positionX="232" positionY="150" width="128" height="43"/>
+        <element name="AnimalSummary" positionX="-54" positionY="-9" width="128" height="43"/>
     </elements>
 </model>

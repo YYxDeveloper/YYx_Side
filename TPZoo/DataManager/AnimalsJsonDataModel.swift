@@ -185,5 +185,7 @@ struct AnimalsJsonDataModel:Decodable {
         
         
     }
-    
+    init() {
+        self = AnimalsJsonDataModel()
+    }
 }
