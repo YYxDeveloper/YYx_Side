@@ -152,7 +152,7 @@ class DataManager {
             _ = try JsonData.result.results.map({
                 guard let aEngName = $0.aNameEn else {throw yyxErorr.guardError}
                 guard  let coordinateString = $0.aGeo else{throw yyxErorr.guardError}
-                let coordinates = String.convertCoordinateStringToFloat(targetString: coordinateString)
+                let coordinates = String.convertCoordinateStringToDouble(targetString: coordinateString)
                 for each in coordinates{
                     guard let entity = NSEntityDescription.entity(forEntityName: CoreDataType.AnimalCoordinate.rawValue, in: getViewContext()) else {
                         throw yyxErorr.guardError}

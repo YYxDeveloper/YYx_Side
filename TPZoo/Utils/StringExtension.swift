@@ -35,7 +35,7 @@ extension String {
         return onlyFileName
 
     }
-    static func convertCoordinateStringToFloat(targetString:String) -> [(Double,Double)]  {
+    static func convertCoordinateStringToDouble(targetString:String) -> [(Double,Double)]  {
         guard targetString != EMPTY_STRING else {
             return [(Double,Double)]()
         }
