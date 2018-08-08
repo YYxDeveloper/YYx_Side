@@ -156,7 +156,7 @@ class DataManager {
         return  self.loadAnimalsCoordinateCoreData()
     }
 //MARK: AnimalImages private func
-     func saveAnimalImagesToCoreData() -> [AnimalImages] {
+     private func saveAnimalImagesToCoreData() -> [AnimalImages] {
         do {
             _ = try getJsonModel().result.results.map({
               let newAnimalImages = getManagerObject(type: .AnimalImages)
@@ -184,7 +184,7 @@ class DataManager {
          return loadAnimalImagesFromCoreData()
         
     }
-    func loadAnimalImagesFromCoreData() -> [AnimalImages] {
+    private func loadAnimalImagesFromCoreData() -> [AnimalImages] {
         let request: NSFetchRequest<AnimalImages> = AnimalImages.fetchRequest()
         do {
             let arr = try getViewContext().fetch(request)
