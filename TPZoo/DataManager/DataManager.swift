@@ -21,7 +21,7 @@ class DataManager {
         }
     }
     enum CoreDataType:String {
-        case AnimalSummary,AnimalCoordinate
+        case AnimalSummary,AnimalCoordinate,AnimalImages
     }
 //MARK: Property
     static let shared =  DataManager()
@@ -41,6 +41,13 @@ class DataManager {
             }else{
                 return  self.saveAnimalsCoordinateToCoreData()
             }
+    }
+    var animalsImages:[AnimalImages] {
+        if hasCoreDataSaved(type: .AnimalCoordinate) {
+            return self.loadAnimalImagesFromCoreData()
+        }else{
+            return  self.saveAnimalImagesToCoreData()
+        }
     }
     
    
@@ -65,10 +72,7 @@ class DataManager {
    private func saveJsonToAnimalSummaryCoreData() -> [AnimalSummary] {
             //                return JsonData.result.results
             _ = getJsonData().result.results.map({
-                guard let entity = NSEntityDescription.entity(forEntityName: CoreDataType.AnimalSummary.rawValue, in: getViewContext()) else {
-                    print("\(ERORR_PREFIX)\(#file):\(#line)")
-                    return}
-                let newAnimal = NSManagedObject(entity: entity, insertInto: getViewContext())
+                let newAnimal = getManagerObject(type: .AnimalSummary)
                     newAnimal.setValue($0.aAdopt, forKey: "aAdopt")
                     newAnimal.setValue($0.aAlsoKnown, forKey: "aAlsoKnown")
                     newAnimal.setValue($0.aBehavior, forKey: "aBehavior")
@@ -137,9 +141,8 @@ class DataManager {
                 guard  let coordinateString = $0.aGeo else{throw yyxErorr.guardError}
                 let coordinates = String.convertCoordinateStringToDouble(targetString: coordinateString)
                 for each in coordinates{
-                    guard let entity = NSEntityDescription.entity(forEntityName: CoreDataType.AnimalCoordinate.rawValue, in: getViewContext()) else {
-                        throw yyxErorr.guardError}
-                    let coordinate = NSManagedObject(entity: entity, insertInto: getViewContext())
+                   
+                    let coordinate = getManagerObject(type: .AnimalCoordinate)
                     coordinate.setValue(aEngName, forKey: "aNameEn")
                     coordinate.setValue(each.0, forKey: "lon")
                     coordinate.setValue(each.1, forKey: "lat")
@@ -152,7 +155,46 @@ class DataManager {
         }
         return  self.loadAnimalsCoordinateCoreData()
     }
-   
+//MARK: AnimalImages private func
+     func saveAnimalImagesToCoreData() -> [AnimalImages] {
+        do {
+            _ = try getJsonModel().result.results.map({
+              let newAnimalImages = getManagerObject(type: .AnimalImages)
+                newAnimalImages.setValue($0.aNameEn, forKey: "aNameEn")
+                
+                newAnimalImages.setValue($0.aPic01URL, forKey: "url1")
+                newAnimalImages.setValue($0.aPic01ALT, forKey: "alt1")
+                //image1
+                
+                newAnimalImages.setValue($0.aPic02URL, forKey: "url2")
+                newAnimalImages.setValue($0.aPic02ALT, forKey: "alt2")
+                
+                newAnimalImages.setValue($0.aPic03URL, forKey: "url3")
+                newAnimalImages.setValue($0.aPic03ALT, forKey: "alt3")
+                
+                newAnimalImages.setValue($0.aPic04URL, forKey: "url4")
+                newAnimalImages.setValue($0.aPic04ALT, forKey: "alt4")
+                
+            })
+            try getViewContext().save()
+        } catch  {
+            print(error.localizedDescription)
+            print("\(String.showFileName(filePath: #file)):\(#line)")
+        }
+         return loadAnimalImagesFromCoreData()
+        
+    }
+    func loadAnimalImagesFromCoreData() -> [AnimalImages] {
+        let request: NSFetchRequest<AnimalImages> = AnimalImages.fetchRequest()
+        do {
+            let arr = try getViewContext().fetch(request)
+            return arr
+        } catch {
+            print("\(ERORR_PREFIX)\(error.localizedDescription)")
+            return [AnimalImages]()
+        }
+    }
+
 //MARK: Utility
     private func getJsonModel() throws ->AnimalsJsonDataModel {
         let content = try loadBundleFile(name: "AnimalsJSONData", type: "txt")
@@ -172,6 +214,13 @@ class DataManager {
             }
         case .AnimalCoordinate:
             let request: NSFetchRequest<AnimalCoordinate> = AnimalCoordinate.fetchRequest()
+            do {
+                enityCount = try getViewContext().count(for: request)
+            } catch {
+                print("\(ERORR_PREFIX)\(error.localizedDescription)")
+            }
+        case .AnimalImages:
+            let request: NSFetchRequest<AnimalImages> = AnimalImages.fetchRequest()
             do {
                 enityCount = try getViewContext().count(for: request)
             } catch {
@@ -206,5 +255,24 @@ class DataManager {
         }
         
         return AnimalsJsonDataModel()
+    }
+    private func getManagerObject(type:CoreDataType) -> NSManagedObject{
+        switch type {
+        case .AnimalSummary:
+            guard let imagesEntity = NSEntityDescription.entity(forEntityName: CoreDataType.AnimalSummary.rawValue, in: getViewContext()) else {
+                print("\(ERORR_PREFIX)\(String.showFileName(filePath:#file)):\(#line)")
+                return NSManagedObject()}
+                return NSManagedObject(entity: imagesEntity, insertInto: getViewContext())
+        case .AnimalCoordinate:
+            guard let imagesEntity = NSEntityDescription.entity(forEntityName: CoreDataType.AnimalCoordinate.rawValue, in: getViewContext()) else {
+                print("\(ERORR_PREFIX)\(String.showFileName(filePath:#file)):\(#line)")
+                return NSManagedObject()}
+                return NSManagedObject(entity: imagesEntity, insertInto: getViewContext())
+        case .AnimalImages:
+            guard let imagesEntity = NSEntityDescription.entity(forEntityName: CoreDataType.AnimalImages.rawValue, in: getViewContext()) else {
+                print("\(ERORR_PREFIX)\(String.showFileName(filePath:#file)):\(#line)")
+                return NSManagedObject() }
+                return NSManagedObject(entity: imagesEntity, insertInto: getViewContext())
+        }
     }
 }

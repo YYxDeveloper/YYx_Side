@@ -5,6 +5,21 @@
         <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lon" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
+    <entity name="AnimalImages" representedClassName="AnimalImages" syncable="YES" codeGenerationType="class">
+        <attribute name="alt1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="alt2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="alt3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="alt4" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aNameEn" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image1" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="image2" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="image3" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="image4" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="url1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url4" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="AnimalSummary" representedClassName="AnimalSummary" syncable="YES" codeGenerationType="class">
         <attribute name="aAdopt" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="aAlsoKnown" optional="YES" attributeType="String" syncable="YES"/>
@@ -46,7 +61,8 @@
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AnimalCoordinate" positionX="232" positionY="150" width="128" height="43"/>
-        <element name="AnimalSummary" positionX="-54" positionY="-9" width="128" height="43"/>
+        <element name="AnimalCoordinate" positionX="189" positionY="99" width="128" height="43"/>
+        <element name="AnimalSummary" positionX="-54" positionY="-9" width="128" height="613"/>
+        <element name="AnimalImages" positionX="142" positionY="324" width="128" height="238"/>
     </elements>
 </model>
