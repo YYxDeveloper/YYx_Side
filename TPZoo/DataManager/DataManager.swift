@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 import UIKit
-
+import SDWebImage
 class DataManager {
 //MARK: Enum
     enum locationName{
