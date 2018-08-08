@@ -68,10 +68,8 @@ class DataManager {
     }
    private func saveJsonToAnimalSummaryCoreData() -> [AnimalSummary] {
         do {
-            let content = try loadBundleFile(name: "AnimalsJSONData", type: "txt")
-            let JsonData = try JSONDecoder().decode(AnimalsJsonDataModel.self, from: content.data(using: .utf8)!)
             //                return JsonData.result.results
-            _ = JsonData.result.results.map({
+            _ = getJsonData().result.results.map({
                 guard let entity = NSEntityDescription.entity(forEntityName: CoreDataType.AnimalSummary.rawValue, in: getViewContext()) else {
                     print("\(ERORR_PREFIX)\(#file):\(#line)")
                     return}
@@ -146,10 +144,7 @@ class DataManager {
     }
     private func saveAnimalsCoordinateToCoreData()-> [AnimalCoordinate] {
         do {
-            let content = try loadBundleFile(name: "AnimalsJSONData", type: "txt")
-            let JsonData = try JSONDecoder().decode(AnimalsJsonDataModel.self, from: content.data(using: .utf8)!)
-            
-            _ = try JsonData.result.results.map({
+            _ = try getJsonModel().result.results.map({
                 guard let aEngName = $0.aNameEn else {throw yyxErorr.guardError}
                 guard  let coordinateString = $0.aGeo else{throw yyxErorr.guardError}
                 let coordinates = String.convertCoordinateStringToDouble(targetString: coordinateString)
@@ -171,6 +166,11 @@ class DataManager {
     }
    
 //MARK: Utility
+    private func getJsonModel() throws ->AnimalsJsonDataModel {
+        let content = try loadBundleFile(name: "AnimalsJSONData", type: "txt")
+        let JsonData = try JSONDecoder().decode(AnimalsJsonDataModel.self, from: content.data(using: .utf8)!)
+        return JsonData
+    }
     private func hasCoreDataSaved(type:CoreDataType) -> Bool{
         var enityCount = 0
         
