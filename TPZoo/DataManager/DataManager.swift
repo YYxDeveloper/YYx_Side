@@ -36,15 +36,11 @@ class DataManager {
        
     }
     var animalsCoordinate:[AnimalCoordinate] {
-    do {
             if hasCoreDataSaved(type: .AnimalCoordinate) {
                 return self.loadAnimalsCoordinateCoreData()
             }else{
                 return  self.saveAnimalsCoordinateToCoreData()
             }
-        } catch  {
-            print(error.localizedDescription)
-        }
     }
     
    
@@ -67,7 +63,6 @@ class DataManager {
         }
     }
    private func saveJsonToAnimalSummaryCoreData() -> [AnimalSummary] {
-        do {
             //                return JsonData.result.results
             _ = getJsonData().result.results.map({
                 guard let entity = NSEntityDescription.entity(forEntityName: CoreDataType.AnimalSummary.rawValue, in: getViewContext()) else {
@@ -120,13 +115,6 @@ class DataManager {
             })
             
             return loadAnimalsSummaryCoreData()
-            
-        } catch  {
-            print("\(ERORR_PREFIX)\(error.localizedDescription)")
-            
-        }
-        return [AnimalSummary]()
-        
     }
 //MARK: AnimalsCoordinate private func
     private func loadAnimalsCoordinateCoreData() -> [AnimalCoordinate]{
