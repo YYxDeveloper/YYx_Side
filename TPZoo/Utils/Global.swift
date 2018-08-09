@@ -12,7 +12,7 @@ let ERORR_PREFIX = "yyxError_"
 let ItIsEmptyString = "it is Empty String"
 
 enum ReturnString:String {
-    case yyxGuardReturn
+    case yyxGuardReturn,yyxNoNewtwork
 }
 enum yyxErorr:Error{
     case errorID(id:String)

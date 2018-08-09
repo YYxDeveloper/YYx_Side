@@ -28,7 +28,9 @@ class ImageDownloadManager {
             let percent = Float(progress)/Float(task)
         }, completed: {optionImage,data,error,bool in
             HUD.hide()
-            guard let image = optionImage else {return}
+            guard let image = optionImage else {
+                 print("\(ReturnString.yyxGuardReturn.rawValue)\(String.showFileName(filePath:#file)):\(#line)")
+                return}
             if let data = UIImageJPEGRepresentation(image, 1.0) {
                 let filename = self.getDocumentsDirectory().appendingPathComponent("\(fileName).jpg")
                 try? data.write(to: filename)
@@ -42,7 +44,9 @@ class ImageDownloadManager {
     private func isNetworkConnection() -> Bool{
         let current = UIApplication.shared.delegate?.window??.visibleViewController
         guard let currentVC = current else {return false}
-        guard Reachability.isConnectedToNetwork() == true else { return false }
+        guard Reachability.isConnectedToNetwork() == true else {
+            print("\(ReturnString.yyxNoNewtwork.rawValue)\(String.showFileName(filePath:#file)):\(#line)")
+            return false }
         return true
 //        guard Reachability.isConnectedToNetwork() == true else { return currentVC.view.makeToast("請確認網路連線") }
     }
