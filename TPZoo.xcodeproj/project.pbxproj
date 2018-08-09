@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2AB91DF21BA53BDD5C9C391C /* Pods_TPZooTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A02C7BFE44629838FDE25BB4 /* Pods_TPZooTests.framework */; };
+		652C2BCC211AF90800D85E33 /* ImageDownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652C2BCB211AF90800D85E33 /* ImageDownloadManager.swift */; };
 		654FCA8F210EC79600BA81A3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654FCA8E210EC79600BA81A3 /* StringExtension.swift */; };
+		6553FFF3211BCF29002BFAB8 /* WindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6553FFF2211BCF29002BFAB8 /* WindowExtension.swift */; };
 		65B725F72105BEBC0088DDCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B725F62105BEBC0088DDCB /* AppDelegate.swift */; };
 		65B725FC2105BEBC0088DDCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B725FA2105BEBC0088DDCB /* Main.storyboard */; };
 		65B725FF2105BEBC0088DDCB /* TPZoo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65B725FD2105BEBC0088DDCB /* TPZoo.xcdatamodeld */; };
@@ -53,7 +55,9 @@
 		2996299F7F4E3B7EC80A16F4 /* Pods_TPZoo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TPZoo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49455C8DB5D4314A0D190C5A /* Pods_TPZooUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TPZooUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		49FC06D1D9E16A9E3258623E /* Pods-TPZoo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPZoo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TPZoo/Pods-TPZoo.debug.xcconfig"; sourceTree = "<group>"; };
+		652C2BCB211AF90800D85E33 /* ImageDownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadManager.swift; sourceTree = "<group>"; };
 		654FCA8E210EC79600BA81A3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		6553FFF2211BCF29002BFAB8 /* WindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowExtension.swift; sourceTree = "<group>"; };
 		65B725F32105BEBC0088DDCB /* TPZoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TPZoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B725F62105BEBC0088DDCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65B725FB2105BEBC0088DDCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -180,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				65B726412108012E0088DDCB /* DataManager.swift */,
+				652C2BCB211AF90800D85E33 /* ImageDownloadManager.swift */,
 				65B726392106FA170088DDCB /* AnimalsJsonDataModel.swift */,
 				65B7262C2106DFFE0088DDCB /* AnimalsJSONData.txt */,
 			);
@@ -191,6 +196,7 @@
 			children = (
 				65B726352106F9270088DDCB /* Global.swift */,
 				654FCA8E210EC79600BA81A3 /* StringExtension.swift */,
+				6553FFF2211BCF29002BFAB8 /* WindowExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -420,11 +426,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TPZoo/Pods-TPZoo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,9 +449,11 @@
 			files = (
 				65B7263A2106FA170088DDCB /* AnimalsJsonDataModel.swift in Sources */,
 				65B726362106F9270088DDCB /* Global.swift in Sources */,
+				6553FFF3211BCF29002BFAB8 /* WindowExtension.swift in Sources */,
 				65B726422108012E0088DDCB /* DataManager.swift in Sources */,
 				65B725FF2105BEBC0088DDCB /* TPZoo.xcdatamodeld in Sources */,
 				65B725F72105BEBC0088DDCB /* AppDelegate.swift in Sources */,
+				652C2BCC211AF90800D85E33 /* ImageDownloadManager.swift in Sources */,
 				65B7262B2106DE8F0088DDCB /* MainViewController.swift in Sources */,
 				654FCA8F210EC79600BA81A3 /* StringExtension.swift in Sources */,
 			);

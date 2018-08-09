@@ -8,6 +8,7 @@ target 'TPZoo' do
   # Pods for TPZoo
 	  pod 'Alamofire', '~> 4.7'
 	  pod 'SDWebImage', '~> 4.0'
+      pod 'PKHUD', '~> 5.0'
 
   target 'TPZooTests' do
     inherit! :search_paths
