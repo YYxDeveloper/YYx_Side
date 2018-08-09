@@ -18,8 +18,6 @@ class ImageDownloadManager {
     
     
     func downloadJpgImage(url:String,fileName:String) {
-        
-        
         guard isNetworkConnection() else {
             print("\(ReturnString.yyxGuardReturn.rawValue)\(String.showFileName(filePath:#file)):\(#line)")
             return
@@ -28,8 +26,6 @@ class ImageDownloadManager {
         let manager = SDWebImageManager.shared()
         manager.imageDownloader?.downloadImage(with: URL(string: url), options: [] , progress: {progress,task,url in
             let percent = Float(progress)/Float(task)
-            
-            print(percent)
         }, completed: {optionImage,data,error,bool in
             HUD.hide()
             guard let image = optionImage else {return}
@@ -48,6 +44,6 @@ class ImageDownloadManager {
         guard let currentVC = current else {return false}
         guard Reachability.isConnectedToNetwork() == true else { return false }
         return true
+//        guard Reachability.isConnectedToNetwork() == true else { return currentVC.view.makeToast("請確認網路連線") }
     }
 }
-//(aka 'Optional<(Optional<UIImage>, Optional<Data>, Optional<Error>, Bool) -> ()>')
