@@ -74,5 +74,19 @@ class ImageManager {
             cancelledData = response.resumeData //意外终止的话，把已下载的数据储存起来
         }
     }
+//MARK: class
+    class func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
+    class func isNetworkConnection() -> Bool{
+        let current = UIApplication.shared.delegate?.window??.visibleViewController
+        guard let currentVC = current else {return false}
+        guard Reachability.isConnectedToNetwork() == true else {
+            print("\(ReturnString.yyxNoNewtwork.rawValue)\(String.showFileName(filePath:#file)):\(#line)")
+            return false }
+        return true
+        //        guard Reachability.isConnectedToNetwork() == true else { return currentVC.view.makeToast("請確認網路連線") }
+    }
 
 }
