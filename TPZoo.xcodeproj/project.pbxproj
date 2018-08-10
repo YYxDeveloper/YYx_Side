@@ -12,6 +12,7 @@
 		654FCA8F210EC79600BA81A3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654FCA8E210EC79600BA81A3 /* StringExtension.swift */; };
 		6553FFF3211BCF29002BFAB8 /* WindowExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6553FFF2211BCF29002BFAB8 /* WindowExtension.swift */; };
 		6553FFF5211BD158002BFAB8 /* SysConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6553FFF4211BD157002BFAB8 /* SysConfiguration.swift */; };
+		6553FFF7211D3050002BFAB8 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6553FFF6211D3050002BFAB8 /* ImageManager.swift */; };
 		65B725F72105BEBC0088DDCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B725F62105BEBC0088DDCB /* AppDelegate.swift */; };
 		65B725FC2105BEBC0088DDCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B725FA2105BEBC0088DDCB /* Main.storyboard */; };
 		65B725FF2105BEBC0088DDCB /* TPZoo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65B725FD2105BEBC0088DDCB /* TPZoo.xcdatamodeld */; };
@@ -60,6 +61,7 @@
 		654FCA8E210EC79600BA81A3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		6553FFF2211BCF29002BFAB8 /* WindowExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowExtension.swift; sourceTree = "<group>"; };
 		6553FFF4211BD157002BFAB8 /* SysConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SysConfiguration.swift; sourceTree = "<group>"; };
+		6553FFF6211D3050002BFAB8 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		65B725F32105BEBC0088DDCB /* TPZoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TPZoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B725F62105BEBC0088DDCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65B725FB2105BEBC0088DDCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			children = (
 				65B726412108012E0088DDCB /* DataManager.swift */,
 				652C2BCB211AF90800D85E33 /* ImageDownloadManager.swift */,
+				6553FFF6211D3050002BFAB8 /* ImageManager.swift */,
 				65B726392106FA170088DDCB /* AnimalsJsonDataModel.swift */,
 				65B7262C2106DFFE0088DDCB /* AnimalsJSONData.txt */,
 			);
@@ -459,6 +462,7 @@
 				65B725F72105BEBC0088DDCB /* AppDelegate.swift in Sources */,
 				652C2BCC211AF90800D85E33 /* ImageDownloadManager.swift in Sources */,
 				65B7262B2106DE8F0088DDCB /* MainViewController.swift in Sources */,
+				6553FFF7211D3050002BFAB8 /* ImageManager.swift in Sources */,
 				654FCA8F210EC79600BA81A3 /* StringExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
