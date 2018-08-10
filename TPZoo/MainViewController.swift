@@ -16,9 +16,7 @@ class MainViewController: UIViewController {
        
         
         //test
-        let str = "MULTIPOINT ((121.5898494 24.9940697), (121.586726 24.994559), (121.5873295 24.9946641))"
-     
-    let aa =  String.convertCoordinateStringToDouble(targetString: str)
+    
 //        print(aa)
 
     }

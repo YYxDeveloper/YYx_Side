@@ -80,8 +80,8 @@ class ImageManager {
         return paths[0]
     }
     class func isNetworkConnection() -> Bool{
-        let current = UIApplication.shared.delegate?.window??.visibleViewController
-        guard let currentVC = current else {return false}
+//        let current = UIApplication.shared.delegate?.window??.visibleViewController
+//        guard let currentVC = current else {return false}
         guard Reachability.isConnectedToNetwork() == true else {
             print("\(ReturnString.yyxNoNewtwork.rawValue)\(String.showFileName(filePath:#file)):\(#line)")
             return false }

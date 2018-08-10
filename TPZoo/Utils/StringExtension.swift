@@ -60,7 +60,7 @@ extension String {
 //        print(arr)//["121.5898494 24.9940697 ", "121.586726 24.994559 ", "121.5873295 24.9946641"]
         
         var arr2 = [(Double,Double)]()
-        arr.map({
+        _ = arr.map({
             
             guard let spaceIndex = $0.index(of: Character.init(SPACE_STRING))else {return}
             
