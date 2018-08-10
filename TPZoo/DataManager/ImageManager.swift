@@ -88,5 +88,5 @@ class ImageManager {
         return true
         //        guard Reachability.isConnectedToNetwork() == true else { return currentVC.view.makeToast("請確認網路連線") }
     }
-
+   
 }

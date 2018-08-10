@@ -72,10 +72,6 @@ extension String {
 //        print(arr2)
         return arr2
     }
-    func isExistString(checking:String?) -> Bool {
-        guard checking != nil else {return false}
-        guard checking != EMPTY_STRING else {return false}
-        return true
-    }
+  
 }
 
