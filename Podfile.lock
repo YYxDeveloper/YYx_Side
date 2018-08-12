@@ -1,5 +1,10 @@
 PODS:
   - Alamofire (4.7.3)
+  - GoogleMaps (2.7.0):
+    - GoogleMaps/Maps (= 2.7.0)
+  - GoogleMaps/Base (2.7.0)
+  - GoogleMaps/Maps (2.7.0):
+    - GoogleMaps/Base
   - PKHUD (5.1.0)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
@@ -7,20 +12,23 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - GoogleMaps
   - PKHUD (~> 5.0)
   - SDWebImage (~> 4.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
+    - GoogleMaps
     - PKHUD
     - SDWebImage
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
   PKHUD: 62ea46a1e88c4def1da784878d199bb54c841e3c
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
 
-PODFILE CHECKSUM: 5c0f03045751b0d8018ebd939e54162173e99590
+PODFILE CHECKSUM: ca2e11063fb852da4b2f7329c94075813c7a9711
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.0
