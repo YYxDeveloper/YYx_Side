@@ -9,6 +9,9 @@
 import Foundation
 import GoogleMaps
 
+/**
+ must init in viewDidAppear
+ */
 class GoogleMapManager {
     enum ZooBoaderCoordinate {
         enum Center:Double {
@@ -35,12 +38,25 @@ class GoogleMapManager {
     static let shared = GoogleMapManager()
     static let apiKey = "AIzaSyC7OH2HcJ0Iko-bGY1U9r9y56AN1SC70mU"
     let mapView = GoogleMapManager.newZooMapView()
+    /**
+     plist need setting Privacy - Location When In Use Usage Description
+     */
+    let locationManager = GoogleMapManager.newLocationManager()
     
-    static func newZooMapView() ->GMSMapView{
+    static private func newLocationManager() -> CLLocationManager{
+        let locationManager = CLLocationManager()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.distanceFilter = 50
+        locationManager.startUpdatingLocation()
+        
+        return locationManager
+    }
+    static private func newZooMapView() ->GMSMapView{
         // +rotation
-        let camera = GMSCameraPosition.camera(withLatitude: ZooBoaderCoordinate.Center.latitude.rawValue, longitude: ZooBoaderCoordinate.Center.lontitude.rawValue, zoom: 18)
+        let camera = GMSCameraPosition.camera(withLatitude: ZooBoaderCoordinate.Center.latitude.rawValue, longitude: ZooBoaderCoordinate.Center.lontitude.rawValue, zoom: 10)
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        mapView.setMinZoom(16, maxZoom: 18)
+        mapView.setMinZoom(10, maxZoom: 20)
 
 
 
@@ -49,7 +65,10 @@ class GoogleMapManager {
         pathLine.strokeColor = .red
         pathLine.map = mapView
 
-
+        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
+        mapView.settings.myLocationButton = true
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         mapView.animate(toBearing: 120)
         
         
