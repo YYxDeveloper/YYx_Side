@@ -1,5 +1,5 @@
 //
-//  ImageManager.swift
+//  DownloadManager.swift
 //  TPZoo
 //
 //  Created by HSI on 2018/8/10.
@@ -11,8 +11,8 @@ import SDWebImage
 import PKHUD
 import Alamofire
 
-class ImageManager {
-    static let shared =  ImageManager()
+class DownloadManager {
+    static let shared =  DownloadManager()
     var downloadRequest:DownloadRequest?
     var destination:DownloadRequest.DownloadFileDestination!
     /// 用于停止下载时，保存已下载的部分
@@ -29,16 +29,16 @@ class ImageManager {
         let arr  = DataManager.shared.animalsImages
         for data in arr{
             if let url1 = data.url1,let alt1 = data.alt1 {
-                ImageManager.shared.setupDownloadRequest(URLString: url1, fileName: "\(alt1)Alt2", singleDownload: false)
+                DownloadManager.shared.setupDownloadRequest(URLString: url1, fileName: "\(alt1)Alt2", singleDownload: false)
             }
             if let url2 = data.url2,let alt2 = data.alt2 {
-                ImageManager.shared.setupDownloadRequest(URLString: url2, fileName: "\(alt2)Alt2", singleDownload: false)
+                DownloadManager.shared.setupDownloadRequest(URLString: url2, fileName: "\(alt2)Alt2", singleDownload: false)
             }
             if let url3 = data.url3,let alt3 = data.alt3 {
-                ImageManager.shared.setupDownloadRequest(URLString: url3, fileName: "\(alt3)Alt3", singleDownload: false)
+                DownloadManager.shared.setupDownloadRequest(URLString: url3, fileName: "\(alt3)Alt3", singleDownload: false)
             }
             if let url4 = data.url4,let alt4 = data.alt4 {
-                ImageManager.shared.setupDownloadRequest(URLString: url4, fileName: "\(alt4)Alt4", singleDownload: false)
+                DownloadManager.shared.setupDownloadRequest(URLString: url4, fileName: "\(alt4)Alt4", singleDownload: false)
             }
         }
     }
