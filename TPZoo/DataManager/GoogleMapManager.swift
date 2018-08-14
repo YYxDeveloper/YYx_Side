@@ -34,6 +34,7 @@ class GoogleMapManager {
     }
     static let shared = GoogleMapManager()
     static let apiKey = "AIzaSyC7OH2HcJ0Iko-bGY1U9r9y56AN1SC70mU"
+    let mapView = GoogleMapManager.newZooMapView()
     
     static func newZooMapView() ->GMSMapView{
         // +rotation
@@ -54,12 +55,12 @@ class GoogleMapManager {
         
         return mapView
     }
-    static func addGMSMarker(with mapView:GMSMapView,cordinate:CLLocationCoordinate2D){
+     func addGMSMarker(cordinate:CLLocationCoordinate2D){
         let marker = GMSMarker()
         marker.position = cordinate
-//        marker.title = "Sydney"
-//        marker.snippet = "Australia"
-        marker.map = mapView
+        marker.title = "Sydney"
+        marker.snippet = "Australia"
+        marker.map = self.mapView
     }
 //MARK: Private func
      private static func drawAreaPath() -> GMSMutablePath{
