@@ -17,19 +17,13 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.insertGoogleMapVC()
-
-        
-        
+        self.insertGoogleMapVC()       
     }
     private func insertGoogleMapVC() {
         let vc = GoogleMapViewController.init(nibName: String.init(describing: GoogleMapViewController.self), bundle: nil)
         vc.view.frame = self.view.bounds
         self.view.addSubview(vc.view)
         self.addChildViewController(vc)
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -13,16 +13,13 @@ class GoogleMapViewController: UIViewController {
     var locationManager: CLLocationManager!
     var currentLocation: CLLocation?
     var mapView: GMSMapView!
-    var zoomLevel: Float = 15.0
+    
     
     
     @IBOutlet weak var container: UIView!
-    
-    override func viewDidAppear(_ animated: Bool) {
-       self.loadGoogleMapSettingInViewDidAppear()
-        // Do any additional setup after loading the view.
+    override func viewDidLoad() {
+         self.loadGoogleMapSettingInViewDidAppear()
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
