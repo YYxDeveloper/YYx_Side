@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GoogleMapViewController" customModule="TPZoo" customModuleProvider="target">
             <connections>
+                <outlet property="container" destination="ddZ-vU-kOg" id="TdQ-jt-Ua1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,7 +19,19 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddZ-vU-kOg">
+                    <rect key="frame" x="30" y="50" width="315" height="587"/>
+                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ddZ-vU-kOg" secondAttribute="trailing" constant="30" id="1As-M6-DP5"/>
+                <constraint firstItem="ddZ-vU-kOg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="30" id="A9Y-0L-BcT"/>
+                <constraint firstItem="ddZ-vU-kOg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="KM9-PA-20q"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ddZ-vU-kOg" secondAttribute="bottom" constant="30" id="yGM-9d-oMr"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>

@@ -14,12 +14,12 @@ class GoogleMapViewController: UIViewController {
     var currentLocation: CLLocation?
     var mapView: GMSMapView!
     var zoomLevel: Float = 15.0
+    
+    
+    @IBOutlet weak var container: UIView!
+    
     override func viewDidAppear(_ animated: Bool) {
-        locationManager = GoogleMapManager.shared.locationManager
-        locationManager.delegate = self
-        self.mapView = GoogleMapManager.shared.mapView
-        self.mapView.delegate = self
-        view = self.mapView
+       self.loadGoogleMapSettingInViewDidAppear()
         // Do any additional setup after loading the view.
     }
 
@@ -28,7 +28,14 @@ class GoogleMapViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func loadGoogleMapSettingInViewDidAppear() {
+        locationManager = GoogleMapManager.shared.locationManager
+        locationManager.delegate = self
+        self.mapView = GoogleMapManager.shared.mapView
+        self.mapView.delegate = self
+        self.mapView.frame = container.bounds
+        self.container.addSubview(mapView)
+    }
     /*
     // MARK: - Navigation
 
