@@ -22,7 +22,10 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
 
         
-        
+        locationManager = GoogleMapManager.shared.locationManager
+        locationManager.delegate = self
+        self.mapView = GoogleMapManager.shared.mapView
+        view = self.mapView
       
 //        GoogleMapManager.shared.addGMSMarker(cordinate: CLLocationCoordinate2D(latitude: 24.997134, longitude: 121.585503))
         //test
@@ -32,10 +35,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     }
     override func viewDidAppear(_ animated: Bool) {
         
-        locationManager = GoogleMapManager.shared.locationManager
-        locationManager.delegate = self
-        self.mapView = GoogleMapManager.shared.mapView
-        view = self.mapView
+       
         
        
     }
