@@ -12,42 +12,23 @@ import GoogleMaps
 
 
 class MainViewController: UIViewController, CLLocationManagerDelegate {
-    var locationManager: CLLocationManager!
-    var currentLocation: CLLocation?
-    var mapView: GMSMapView!
-    var zoomLevel: Float = 15.0
+  
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.insertGoogleMapVC()
 
         
-        locationManager = GoogleMapManager.shared.locationManager
-        locationManager.delegate = self
-        self.mapView = GoogleMapManager.shared.mapView
-        view = self.mapView
-      
-//        GoogleMapManager.shared.addGMSMarker(cordinate: CLLocationCoordinate2D(latitude: 24.997134, longitude: 121.585503))
-        //test
-    
-//        print(aa)
         
+    }
+    private func insertGoogleMapVC() {
+        let vc = GoogleMapViewController.init(nibName: String.init(describing: GoogleMapViewController.self), bundle: nil)
+        vc.view.frame = self.view.bounds
+        self.view.addSubview(vc.view)
+        self.addChildViewController(vc)
     }
     override func viewDidAppear(_ animated: Bool) {
-        
-       
-        
-       
-    }
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        let location = locations.last
-        
-//        let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude:(location?.coordinate.longitude)!, zoom:zoomLevel)
-//        mapView.animate(to: camera)
-        
-        //Finally stop updating location otherwise it will come again and again in this delegate
-        self.locationManager.stopUpdatingLocation()
         
     }
     override func didReceiveMemoryWarning() {
