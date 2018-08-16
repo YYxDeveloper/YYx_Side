@@ -40,7 +40,7 @@ class GoogleMapManager {
     }
     static private func newZooMapView() ->GMSMapView{
         // +rotation
-        let camera = GMSCameraPosition.camera(withLatitude: 24.997134, longitude: 121.585503 zoom: 14)
+        let camera = GMSCameraPosition.camera(withLatitude: 24.997134, longitude: 121.585503, zoom: 14)
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         mapView.setMinZoom(14, maxZoom: 20)
 
