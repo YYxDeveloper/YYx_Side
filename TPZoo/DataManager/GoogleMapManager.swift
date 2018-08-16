@@ -54,7 +54,7 @@ class GoogleMapManager {
     }
     static private func newZooMapView() ->GMSMapView{
         // +rotation
-        let camera = GMSCameraPosition.camera(withLatitude: ZooBoaderCoordinate.Center.latitude.rawValue, longitude: ZooBoaderCoordinate.Center.lontitude.rawValue, zoom: 10)
+        let camera = GMSCameraPosition.camera(withLatitude: ZooBoaderCoordinate.Center.latitude.rawValue, longitude: ZooBoaderCoordinate.Center.lontitude.rawValue, zoom: 15)
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         mapView.setMinZoom(10, maxZoom: 20)
 
