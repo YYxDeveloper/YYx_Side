@@ -13,28 +13,14 @@ import GoogleMaps
  must init in viewDidAppear
  */
 class GoogleMapManager {
-    enum ZooBoaderCoordinate {
-        enum Center:Double {
-            case latitude = 24.997134
-            case lontitude = 121.585503
-        }
-        enum North:Double {
-            case latitude = 25.001432
-            case lontitude = 121.584282
-        }
-        enum East:Double {
-            case latitude = 24.996373
-            case lontitude = 121.593189
-        }
-        enum South:Double {
-            case latitude = 24.988784
-            case lontitude = 121.591070
-        }
-        enum West:Double {
-            case latitude = 24.996592
-            case lontitude = 121.576357
-        }
+    
+    enum coordinate:Double {
+        case bottomLimitPoint   = 24.989729
+        case topLimitPoint      = 25.000114
+        case leftLimitPoint     = 121.579269
+        case rightLimitPoint    = 121.591107
     }
+   
     static let shared = GoogleMapManager()
     static let apiKey = "AIzaSyC7OH2HcJ0Iko-bGY1U9r9y56AN1SC70mU"
     let mapView = GoogleMapManager.newZooMapView()
@@ -54,9 +40,9 @@ class GoogleMapManager {
     }
     static private func newZooMapView() ->GMSMapView{
         // +rotation
-        let camera = GMSCameraPosition.camera(withLatitude: ZooBoaderCoordinate.Center.latitude.rawValue, longitude: ZooBoaderCoordinate.Center.lontitude.rawValue, zoom: 15)
+        let camera = GMSCameraPosition.camera(withLatitude: 24.997134, longitude: 121.585503 zoom: 14)
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        mapView.setMinZoom(10, maxZoom: 20)
+        mapView.setMinZoom(14, maxZoom: 20)
 
 
 
@@ -83,17 +69,17 @@ class GoogleMapManager {
     }
 //MARK: Private func
      private static func drawAreaPath() -> GMSMutablePath{
-        let northCordinate = CLLocationCoordinate2DMake(ZooBoaderCoordinate.North.latitude.rawValue,ZooBoaderCoordinate.North.lontitude.rawValue)
-        let eastCordinate = CLLocationCoordinate2DMake(ZooBoaderCoordinate.East.latitude.rawValue,ZooBoaderCoordinate.East.lontitude.rawValue)
-        let southCordinate = CLLocationCoordinate2DMake(ZooBoaderCoordinate.South.latitude.rawValue,ZooBoaderCoordinate.South.lontitude.rawValue)
-        let westCordinate = CLLocationCoordinate2DMake(ZooBoaderCoordinate.West.latitude.rawValue,ZooBoaderCoordinate.West.lontitude.rawValue)
         
+        let rightTop = CLLocationCoordinate2DMake(coordinate.topLimitPoint.rawValue, coordinate.rightLimitPoint.rawValue)
+        let rightBootom = CLLocationCoordinate2DMake(coordinate.bottomLimitPoint.rawValue, coordinate.rightLimitPoint.rawValue)//24.988729 上下
+        let leftBootom = CLLocationCoordinate2DMake(coordinate.bottomLimitPoint.rawValue,coordinate.leftLimitPoint.rawValue)
+        let leftTop = CLLocationCoordinate2DMake(coordinate.topLimitPoint.rawValue,coordinate.leftLimitPoint.rawValue)
         let areaPath = GMSMutablePath()
-        areaPath.add(northCordinate)
-        areaPath.add(eastCordinate)
-        areaPath.add(southCordinate)
-        areaPath.add(westCordinate)
-        areaPath.add(northCordinate)
+        areaPath.add(rightTop)
+        areaPath.add(rightBootom)
+        areaPath.add(leftBootom)
+        areaPath.add(leftTop)
+        areaPath.add(rightTop)
         
         return areaPath
     }
