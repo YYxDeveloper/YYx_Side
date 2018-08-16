@@ -34,7 +34,7 @@
 		65B7263B2106FA170088DDCB /* AnimalsJsonDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726392106FA170088DDCB /* AnimalsJsonDataModel.swift */; };
 		65B7263C2106FA170088DDCB /* AnimalsJsonDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726392106FA170088DDCB /* AnimalsJsonDataModel.swift */; };
 		65B726422108012E0088DDCB /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726412108012E0088DDCB /* DataManager.swift */; };
-		65E3D5902125653800DCAE52 /* FakeMyLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 65E3D58F2125653800DCAE52 /* FakeMyLocation.gpx */; };
+		65E3D5922125658F00DCAE52 /* FakeMyLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 65E3D5912125658E00DCAE52 /* FakeMyLocation.gpx */; };
 		A9FBFDF9B4024DD22EB64F07 /* Pods_TPZoo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2996299F7F4E3B7EC80A16F4 /* Pods_TPZoo.framework */; };
 		C28904EF211FF67C000137CE /* AnimalsAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C28904EE211FF67C000137CE /* AnimalsAssets.xcassets */; };
 		CE62CBE4F4582674C94E662D /* Pods_TPZooUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49455C8DB5D4314A0D190C5A /* Pods_TPZooUITests.framework */; };
@@ -88,7 +88,7 @@
 		65B726352106F9270088DDCB /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		65B726392106FA170088DDCB /* AnimalsJsonDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsJsonDataModel.swift; sourceTree = "<group>"; };
 		65B726412108012E0088DDCB /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
-		65E3D58F2125653800DCAE52 /* FakeMyLocation.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FakeMyLocation.gpx; sourceTree = "<group>"; };
+		65E3D5912125658E00DCAE52 /* FakeMyLocation.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = FakeMyLocation.gpx; path = TPZoo/FakeMyLocation.gpx; sourceTree = SOURCE_ROOT; };
 		76FDF06FBDA874A8FB84B5C1 /* Pods-TPZoo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPZoo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TPZoo/Pods-TPZoo.release.xcconfig"; sourceTree = "<group>"; };
 		A02C7BFE44629838FDE25BB4 /* Pods_TPZooTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TPZooTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8ABFF9C9E49147385EB6020 /* Pods-TPZooTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPZooTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TPZooTests/Pods-TPZooTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -175,7 +175,6 @@
 				65B726022105BEBD0088DDCB /* LaunchScreen.storyboard */,
 				65B726052105BEBD0088DDCB /* Info.plist */,
 				65B725FD2105BEBC0088DDCB /* TPZoo.xcdatamodeld */,
-				65E3D58F2125653800DCAE52 /* FakeMyLocation.gpx */,
 			);
 			path = TPZoo;
 			sourceTree = "<group>";
@@ -206,6 +205,7 @@
 				6553FFF6211D3050002BFAB8 /* DownloadManager.swift */,
 				65B726392106FA170088DDCB /* AnimalsJsonDataModel.swift */,
 				65B7262C2106DFFE0088DDCB /* AnimalsJSONData.txt */,
+				65E3D5912125658E00DCAE52 /* FakeMyLocation.gpx */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -348,7 +348,7 @@
 				65B725FC2105BEBC0088DDCB /* Main.storyboard in Resources */,
 				65B7262D2106DFFE0088DDCB /* AnimalsJSONData.txt in Resources */,
 				C28904EF211FF67C000137CE /* AnimalsAssets.xcassets in Resources */,
-				65E3D5902125653800DCAE52 /* FakeMyLocation.gpx in Resources */,
+				65E3D5922125658F00DCAE52 /* FakeMyLocation.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
