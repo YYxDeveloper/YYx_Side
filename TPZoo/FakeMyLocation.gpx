@@ -8,8 +8,7 @@
      -->
     <wpt lat="24.997134" lon="121.585503">
         <name>TaipeiZooCenter</name>
-    <wpt lat="24.9946021" lon="121.5831828">
-        <name>ForntDoorlocation</name>
+  
         <!--
          Optionally provide a time element for each waypoint. Xcode will interpolate movement
          at a rate of speed based on the time elapsed between each waypoint. If you do not provide

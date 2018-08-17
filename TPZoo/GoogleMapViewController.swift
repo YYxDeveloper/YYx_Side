@@ -11,27 +11,31 @@ import GoogleMaps
 
 class GoogleMapViewController: UIViewController {
     var locationManager: CLLocationManager!
-    var currentLocation: CLLocation?
     var mapView: GMSMapView!
-    
+    /**
+     first loading delegate will callback twice
+     */
+    var firstLoadingLimitIgnore = false
+   
     
     
     @IBOutlet weak var container: UIView!
     override func viewDidLoad() {
-         self.loadGoogleMapSettingInViewDidAppear()
+        self.loadGoogleMapSettingInViewDidAppear()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     func loadGoogleMapSettingInViewDidAppear() {
         locationManager = GoogleMapManager.shared.locationManager
         locationManager.delegate = self
         self.mapView = GoogleMapManager.shared.mapView
-        self.mapView.delegate = self
         self.mapView.frame = container.bounds
+        self.mapView.delegate = self
         self.container.addSubview(mapView)
+        
+
     }
     /*
     // MARK: - Navigation
@@ -61,7 +65,34 @@ extension GoogleMapViewController:CLLocationManagerDelegate{
 //MARK: GMSMapViewDelegate
 extension GoogleMapViewController: GMSMapViewDelegate{
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-        
+        if self.firstLoadingLimitIgnore {
+            if (position.target.latitude > GoogleMapManager.coordinate.topLimitPoint.rawValue) {
+                let goBackCamera = GoogleMapManager.goBackUpDown(limitSide: .topLimitPoint, respondPosition: position)
+                self.mapView.camera = goBackCamera
+                self.mapView.animate(to: goBackCamera)
+            }
+            if (position.target.latitude < GoogleMapManager.coordinate.bottomLimitPoint.rawValue) {
+                let goBackCamera = GoogleMapManager.goBackUpDown(limitSide: .bottomLimitPoint, respondPosition: position)
+                self.mapView.camera = goBackCamera
+                self.mapView.animate(to: goBackCamera)
+            }
+            if (position.target.longitude < GoogleMapManager.coordinate.leftLimitPoint.rawValue) {
+                let goBackCamera = GoogleMapManager.goBackLeftRightCamera(limitSide: .leftLimitPoint, respondPosition: position)
+                self.mapView.camera = goBackCamera
+                self.mapView.animate(to: goBackCamera)
+            }
+            if (position.target.longitude > GoogleMapManager.coordinate.rightLimitPoint.rawValue) {
+                let goBackCamera = GoogleMapManager.goBackLeftRightCamera(limitSide: .rightLimitPoint, respondPosition: position)
+                self.mapView.camera = goBackCamera
+                self.mapView.animate(to: goBackCamera)
+            }
+
+        }else{
+            if position.target.latitude == 24.99620900530806 && position.target.longitude == 121.58524207770824 {
+                self.firstLoadingLimitIgnore = true
+            }
+        }
     }
+    
 }
 
