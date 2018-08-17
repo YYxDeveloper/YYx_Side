@@ -65,7 +65,7 @@ class GoogleMapManager {
          let centerCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(24.996209, 121.585242), zoom: 17, bearing: GoogleMapManager.bearingAngle, viewingAngle: 0)
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: centerCamera)
         mapView.setMinZoom(17, maxZoom: 20)
-
+        mapView.mapStyle = GoogleMapManager.getMapStyle()
         let polygon = GMSPolygon()
         polygon.path = GoogleMapManager.drawBlackAreaPath()
         polygon.holes = [GoogleMapManager.drawAreaPath()]
@@ -73,7 +73,7 @@ class GoogleMapManager {
 //        polygon.strokeColor = .blue
         polygon.strokeWidth = 2
         polygon.map = mapView
-
+        
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
         mapView.settings.myLocationButton = true
@@ -87,6 +87,22 @@ class GoogleMapManager {
         marker.title = "Sydney"
         marker.snippet = "Australia"
         marker.map = self.mapView
+    }
+    static func getMapStyle() -> GMSMapStyle {
+        do {
+            
+            guard let filepath = Bundle.main.url(forResource: "GoogleMapStyle", withExtension: "txt") else {
+                print("\(ReturnString.yyxGuardReturn.rawValue)\(String.showFileName(filePath:#file)):\(#line)")
+                return GMSMapStyle()
+            }
+//            guard let url = URL(string: filepath) else {return GMSMapStyle()}
+            return  try GMSMapStyle(contentsOfFileURL: filepath)
+        } catch  {
+            print("\(ReturnString.yyxGuardReturn.rawValue)\(String.showFileName(filePath:#file)):\(#line)")
+            return GMSMapStyle()
+        }
+        
+        
     }
    static func goBackLeftRightCamera(limitSide:GoogleMapManager.coordinate, respondPosition:GMSCameraPosition)->GMSCameraPosition{
         var goBackCamera = GMSCameraPosition()
