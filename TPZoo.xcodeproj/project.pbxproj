@@ -16,6 +16,7 @@
 		65670332212283D000C3A4CF /* GoogleMapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65670331212283D000C3A4CF /* GoogleMapManager.swift */; };
 		6567033A21240A5600C3A4CF /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6567033821240A5600C3A4CF /* GoogleMapViewController.swift */; };
 		6567033B21240A5600C3A4CF /* GoogleMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6567033921240A5600C3A4CF /* GoogleMapViewController.xib */; };
+		659B02402126B3C6007F0E18 /* GoogleMapStyle.txt in Resources */ = {isa = PBXBuildFile; fileRef = 659B023F2126B3C6007F0E18 /* GoogleMapStyle.txt */; };
 		65B725F72105BEBC0088DDCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B725F62105BEBC0088DDCB /* AppDelegate.swift */; };
 		65B725FC2105BEBC0088DDCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65B725FA2105BEBC0088DDCB /* Main.storyboard */; };
 		65B725FF2105BEBC0088DDCB /* TPZoo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 65B725FD2105BEBC0088DDCB /* TPZoo.xcdatamodeld */; };
@@ -70,6 +71,7 @@
 		65670331212283D000C3A4CF /* GoogleMapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapManager.swift; sourceTree = "<group>"; };
 		6567033821240A5600C3A4CF /* GoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
 		6567033921240A5600C3A4CF /* GoogleMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoogleMapViewController.xib; sourceTree = "<group>"; };
+		659B023F2126B3C6007F0E18 /* GoogleMapStyle.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GoogleMapStyle.txt; sourceTree = "<group>"; };
 		65B725F32105BEBC0088DDCB /* TPZoo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TPZoo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65B725F62105BEBC0088DDCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65B725FB2105BEBC0088DDCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				6553FFF6211D3050002BFAB8 /* DownloadManager.swift */,
 				65B726392106FA170088DDCB /* AnimalsJsonDataModel.swift */,
 				65B7262C2106DFFE0088DDCB /* AnimalsJSONData.txt */,
+				659B023F2126B3C6007F0E18 /* GoogleMapStyle.txt */,
 				65E3D5912125658E00DCAE52 /* FakeMyLocation.gpx */,
 			);
 			path = DataManager;
@@ -346,6 +349,7 @@
 				65B726012105BEBD0088DDCB /* Assets.xcassets in Resources */,
 				6567033B21240A5600C3A4CF /* GoogleMapViewController.xib in Resources */,
 				65B725FC2105BEBC0088DDCB /* Main.storyboard in Resources */,
+				659B02402126B3C6007F0E18 /* GoogleMapStyle.txt in Resources */,
 				65B7262D2106DFFE0088DDCB /* AnimalsJSONData.txt in Resources */,
 				C28904EF211FF67C000137CE /* AnimalsAssets.xcassets in Resources */,
 				65E3D5922125658F00DCAE52 /* FakeMyLocation.gpx in Resources */,
