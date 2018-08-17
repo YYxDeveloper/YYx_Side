@@ -28,9 +28,9 @@ class GoogleMapViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     func loadGoogleMapSettingInViewDidAppear() {
-        locationManager = GoogleMapManager.shared.locationManager
+        locationManager = GoogleMapManager.locationManager
         locationManager.delegate = self
-        self.mapView = GoogleMapManager.shared.mapView
+        self.mapView = GoogleMapManager.mapView
         self.mapView.frame = container.bounds
         self.mapView.delegate = self
         self.container.addSubview(mapView)
@@ -67,26 +67,19 @@ extension GoogleMapViewController: GMSMapViewDelegate{
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
         if self.firstLoadingLimitIgnore {
             if (position.target.latitude > GoogleMapManager.coordinate.topLimitPoint.rawValue) {
-                let goBackCamera = GoogleMapManager.goBackUpDown(limitSide: .topLimitPoint, respondPosition: position)
-                self.mapView.camera = goBackCamera
-                self.mapView.animate(to: goBackCamera)
+                 GoogleMapManager.updateCamerapostion(limitSide: .topLimitPoint, respondPosition: position, mapView: self.mapView)
             }
             if (position.target.latitude < GoogleMapManager.coordinate.bottomLimitPoint.rawValue) {
-                let goBackCamera = GoogleMapManager.goBackUpDown(limitSide: .bottomLimitPoint, respondPosition: position)
-                self.mapView.camera = goBackCamera
-                self.mapView.animate(to: goBackCamera)
+                 GoogleMapManager.updateCamerapostion(limitSide: .bottomLimitPoint, respondPosition: position, mapView: self.mapView)
+               
             }
             if (position.target.longitude < GoogleMapManager.coordinate.leftLimitPoint.rawValue) {
-                let goBackCamera = GoogleMapManager.goBackLeftRightCamera(limitSide: .leftLimitPoint, respondPosition: position)
-                self.mapView.camera = goBackCamera
-                self.mapView.animate(to: goBackCamera)
+                 GoogleMapManager.updateCamerapostion(limitSide: .leftLimitPoint, respondPosition: position, mapView: self.mapView)
+             
             }
             if (position.target.longitude > GoogleMapManager.coordinate.rightLimitPoint.rawValue) {
-                let goBackCamera = GoogleMapManager.goBackLeftRightCamera(limitSide: .rightLimitPoint, respondPosition: position)
-                self.mapView.camera = goBackCamera
-                self.mapView.animate(to: goBackCamera)
+                 GoogleMapManager.updateCamerapostion(limitSide: .rightLimitPoint, respondPosition: position, mapView: self.mapView)
             }
-
         }else{
             if position.target.latitude == 24.99620900530806 && position.target.longitude == 121.58524207770824 {
                 self.firstLoadingLimitIgnore = true

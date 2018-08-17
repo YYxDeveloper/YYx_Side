@@ -44,13 +44,12 @@ class GoogleMapManager {
         }
     }
    
-    static let shared = GoogleMapManager()
     static let apiKey = "AIzaSyC7OH2HcJ0Iko-bGY1U9r9y56AN1SC70mU"
-    let mapView = GoogleMapManager.newZooMapView()
+   static let mapView = GoogleMapManager.newZooMapView()
     /**
      plist need setting Privacy - Location When In Use Usage Description
      */
-    let locationManager = GoogleMapManager.newLocationManager()
+    static let locationManager = GoogleMapManager.newLocationManager()
     
     static private func newLocationManager() -> CLLocationManager{
         let locationManager = CLLocationManager()
@@ -86,7 +85,7 @@ class GoogleMapManager {
         marker.position = cordinate
         marker.title = "Sydney"
         marker.snippet = "Australia"
-        marker.map = self.mapView
+//        marker.map = self.mapView
     }
     static func getMapStyle() -> GMSMapStyle {
         do {
@@ -104,32 +103,25 @@ class GoogleMapManager {
         
         
     }
-   static func goBackLeftRightCamera(limitSide:GoogleMapManager.coordinate, respondPosition:GMSCameraPosition)->GMSCameraPosition{
-        var goBackCamera = GMSCameraPosition()
-        switch limitSide {
-        case .leftLimitPoint:
-            goBackCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(respondPosition.target.latitude,limitSide.rawValue +  GoogleMapManager.mapScrollingLimit), zoom: respondPosition.zoom, bearing: GoogleMapManager.bearingAngle, viewingAngle: 0)
-            return goBackCamera
-        case .rightLimitPoint:
-            goBackCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(respondPosition.target.latitude,limitSide.rawValue -  GoogleMapManager.mapScrollingLimit), zoom: respondPosition.zoom, bearing: GoogleMapManager.bearingAngle, viewingAngle: 0)
-            return goBackCamera
-        default:
-            return GMSCameraPosition()
-        }
-        
-       
-    }
-    static func goBackUpDown(limitSide:GoogleMapManager.coordinate, respondPosition:GMSCameraPosition)->GMSCameraPosition{
+    static func updateCamerapostion(limitSide:GoogleMapManager.coordinate, respondPosition:GMSCameraPosition,mapView:GMSMapView){
         var goBackCamera = GMSCameraPosition()
         switch limitSide {
         case .topLimitPoint:
             goBackCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(limitSide.rawValue -  GoogleMapManager.mapScrollingLimit, respondPosition.target.longitude), zoom: respondPosition.zoom, bearing: GoogleMapManager.bearingAngle, viewingAngle:0)
-            return goBackCamera
+            mapView.camera = goBackCamera
+            mapView.animate(to: goBackCamera)
         case .bottomLimitPoint:
             goBackCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(limitSide.rawValue +  GoogleMapManager.mapScrollingLimit, respondPosition.target.longitude), zoom: respondPosition.zoom, bearing: GoogleMapManager.bearingAngle, viewingAngle: 0)
-            return goBackCamera
-        default:
-            return GMSCameraPosition()
+            mapView.camera = goBackCamera
+            mapView.animate(to: goBackCamera)
+        case .leftLimitPoint:
+            goBackCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(respondPosition.target.latitude,limitSide.rawValue +  GoogleMapManager.mapScrollingLimit), zoom: respondPosition.zoom, bearing: GoogleMapManager.bearingAngle, viewingAngle: 0)
+            mapView.camera = goBackCamera
+            mapView.animate(to: goBackCamera)
+        case .rightLimitPoint:
+            goBackCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(respondPosition.target.latitude,limitSide.rawValue -  GoogleMapManager.mapScrollingLimit), zoom: respondPosition.zoom, bearing: GoogleMapManager.bearingAngle, viewingAngle: 0)
+            mapView.camera = goBackCamera
+            mapView.animate(to: goBackCamera)
         }
        
     }
