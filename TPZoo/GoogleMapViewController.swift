@@ -66,18 +66,18 @@ extension GoogleMapViewController:CLLocationManagerDelegate{
 extension GoogleMapViewController: GMSMapViewDelegate{
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
         if self.firstLoadingLimitIgnore {
-            if (position.target.latitude > GoogleMapManager.coordinate.topLimitPoint.rawValue - 0.003) {
+            if (position.target.latitude > GoogleMapManager.coordinate.topLimitPoint.rawValue - GoogleMapManager.VerticalBoaderComplementary) {
                  GoogleMapManager.updateCamerapostion(limitSide: .topLimitPoint, respondPosition: position, mapView: self.mapView)
             }
-            if (position.target.latitude < GoogleMapManager.coordinate.bottomLimitPoint.rawValue + 0.003) {
+            if (position.target.latitude < GoogleMapManager.coordinate.bottomLimitPoint.rawValue + GoogleMapManager.VerticalBoaderComplementary) {
                  GoogleMapManager.updateCamerapostion(limitSide: .bottomLimitPoint, respondPosition: position, mapView: self.mapView)
                
             }
-            if (position.target.longitude < GoogleMapManager.coordinate.leftLimitPoint.rawValue + 0.002) {
+            if (position.target.longitude < GoogleMapManager.coordinate.leftLimitPoint.rawValue + GoogleMapManager.HorizetalBoaderComplementary) {
                  GoogleMapManager.updateCamerapostion(limitSide: .leftLimitPoint, respondPosition: position, mapView: self.mapView)
              
             }
-            if (position.target.longitude > GoogleMapManager.coordinate.rightLimitPoint.rawValue - 0.002) {
+            if (position.target.longitude > GoogleMapManager.coordinate.rightLimitPoint.rawValue - GoogleMapManager.HorizetalBoaderComplementary) {
                  GoogleMapManager.updateCamerapostion(limitSide: .rightLimitPoint, respondPosition: position, mapView: self.mapView)
             }
         }else{
