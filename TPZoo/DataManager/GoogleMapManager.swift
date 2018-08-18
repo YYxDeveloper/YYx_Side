@@ -16,6 +16,9 @@ class GoogleMapManager {
     static let mapScrollingVerticalComplementary =  0.0035
     static let mapScrollingHorizetalComplementary = 0.0025
     static let bearingAngle = 0.0
+    enum model {
+        case release,debug
+    }
     enum coordinate:Double {
         case bottomLimitPoint   = 24.989729
         case topLimitPoint      = 25.000114
@@ -44,9 +47,9 @@ class GoogleMapManager {
             case lon = 121.543313
         }
     }
-   
+    static let shared = GoogleMapManager()
     static let apiKey = "AIzaSyC7OH2HcJ0Iko-bGY1U9r9y56AN1SC70mU"
-   static let mapView = GoogleMapManager.newZooMapView()
+   static let mapView = GoogleMapManager.shared.newZooMapView()
     /**
      plist need setting Privacy - Location When In Use Usage Description
      */
@@ -61,25 +64,51 @@ class GoogleMapManager {
         
         return locationManager
     }
-    static private func newZooMapView() ->GMSMapView{
-         let centerCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(24.996209, 121.585242), zoom: 17, bearing: GoogleMapManager.bearingAngle, viewingAngle: 0)
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: centerCamera)
-        mapView.setMinZoom(17, maxZoom: 20)
-        mapView.mapStyle = GoogleMapManager.getMapStyle()
-        let polygon = GMSPolygon()
-        polygon.path = GoogleMapManager.drawBlackAreaPath()
-        polygon.holes = [GoogleMapManager.drawAreaPath()]
-        polygon.fillColor = .black
-//        polygon.strokeColor = .blue
-        polygon.strokeWidth = 2
-        polygon.map = mapView
+     private func newZooMapView() ->GMSMapView{
+        func chooseMdel(model:model) ->GMSMapView{
+            switch model {
+            case .release:
+                let centerCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(24.996209, 121.585242), zoom: 17, bearing: GoogleMapManager.bearingAngle, viewingAngle: 0)
+                let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: centerCamera)
+                mapView.setMinZoom(17, maxZoom: 20)
+                mapView.mapStyle = GoogleMapManager.getMapStyle()
+                let polygon = GMSPolygon()
+                polygon.path = GoogleMapManager.drawBlackAreaPath()
+                polygon.holes = [GoogleMapManager.drawAreaPath()]
+                polygon.fillColor = .black
+                //        polygon.strokeColor = .blue
+                polygon.strokeWidth = 2
+                polygon.map = mapView
+                
+                mapView.isMyLocationEnabled = true
+                mapView.settings.myLocationButton = true
+                mapView.settings.myLocationButton = true
+                mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                return mapView
+            case .debug:
+                let centerCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(24.996209, 121.585242), zoom: 15, bearing: GoogleMapManager.bearingAngle, viewingAngle: 0)
+                let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: centerCamera)
+                mapView.setMinZoom(15, maxZoom: 20)
+                mapView.mapStyle = GoogleMapManager.getMapStyle()
+                let polygon = GMSPolygon()
+                polygon.path = GoogleMapManager.drawBlackAreaPath()
+                polygon.holes = [GoogleMapManager.drawAreaPath()]
+                polygon.fillColor = .black
+                //        polygon.strokeColor = .blue
+                polygon.strokeWidth = 2
+                polygon.map = mapView
+                
+                mapView.isMyLocationEnabled = true
+                mapView.settings.myLocationButton = true
+                mapView.settings.myLocationButton = true
+                mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                return mapView
+            }
+            
+        }
         
-        mapView.isMyLocationEnabled = true
-        mapView.settings.myLocationButton = true
-        mapView.settings.myLocationButton = true
-        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
-        return mapView
+        return  chooseMdel(model: .debug)
     }
      func addGMSMarker(cordinate:CLLocationCoordinate2D){
         let marker = GMSMarker()
