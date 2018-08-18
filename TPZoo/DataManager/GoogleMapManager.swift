@@ -15,7 +15,7 @@ import GoogleMaps
 class GoogleMapManager {
     static let mapScrollingVerticalComplementary =  0.0035
     static let mapScrollingHorizetalComplementary = 0.0025
-    static let bearingAngle = 0.0
+   private static let bearingAngle = 0.0
     enum model {
         case release,debug
     }
