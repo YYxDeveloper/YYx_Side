@@ -11,7 +11,11 @@ import GoogleMaps
 
 class GoogleMapViewController: UIViewController {
     var locationManager: CLLocationManager!
-    var mapView: GMSMapView!
+    var mapView = GMSMapView(){
+        didSet{
+            GoogleMapManager.shared.mapView = self.mapView
+        }
+    }
     /**
      first loading delegate will callback twice
      */
@@ -30,7 +34,9 @@ class GoogleMapViewController: UIViewController {
     func loadGoogleMapSettingInViewDidAppear() {
         locationManager = GoogleMapManager.locationManager
         locationManager.delegate = self
+        
         self.mapView = GoogleMapManager.shared.initZooMapView(model: .release)
+        
         self.mapView.frame = container.bounds
         self.mapView.delegate = self
         self.container.addSubview(mapView)

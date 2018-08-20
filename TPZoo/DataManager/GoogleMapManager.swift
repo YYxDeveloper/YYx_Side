@@ -80,74 +80,62 @@ class GoogleMapManager {
                 let centerCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(24.996209, 121.585242), zoom: 17, bearing: GoogleMapManager.bearingAngle, viewingAngle: 0)
                 mapView = GMSMapView.map(withFrame: CGRect.zero, camera: centerCamera)
                 mapView.setMinZoom(17, maxZoom: 20)
-                mapView.mapStyle = GoogleMapManager.getMapStyle()
-                let polygon = GMSPolygon()
-                polygon.path = GoogleMapManager.drawBlackAreaPath()
-                polygon.holes = [GoogleMapManager.drawAreaPath()]
-                polygon.fillColor = .black
-                //        polygon.strokeColor = .blue
-                polygon.strokeWidth = 2
-                polygon.map = mapView
-                
-                mapView.isMyLocationEnabled = true
-                mapView.settings.myLocationButton = true
-                mapView.settings.myLocationButton = true
-                mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                
             case .debug:
                 let centerCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(24.996209, 121.585242), zoom: 15, bearing: GoogleMapManager.bearingAngle, viewingAngle: 0)
                  self.mapView = GMSMapView.map(withFrame: CGRect.zero, camera: centerCamera)
                 mapView.setMinZoom(15, maxZoom: 20)
-                mapView.mapStyle = GoogleMapManager.getMapStyle()
-                let polygon = GMSPolygon()
-                polygon.path = GoogleMapManager.drawBlackAreaPath()
-                polygon.holes = [GoogleMapManager.drawAreaPath()]
-                polygon.fillColor = .black
-                //        polygon.strokeColor = .blue
-                polygon.strokeWidth = 2
-                polygon.map = mapView
-                
-                mapView.isMyLocationEnabled = true
-                mapView.settings.myLocationButton = true
-                mapView.settings.myLocationButton = true
-                mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             }
-            
+        mapView.mapStyle = GoogleMapManager.shared.getMapStyle()
+        let polygon = GMSPolygon()
+        polygon.path = GoogleMapManager.drawBlackAreaPath()
+        polygon.holes = [GoogleMapManager.drawAreaPath()]
+        polygon.fillColor = .black
+        polygon.strokeWidth = 2
+        polygon.map = mapView
+        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
+        mapView.settings.myLocationButton = true
+        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         return self.mapView
     }
-     func addGMSMarker(cordinate:CLLocationCoordinate2D){
+    private func addGMSMarker(cordinate:CLLocationCoordinate2D){
         let marker = GMSMarker()
         marker.position = cordinate
         marker.title = "Sydney"
         marker.snippet = "Australia"
 //        marker.map = self.mapView
     }
-    static func getMapStyle() -> GMSMapStyle {
-        do {
-            
-            guard let filepath = Bundle.main.url(forResource: "GoogleMapStyle", withExtension: "txt") else {
-                print("\(ReturnString.yyxGuardReturn.rawValue)\(String.showFileName(filePath:#file)):\(#line)")
-                return GMSMapStyle()
-            }
-//            guard let url = URL(string: filepath) else {return GMSMapStyle()}
-            return  try GMSMapStyle(contentsOfFileURL: filepath)
-        } catch  {
-            print("\(ReturnString.yyxGuardReturn.rawValue)\(String.showFileName(filePath:#file)):\(#line)")
-            return GMSMapStyle()
-        }
-        
-        
-    }
+    
     static func checkFirstLoading(with mapView:GMSMapView,position: GMSCameraPosition) -> Bool {
         if GoogleMapManager.isFirstLoading {
-            GoogleMapManager.editeMapBoardLine(with: mapView, position: position)
+            GoogleMapManager.shared.editeMapBoardLine(with: mapView, position: position)
         }else if position.target.latitude == GoogleMapManager.center.lat.rawValue && position.target.longitude == GoogleMapManager.center.lon.rawValue {
             GoogleMapManager.isFirstLoading  = false
         }
         return !GoogleMapManager.isFirstLoading
     }
-    static func updateCamerapostion(limitSide:GoogleMapManager.coordinate, respondPosition:GMSCameraPosition,mapView:GMSMapView){
+   
+    
+//MARK: Private func
+    private func editeMapBoardLine(with mapView:GMSMapView ,position: GMSCameraPosition) {
+        if (position.target.latitude > GoogleMapManager.coordinate.topLimitPoint.rawValue - GoogleMapManager.VerticalBoaderComplementary) {
+            GoogleMapManager.shared.updateCamerapostion(limitSide: .topLimitPoint, respondPosition: position, mapView: mapView)
+        }
+        if (position.target.latitude < GoogleMapManager.coordinate.bottomLimitPoint.rawValue + GoogleMapManager.VerticalBoaderComplementary) {
+            GoogleMapManager.shared.updateCamerapostion(limitSide: .bottomLimitPoint, respondPosition: position, mapView: mapView)
+            
+        }
+        if (position.target.longitude < GoogleMapManager.coordinate.leftLimitPoint.rawValue + GoogleMapManager.HorizetalBoaderComplementary) {
+            GoogleMapManager.shared.updateCamerapostion(limitSide: .leftLimitPoint, respondPosition: position, mapView: mapView)
+            
+        }
+        if (position.target.longitude > GoogleMapManager.coordinate.rightLimitPoint.rawValue - GoogleMapManager.HorizetalBoaderComplementary) {
+            GoogleMapManager.shared.updateCamerapostion(limitSide: .rightLimitPoint, respondPosition: position, mapView: mapView)
+        }
+        
+    }
+    private func updateCamerapostion(limitSide:GoogleMapManager.coordinate, respondPosition:GMSCameraPosition,mapView:GMSMapView){
         var goBackCamera = GMSCameraPosition()
         switch limitSide {
         case .topLimitPoint:
@@ -167,26 +155,8 @@ class GoogleMapManager {
             mapView.camera = goBackCamera
             mapView.animate(to: goBackCamera)
         }
-       
-    }
-    static func editeMapBoardLine(with mapView:GMSMapView ,position: GMSCameraPosition) {
-        if (position.target.latitude > GoogleMapManager.coordinate.topLimitPoint.rawValue - GoogleMapManager.VerticalBoaderComplementary) {
-            GoogleMapManager.updateCamerapostion(limitSide: .topLimitPoint, respondPosition: position, mapView: mapView)
-        }
-        if (position.target.latitude < GoogleMapManager.coordinate.bottomLimitPoint.rawValue + GoogleMapManager.VerticalBoaderComplementary) {
-            GoogleMapManager.updateCamerapostion(limitSide: .bottomLimitPoint, respondPosition: position, mapView: mapView)
-            
-        }
-        if (position.target.longitude < GoogleMapManager.coordinate.leftLimitPoint.rawValue + GoogleMapManager.HorizetalBoaderComplementary) {
-            GoogleMapManager.updateCamerapostion(limitSide: .leftLimitPoint, respondPosition: position, mapView: mapView)
-            
-        }
-        if (position.target.longitude > GoogleMapManager.coordinate.rightLimitPoint.rawValue - GoogleMapManager.HorizetalBoaderComplementary) {
-            GoogleMapManager.updateCamerapostion(limitSide: .rightLimitPoint, respondPosition: position, mapView: mapView)
-        }
         
     }
-//MARK: Private func
      private static func drawAreaPath() -> GMSMutablePath{
         let rightTop = CLLocationCoordinate2DMake(coordinate.topLimitPoint.rawValue, coordinate.rightLimitPoint.rawValue)
         let rightBootom = CLLocationCoordinate2DMake(coordinate.bottomLimitPoint.rawValue, coordinate.rightLimitPoint.rawValue)//24.988729 上下
@@ -215,6 +185,20 @@ class GoogleMapManager {
         areaPath.add(blackTopRight)
         return areaPath
     }
-    
+    private func getMapStyle() -> GMSMapStyle {
+        do {
+            
+            guard let filepath = Bundle.main.url(forResource: "GoogleMapStyle", withExtension: "txt") else {
+                print("\(ReturnString.yyxGuardReturn.rawValue)\(String.showFileName(filePath:#file)):\(#line)")
+                return GMSMapStyle()
+            }
+            return  try GMSMapStyle(contentsOfFileURL: filepath)
+        } catch  {
+            print("\(ReturnString.yyxGuardReturn.rawValue)\(String.showFileName(filePath:#file)):\(#line)")
+            return GMSMapStyle()
+        }
+        
+        
+    }
     
 }
