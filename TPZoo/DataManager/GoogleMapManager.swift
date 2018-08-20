@@ -58,7 +58,7 @@ class GoogleMapManager {
     }
     static let shared = GoogleMapManager()
     static let apiKey = "AIzaSyC7OH2HcJ0Iko-bGY1U9r9y56AN1SC70mU"
-   static let mapView = GoogleMapManager.shared.newZooMapView()
+    var mapView = GMSMapView()
     /**
      plist need setting Privacy - Location When In Use Usage Description
      */
@@ -73,12 +73,12 @@ class GoogleMapManager {
         
         return locationManager
     }
-     private func newZooMapView() ->GMSMapView{
-        func chooseMdel(model:model) ->GMSMapView{
+    func initZooMapView(model:model) -> GMSMapView{
+       
             switch model {
             case .release:
                 let centerCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(24.996209, 121.585242), zoom: 17, bearing: GoogleMapManager.bearingAngle, viewingAngle: 0)
-                let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: centerCamera)
+                mapView = GMSMapView.map(withFrame: CGRect.zero, camera: centerCamera)
                 mapView.setMinZoom(17, maxZoom: 20)
                 mapView.mapStyle = GoogleMapManager.getMapStyle()
                 let polygon = GMSPolygon()
@@ -93,10 +93,10 @@ class GoogleMapManager {
                 mapView.settings.myLocationButton = true
                 mapView.settings.myLocationButton = true
                 mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                return mapView
+                
             case .debug:
                 let centerCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(24.996209, 121.585242), zoom: 15, bearing: GoogleMapManager.bearingAngle, viewingAngle: 0)
-                let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: centerCamera)
+                 self.mapView = GMSMapView.map(withFrame: CGRect.zero, camera: centerCamera)
                 mapView.setMinZoom(15, maxZoom: 20)
                 mapView.mapStyle = GoogleMapManager.getMapStyle()
                 let polygon = GMSPolygon()
@@ -111,13 +111,10 @@ class GoogleMapManager {
                 mapView.settings.myLocationButton = true
                 mapView.settings.myLocationButton = true
                 mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                return mapView
             }
             
-        }
         
-        
-        return  chooseMdel(model: .release)
+        return self.mapView
     }
      func addGMSMarker(cordinate:CLLocationCoordinate2D){
         let marker = GMSMarker()

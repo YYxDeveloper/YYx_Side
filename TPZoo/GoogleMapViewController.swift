@@ -18,6 +18,7 @@ class GoogleMapViewController: UIViewController {
    
     
     
+    //update anytime
     @IBOutlet weak var container: UIView!
     override func viewDidLoad() {
         self.loadGoogleMapSettingInViewDidAppear()
@@ -29,7 +30,7 @@ class GoogleMapViewController: UIViewController {
     func loadGoogleMapSettingInViewDidAppear() {
         locationManager = GoogleMapManager.locationManager
         locationManager.delegate = self
-        self.mapView = GoogleMapManager.mapView
+        self.mapView = GoogleMapManager.shared.initZooMapView(model: .release)
         self.mapView.frame = container.bounds
         self.mapView.delegate = self
         self.container.addSubview(mapView)
