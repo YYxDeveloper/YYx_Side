@@ -13,14 +13,17 @@ import GoogleMaps
  must init in viewDidAppear
  */
 class GoogleMapManager {
+    private let releaseZoomLevel:Float = 16.0
+    private let debugZoomLevel:Float = 15.0
+    private let bearingAngle:Double = 120.0
+    static var isFirstLoading = true
+
     static let VerticalGetBackComplementary =  0.0035
     static let HorizetalGetBackComplementary = 0.0025
     static let VerticalBoaderComplementary =  0.003
     static let HorizetalBoaderComplementary =  0.002
 
-    static var isFirstLoading = true
 
-   private static let bearingAngle = 0.0
     enum model {
         case release,debug
     }
@@ -77,13 +80,13 @@ class GoogleMapManager {
        
             switch model {
             case .release:
-                let centerCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(24.996209, 121.585242), zoom: 17, bearing: GoogleMapManager.bearingAngle, viewingAngle: 0)
+                let centerCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(24.996209, 121.585242), zoom: self.releaseZoomLevel, bearing: self.bearingAngle, viewingAngle: 0)
                 mapView = GMSMapView.map(withFrame: CGRect.zero, camera: centerCamera)
                 mapView.setMinZoom(17, maxZoom: 20)
             case .debug:
-                let centerCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(24.996209, 121.585242), zoom: 15, bearing: GoogleMapManager.bearingAngle, viewingAngle: 0)
+                let centerCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(24.996209, 121.585242), zoom: self.debugZoomLevel, bearing: 0, viewingAngle: 0)
                  self.mapView = GMSMapView.map(withFrame: CGRect.zero, camera: centerCamera)
-                mapView.setMinZoom(15, maxZoom: 20)
+                mapView.setMinZoom(self.debugZoomLevel, maxZoom: 20)
             }
         mapView.mapStyle = GoogleMapManager.shared.getMapStyle()
         let polygon = GMSPolygon()
@@ -94,7 +97,7 @@ class GoogleMapManager {
         polygon.map = mapView
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
-        mapView.settings.myLocationButton = true
+        mapView.settings.rotateGestures = false
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         return self.mapView
@@ -104,7 +107,11 @@ class GoogleMapManager {
         marker.position = cordinate
         marker.title = "Sydney"
         marker.snippet = "Australia"
-//        marker.map = self.mapView
+        marker.map = self.mapView
+        UIView.animate(withDuration: 10, animations: {
+            
+            
+        })
     }
     
     static func checkFirstLoading(with mapView:GMSMapView,position: GMSCameraPosition) -> Bool {
@@ -117,8 +124,11 @@ class GoogleMapManager {
     }
 //MARK: Edite Position
      func changeMarkertype(with zoomLevel:Float)-> GMSMapView{
+        self.mapView.clear()
         switch zoomLevel {
         case 17.0:
+            GoogleMapManager.shared.addGMSMarker(cordinate: CLLocationCoordinate2DMake(GoogleMapManager.center.lat.rawValue, GoogleMapManager.center.lon.rawValue))
+            
             print("xxxxx")
         default:
             print("gggg")
@@ -149,19 +159,19 @@ class GoogleMapManager {
         var goBackCamera = GMSCameraPosition()
         switch limitSide {
         case .topLimitPoint:
-            goBackCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(limitSide.rawValue -  GoogleMapManager.VerticalGetBackComplementary, respondPosition.target.longitude), zoom: respondPosition.zoom, bearing: GoogleMapManager.bearingAngle, viewingAngle:0)
+            goBackCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(limitSide.rawValue -  GoogleMapManager.VerticalGetBackComplementary, respondPosition.target.longitude), zoom: respondPosition.zoom, bearing: self.bearingAngle, viewingAngle:0)
             mapView.camera = goBackCamera
             mapView.animate(to: goBackCamera)
         case .bottomLimitPoint:
-            goBackCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(limitSide.rawValue +  GoogleMapManager.VerticalGetBackComplementary, respondPosition.target.longitude), zoom: respondPosition.zoom, bearing: GoogleMapManager.bearingAngle, viewingAngle: 0)
+            goBackCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(limitSide.rawValue +  GoogleMapManager.VerticalGetBackComplementary, respondPosition.target.longitude), zoom: respondPosition.zoom, bearing: self.bearingAngle, viewingAngle: 0)
             mapView.camera = goBackCamera
             mapView.animate(to: goBackCamera)
         case .leftLimitPoint:
-            goBackCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(respondPosition.target.latitude,limitSide.rawValue +  GoogleMapManager.HorizetalGetBackComplementary), zoom: respondPosition.zoom, bearing: GoogleMapManager.bearingAngle, viewingAngle: 0)
+            goBackCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(respondPosition.target.latitude,limitSide.rawValue +  GoogleMapManager.HorizetalGetBackComplementary), zoom: respondPosition.zoom, bearing: self.bearingAngle, viewingAngle: 0)
             mapView.camera = goBackCamera
             mapView.animate(to: goBackCamera)
         case .rightLimitPoint:
-            goBackCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(respondPosition.target.latitude,limitSide.rawValue -  GoogleMapManager.HorizetalGetBackComplementary), zoom: respondPosition.zoom, bearing: GoogleMapManager.bearingAngle, viewingAngle: 0)
+            goBackCamera  = GMSCameraPosition.init(target: CLLocationCoordinate2DMake(respondPosition.target.latitude,limitSide.rawValue -  GoogleMapManager.HorizetalGetBackComplementary), zoom: respondPosition.zoom, bearing: self.bearingAngle, viewingAngle: 0)
             mapView.camera = goBackCamera
             mapView.animate(to: goBackCamera)
         }
