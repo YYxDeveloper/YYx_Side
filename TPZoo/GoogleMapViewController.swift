@@ -72,8 +72,8 @@ extension GoogleMapViewController:CLLocationManagerDelegate{
 extension GoogleMapViewController: GMSMapViewDelegate{
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
         guard GoogleMapManager.checkFirstLoading(with: mapView, position: position) else {return}
-        
+        self.mapView = GoogleMapManager.shared.changeMarkertype(with: position.zoom)
     }
-   
+    
 }
 

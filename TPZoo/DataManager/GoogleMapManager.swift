@@ -113,9 +113,19 @@ class GoogleMapManager {
         }else if position.target.latitude == GoogleMapManager.center.lat.rawValue && position.target.longitude == GoogleMapManager.center.lon.rawValue {
             GoogleMapManager.isFirstLoading  = false
         }
-        return !GoogleMapManager.isFirstLoading
+        return GoogleMapManager.isFirstLoading
     }
-   
+//MARK: Edite Position
+     func changeMarkertype(with zoomLevel:Float)-> GMSMapView{
+        switch zoomLevel {
+        case 17.0:
+            print("xxxxx")
+        default:
+            print("gggg")
+        }
+        
+        return self.mapView
+    }
     
 //MARK: Private func
     private func editeMapBoardLine(with mapView:GMSMapView ,position: GMSCameraPosition) {
