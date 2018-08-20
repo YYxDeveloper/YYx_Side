@@ -142,6 +142,14 @@ class GoogleMapManager {
         
         
     }
+    static func checkFirstLoading(with mapView:GMSMapView,position: GMSCameraPosition) -> Bool {
+        if GoogleMapManager.isFirstLoading {
+            GoogleMapManager.editeMapBoardLine(with: mapView, position: position)
+        }else if position.target.latitude == GoogleMapManager.center.lat.rawValue && position.target.longitude == GoogleMapManager.center.lon.rawValue {
+            GoogleMapManager.isFirstLoading  = false
+        }
+        return !GoogleMapManager.isFirstLoading
+    }
     static func updateCamerapostion(limitSide:GoogleMapManager.coordinate, respondPosition:GMSCameraPosition,mapView:GMSMapView){
         var goBackCamera = GMSCameraPosition()
         switch limitSide {

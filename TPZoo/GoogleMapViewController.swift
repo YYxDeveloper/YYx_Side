@@ -15,7 +15,6 @@ class GoogleMapViewController: UIViewController {
     /**
      first loading delegate will callback twice
      */
-    var isFirstLoading = true
    
     
     
@@ -65,12 +64,9 @@ extension GoogleMapViewController:CLLocationManagerDelegate{
 //MARK: GMSMapViewDelegate
 extension GoogleMapViewController: GMSMapViewDelegate{
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-        if GoogleMapManager.isFirstLoading {
-            GoogleMapManager.editeMapBoardLine(with: mapView, position: position)
-        }else if position.target.latitude == GoogleMapManager.center.lat.rawValue && position.target.longitude == GoogleMapManager.center.lon.rawValue {
-                GoogleMapManager.isFirstLoading  = false
-        }
+        guard GoogleMapManager.checkFirstLoading(with: mapView, position: position) else {return}
+        
     }
-
+   
 }
 
