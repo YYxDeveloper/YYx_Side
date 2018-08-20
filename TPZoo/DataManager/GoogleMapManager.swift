@@ -18,10 +18,15 @@ class GoogleMapManager {
     static let VerticalBoaderComplementary =  0.003
     static let HorizetalBoaderComplementary =  0.002
 
+    static var isFirstLoading = true
 
    private static let bearingAngle = 0.0
     enum model {
         case release,debug
+    }
+    enum center:Double {
+        case lat = 24.99620900530806
+        case lon = 121.58524207770824
     }
     enum coordinate:Double {
         case bottomLimitPoint   = 24.989200
@@ -158,6 +163,23 @@ class GoogleMapManager {
             mapView.animate(to: goBackCamera)
         }
        
+    }
+    static func editeMapBoardLine(with mapView:GMSMapView ,position: GMSCameraPosition) {
+        if (position.target.latitude > GoogleMapManager.coordinate.topLimitPoint.rawValue - GoogleMapManager.VerticalBoaderComplementary) {
+            GoogleMapManager.updateCamerapostion(limitSide: .topLimitPoint, respondPosition: position, mapView: mapView)
+        }
+        if (position.target.latitude < GoogleMapManager.coordinate.bottomLimitPoint.rawValue + GoogleMapManager.VerticalBoaderComplementary) {
+            GoogleMapManager.updateCamerapostion(limitSide: .bottomLimitPoint, respondPosition: position, mapView: mapView)
+            
+        }
+        if (position.target.longitude < GoogleMapManager.coordinate.leftLimitPoint.rawValue + GoogleMapManager.HorizetalBoaderComplementary) {
+            GoogleMapManager.updateCamerapostion(limitSide: .leftLimitPoint, respondPosition: position, mapView: mapView)
+            
+        }
+        if (position.target.longitude > GoogleMapManager.coordinate.rightLimitPoint.rawValue - GoogleMapManager.HorizetalBoaderComplementary) {
+            GoogleMapManager.updateCamerapostion(limitSide: .rightLimitPoint, respondPosition: position, mapView: mapView)
+        }
+        
     }
 //MARK: Private func
      private static func drawAreaPath() -> GMSMutablePath{

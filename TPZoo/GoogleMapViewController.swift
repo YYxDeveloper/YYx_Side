@@ -15,7 +15,7 @@ class GoogleMapViewController: UIViewController {
     /**
      first loading delegate will callback twice
      */
-    var firstLoadingLimitIgnore = false
+    var isFirstLoading = true
    
     
     
@@ -65,27 +65,12 @@ extension GoogleMapViewController:CLLocationManagerDelegate{
 //MARK: GMSMapViewDelegate
 extension GoogleMapViewController: GMSMapViewDelegate{
     func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
-        if self.firstLoadingLimitIgnore {
-            if (position.target.latitude > GoogleMapManager.coordinate.topLimitPoint.rawValue - GoogleMapManager.VerticalBoaderComplementary) {
-                 GoogleMapManager.updateCamerapostion(limitSide: .topLimitPoint, respondPosition: position, mapView: self.mapView)
-            }
-            if (position.target.latitude < GoogleMapManager.coordinate.bottomLimitPoint.rawValue + GoogleMapManager.VerticalBoaderComplementary) {
-                 GoogleMapManager.updateCamerapostion(limitSide: .bottomLimitPoint, respondPosition: position, mapView: self.mapView)
-               
-            }
-            if (position.target.longitude < GoogleMapManager.coordinate.leftLimitPoint.rawValue + GoogleMapManager.HorizetalBoaderComplementary) {
-                 GoogleMapManager.updateCamerapostion(limitSide: .leftLimitPoint, respondPosition: position, mapView: self.mapView)
-             
-            }
-            if (position.target.longitude > GoogleMapManager.coordinate.rightLimitPoint.rawValue - GoogleMapManager.HorizetalBoaderComplementary) {
-                 GoogleMapManager.updateCamerapostion(limitSide: .rightLimitPoint, respondPosition: position, mapView: self.mapView)
-            }
-        }else{
-            if position.target.latitude == 24.99620900530806 && position.target.longitude == 121.58524207770824 {
-                self.firstLoadingLimitIgnore = true
-            }
+        if GoogleMapManager.isFirstLoading {
+            GoogleMapManager.editeMapBoardLine(with: mapView, position: position)
+        }else if position.target.latitude == GoogleMapManager.center.lat.rawValue && position.target.longitude == GoogleMapManager.center.lon.rawValue {
+                GoogleMapManager.isFirstLoading  = false
         }
     }
-    
+
 }
 
