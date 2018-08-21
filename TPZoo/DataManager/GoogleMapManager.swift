@@ -16,7 +16,7 @@ class GoogleMapManager {
     private let releaseZoomLevel:Float = 16.0
     private let debugZoomLevel:Float = 15.0
     private let bearingAngle:Double = 120.0
-    static var isFirstLoading = true
+    private var isFirstLoading = true
 
     static let verticalGetBackComplementary =  0.0035
     static let horizetalGetBackComplementary = 0.0025
@@ -107,13 +107,13 @@ class GoogleMapManager {
     }
     
     
-    static func checkFirstLoading(with mapView:GMSMapView,position: GMSCameraPosition) -> Bool {
-        if GoogleMapManager.isFirstLoading {
+     func checkFirstLoading(position: GMSCameraPosition) -> Bool {
+        if GoogleMapManager.shared.isFirstLoading {
             GoogleMapManager.shared.editeMapBoardLine(with: mapView, position: position)
         }else if position.target.latitude == GoogleMapManager.center.lat.rawValue && position.target.longitude == GoogleMapManager.center.lon.rawValue {
-            GoogleMapManager.isFirstLoading  = false
+            GoogleMapManager.shared.isFirstLoading  = false
         }
-        return GoogleMapManager.isFirstLoading
+        return GoogleMapManager.shared.isFirstLoading
     }
 //MARK: Edite Marker Position
      func changeMarkertype(with zoomLevel:Float)-> GMSMapView{
