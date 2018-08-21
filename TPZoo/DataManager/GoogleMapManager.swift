@@ -111,7 +111,7 @@ class GoogleMapManager {
         case .level17:
             break
         case .level20:
-            breakz
+            break
         }
         let marker = GMSMarker()
         marker.position = cordinate
