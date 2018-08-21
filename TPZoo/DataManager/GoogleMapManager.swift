@@ -27,6 +27,9 @@ class GoogleMapManager {
     enum model {
         case release,debug
     }
+    enum zoomlevel{
+        case level17,level20
+    }
     enum center:Double {
         case lat = 24.99620900530806
         case lon = 121.58524207770824
@@ -102,7 +105,14 @@ class GoogleMapManager {
         
         return self.mapView
     }
-    private func addGMSMarker(cordinate:CLLocationCoordinate2D){
+    private func addGMSMarker(cordinate:CLLocationCoordinate2D, zoomLevel:zoomlevel){
+        
+        switch zoomLevel {
+        case .level17:
+            break
+        case .level20:
+            breakz
+        }
         let marker = GMSMarker()
         marker.position = cordinate
         marker.title = "Sydney"
@@ -122,12 +132,12 @@ class GoogleMapManager {
         }
         return GoogleMapManager.isFirstLoading
     }
-//MARK: Edite Position
+//MARK: Edite Marker Position
      func changeMarkertype(with zoomLevel:Float)-> GMSMapView{
         self.mapView.clear()
         switch zoomLevel {
         case 17.0:
-            GoogleMapManager.shared.addGMSMarker(cordinate: CLLocationCoordinate2DMake(GoogleMapManager.center.lat.rawValue, GoogleMapManager.center.lon.rawValue))
+            GoogleMapManager.shared.addGMSMarker(cordinate: CLLocationCoordinate2DMake(GoogleMapManager.center.lat.rawValue, GoogleMapManager.center.lon.rawValue), zoomLevel: .level17)
             
             print("xxxxx")
         default:
