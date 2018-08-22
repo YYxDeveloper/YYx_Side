@@ -225,11 +225,116 @@ class GoogleMapManager {
         marker.position = cordinate
         marker.title = "Sydney"
         marker.snippet = "Australia"
+        marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: "澳洲動物區", complementary: 50)
         marker.map = self.mapView
-        UIView.animate(withDuration: 10, animations: {
-            
-            
-        })
+        
+       
     }
-    
+    func editeIconView(containerSize:CGSize,labelText:String, complementary:CGFloat)->UIView{
+        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: containerSize.width, height:containerSize.height ))
+        //
+        let iconImageView = UIImageView()
+        
+        //
+        let label = UILabel()
+        
+        func editeLabel(textSize:CGFloat) {
+            label.backgroundColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
+            label.textColor = .white
+            label.text = labelText
+            label.font.withSize(12)
+            label.textAlignment = .center
+            label.layer.cornerRadius = 10
+            label.clipsToBounds = true
+            containerView.addSubview(label)
+            label.translatesAutoresizingMaskIntoConstraints = false
+            let top = NSLayoutConstraint(item: label,
+                                         attribute: .top,
+                                         relatedBy: .equal,
+                                         toItem: iconImageView,
+                                         attribute: .bottom,
+                                         multiplier: 1.0,
+                                         constant: 0.0)
+            
+            let centerVertically = NSLayoutConstraint(item: label,
+                                                      attribute: .centerX,
+                                                      relatedBy: .equal,
+                                                      toItem: iconImageView,
+                                                      attribute: .centerX,
+                                                      multiplier: 1.0,
+                                                      constant: 0.0)
+            let left = NSLayoutConstraint(item: label,
+                                                      attribute: .left,
+                                                      relatedBy: .equal,
+                                                      toItem: containerView,
+                                                      attribute: .left,
+                                                      multiplier: 1.0,
+                                                      constant: 5.0)
+            let right = NSLayoutConstraint(item: label,
+                                          attribute: .right,
+                                          relatedBy: .equal,
+                                          toItem: containerView,
+                                          attribute: .right,
+                                          multiplier: 1.0,
+                                          constant: -5.0)
+            NSLayoutConstraint(item: label,
+                               attribute: .height,
+                               relatedBy: .equal,
+                               toItem: nil,
+                               attribute: .notAnAttribute,
+                               multiplier: 1.0,
+                               constant: textSize).isActive = true
+            
+            NSLayoutConstraint.activate([top,left,right,centerVertically])
+            
+            
+            
+        }
+        //
+        func editeIconImage(complementary:CGFloat){
+            iconImageView.image = UIImage(named: "Zoom17Map")
+            containerView.addSubview(iconImageView)
+            iconImageView.translatesAutoresizingMaskIntoConstraints = false
+            
+            let top = NSLayoutConstraint(item: iconImageView,
+                                         attribute: .top,
+                                         relatedBy: .equal,
+                                         toItem: containerView,
+                                         attribute: .top,
+                                         multiplier: 1.0,
+                                         constant: 0.0)
+            
+            let centerVertically = NSLayoutConstraint(item: iconImageView,
+                                                      attribute: .centerX,
+                                                      relatedBy: .equal,
+                                                      toItem: containerView,
+                                                      attribute: .centerX,
+                                                      multiplier: 1.0,
+                                                      constant: 0.0)
+            
+            NSLayoutConstraint.activate([top, centerVertically])
+            
+            
+            NSLayoutConstraint(item: iconImageView,
+                               attribute: .width,
+                               relatedBy: .equal,
+                               toItem: nil,
+                               attribute: .notAnAttribute,
+                               multiplier: 1.0,
+                               constant: containerSize.width - complementary).isActive = true
+            
+            NSLayoutConstraint(item: iconImageView,
+                               attribute: .height,
+                               relatedBy: .equal,
+                               toItem: nil,
+                               attribute: .notAnAttribute,
+                               multiplier: 1.0,
+                               constant: containerSize.height - complementary).isActive = true
+        }
+        
+        
+        editeIconImage(complementary: complementary)
+        editeLabel(textSize: 30)
+        return containerView
+    }
 }
