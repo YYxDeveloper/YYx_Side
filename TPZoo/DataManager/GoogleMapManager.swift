@@ -248,7 +248,7 @@ class GoogleMapManager {
         _ = areaDatas.map({
             let marker = GMSMarker()
             marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
-            marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, complementary: 50)
+            marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, imageType: .areaType, complementary: 50)
             marker.map = self.mapView
             self.areaMarkers.append(marker)
         })
@@ -259,7 +259,7 @@ class GoogleMapManager {
         _ = areaDatas.map({
             let marker = GMSMarker()
             marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
-            marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, complementary: 50)
+            marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, imageType: .buildType, complementary: 50)
             marker.map = self.mapView
             self.buikdingMarkers.append(marker)
         })
@@ -280,7 +280,7 @@ class GoogleMapManager {
         
     }
 
-    func editeIconView(containerSize:CGSize,labelText:String, complementary:CGFloat)->UIView{
+    func editeIconView(containerSize:CGSize,labelText:String,imageType:locationName, complementary:CGFloat)->UIView{
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: containerSize.width, height:containerSize.height ))
         //
         let iconImageView = UIImageView()
@@ -341,8 +341,13 @@ class GoogleMapManager {
             
         }
         //
-        func editeIconImage(complementary:CGFloat){
-            iconImageView.image = UIImage(named: "Zoom17Map")
+        func editeIconImage(complementary:CGFloat, imagetype:locationName){
+            switch imageType {
+            case .areaType:
+                iconImageView.image = UIImage(named: "Zoom17Map")
+            case .buildType:
+                iconImageView.image = UIImage(named: "Zoom17Building")
+            }
             containerView.addSubview(iconImageView)
             iconImageView.translatesAutoresizingMaskIntoConstraints = false
             
@@ -383,7 +388,7 @@ class GoogleMapManager {
         }
         
         
-        editeIconImage(complementary: complementary)
+        editeIconImage(complementary: complementary, imagetype: imageType)
         editeLabel(textSize: 30)
         return containerView
     }
