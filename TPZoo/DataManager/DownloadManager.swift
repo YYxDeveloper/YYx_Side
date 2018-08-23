@@ -26,7 +26,7 @@ class DownloadManager {
      */
     func downloadAnimalsImages(){
       
-        let arr  = DataManager.shared.animalsImages
+        let arr  = AnimalDataManager.shared.animalsImages
         for data in arr{
             if let url1 = data.url1,let alt1 = data.alt1 {
                 DownloadManager.shared.setupDownloadRequest(URLString: url1, fileName: "\(alt1)Alt2", singleDownload: false)

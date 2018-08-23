@@ -17,6 +17,12 @@ class GoogleMapManager {
     private let debugZoomLevel:Float = 15.0
     private let bearingAngle:Double = 120.0
     private var isFirstLoading = true
+    /**
+     check the data is first loading
+     - area marker
+     - building marker
+     */
+    private var hasMarkerCreated:checkLoading = (false,false)
 
     static let verticalGetBackComplementary =  0.0035
     static let horizetalGetBackComplementary = 0.0025
@@ -65,6 +71,9 @@ class GoogleMapManager {
     static let shared = GoogleMapManager()
     static let apiKey = "AIzaSyC7OH2HcJ0Iko-bGY1U9r9y56AN1SC70mU"
     var mapView = GMSMapView()
+    var areaMarkers = [GMSMarker]()
+    var buikdingMarkers = [GMSMarker]()
+
     /**
      plist need setting Privacy - Location When In Use Usage Description
      */
@@ -122,7 +131,7 @@ class GoogleMapManager {
         case 17.0:
             GoogleMapManager.shared.addGMSMarker(cordinate: CLLocationCoordinate2DMake(GoogleMapManager.center.lat.rawValue, GoogleMapManager.center.lon.rawValue), zoomLevel: .level17)
             
-            print("xxxxx")
+           
         default:
             print("gggg")
         }
@@ -217,19 +226,60 @@ class GoogleMapManager {
         
         switch zoomLevel {
         case .level17:
-            break
+            showAreaAndBuildingMarkers()
         case .level20:
             break
         }
-        let marker = GMSMarker()
-        marker.position = cordinate
-        marker.title = "Sydney"
-        marker.snippet = "Australia"
-        marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: "澳洲動物區", complementary: 50)
-        marker.map = self.mapView
+//        let marker = GMSMarker()
+//        marker.position = cordinate
+//        marker.title = "Sydney"
+//        marker.snippet = "Australia"
+//        marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: "澳洲動物區", complementary: 50)
+//        marker.map = self.mapView
+      
+        
         
        
     }
+//MARK:  - Init self.areaMarkers&self.buikdingMarkers
+   private func showAreaAndBuildingMarkers() {
+    func createAreaMarker(){
+        let areaDatas = AnimalDataManager.shared.areaNameXCoordinate
+        _ = areaDatas.map({
+            let marker = GMSMarker()
+            marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
+            marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, complementary: 50)
+            marker.map = self.mapView
+            self.areaMarkers.append(marker)
+        })
+        self.hasMarkerCreated.area = true
+    }
+    func createBuildingMarkers(){
+        let areaDatas = AnimalDataManager.shared.buildingNameXCoordinate
+        _ = areaDatas.map({
+            let marker = GMSMarker()
+            marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
+            marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, complementary: 50)
+            marker.map = self.mapView
+            self.buikdingMarkers.append(marker)
+        })
+        self.hasMarkerCreated.building = true
+    }
+    guard self.hasMarkerCreated.area && self.hasMarkerCreated.building else {
+        createAreaMarker()
+        createBuildingMarkers()
+        return
+    }
+//    print("xxx\(self.areaMarkers)")
+    _ = self.areaMarkers.map({
+      $0.map = self.mapView
+    })
+    _ = self.buikdingMarkers.map({
+        $0.map = self.mapView
+    })
+        
+    }
+
     func editeIconView(containerSize:CGSize,labelText:String, complementary:CGFloat)->UIView{
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: containerSize.width, height:containerSize.height ))
         //

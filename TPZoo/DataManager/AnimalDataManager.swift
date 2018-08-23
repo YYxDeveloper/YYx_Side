@@ -10,27 +10,19 @@ import Foundation
 import CoreData
 import UIKit
 import SDWebImage
-class DataManager {
+class AnimalDataManager {
 //MARK: Enum
-  
-    let areaNameXCoordinate:[(String,Double,Double)]=[("臺灣動物區",24.998100, 121.580641),("溫帶動物區",24.993025, 121.590260),("兒童動物區",24.999100, 121.582282),("熱帶雨林區",24.994840, 121.583248),("澳洲動物區",24.994699, 121.585761),("沙漠動物區",24.994988, 121.58543),("非洲動物區",24.994482, 121.588234),("鳥園區",24.9957179,121.5888946)]
-    let buildingNameXCoordinate:[(String,Double,Double)]  = [("大貓熊館",24.997391, 121.583110),("兩棲爬蟲館",24.994655, 121.589924),("昆蟲館",24.996735, 121.580545),("企鵝館",24.993035, 121.590771),("無尾熊館",24.9983738 ,121.5823688)]
+    
+    let areaNameXCoordinate:[NameXCoordinate]=[("臺灣動物區",24.998100, 121.580641),("溫帶動物區",24.993025, 121.590260),("兒童動物區",24.999100, 121.582282),("熱帶雨林區",24.994840, 121.583248),("澳洲動物區",24.994699, 121.585761),("沙漠動物區",24.994988, 121.58543),("非洲動物區",24.994482, 121.588234),("鳥園區",24.9957179,121.5888946)]
+    let buildingNameXCoordinate:[NameXCoordinate] = [("大貓熊館",24.997391, 121.583110),("兩棲爬蟲館",24.994655, 121.589924),("昆蟲館",24.996735, 121.580545),("企鵝館",24.993035, 121.590771),("無尾熊館",24.9983738 ,121.5823688)]
     
     
-    enum locationName{
-        enum area:String{
-            case 臺灣動物區,溫帶動物區,兒童動物區,熱帶雨林區,澳洲動物區,沙漠動物區,非洲動物區,鳥園區
-        }
-      
-        enum building:String {
-            case 昆蟲館,企鵝館,兩棲爬蟲館,無尾熊館,大貓熊館
-        }
-    }
+   
     enum CoreDataType:String {
         case AnimalSummary,AnimalCoordinate,AnimalImages
     }
 //MARK: Property
-    static let shared =  DataManager()
+    static let shared =  AnimalDataManager()
     var animalsSummaryData:[AnimalSummary]{
         get{
             if self.hasCoreDataSaved(type: .AnimalSummary) {
