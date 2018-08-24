@@ -62,6 +62,7 @@ class GoogleMapManager {
     static let shared = GoogleMapManager()
     static let apiKey = "AIzaSyC7OH2HcJ0Iko-bGY1U9r9y56AN1SC70mU"
     var mapView = GMSMapView()
+    var areaMarkers = [GMSMarker]()
     var buikdingMarkers = [GMSMarker]()
 
     /**
@@ -234,15 +235,15 @@ class GoogleMapManager {
 //MARK:  - Init self.areaMarkers&self.buikdingMarkers
    private func showAreaAndBuildingMarkers() {
     func createAreaMarker(){
-//        let areaDatas = AnimalDataManager.shared.areaNameXCoordinate
-//        _ = areaDatas.map({
-//            let marker = GMSMarker()
-//            marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
-//            marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, imageType: .areaType, complementary: 50)
-//            marker.map = self.mapView
-//            self.areaMarkers.append(marker)
-//        })
-//        self.hasMarkerCreated.area = true
+        let areaDatas = AnimalDataManager.shared.areaNameXCoordinate
+        _ = areaDatas.map({
+            let marker = GMSMarker()
+            marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
+            marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, imageType: .areaType, complementary: 50)
+            marker.map = self.mapView
+            self.areaMarkers.append(marker)
+        })
+        self.hasMarkerCreated.area = true
     }
     func createBuildingMarkers(){
         let areaDatas = AnimalDataManager.shared.buildingNameXCoordinate
