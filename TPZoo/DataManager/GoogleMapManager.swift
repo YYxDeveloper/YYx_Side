@@ -79,7 +79,7 @@ class GoogleMapManager {
         
         return locationManager
     }
-    func initZooMapView(model:model) -> GMSMapView{
+    func initMapView(model:model) -> GMSMapView{
        
             switch model {
             case .release:
@@ -105,7 +105,36 @@ class GoogleMapManager {
         
         return self.mapView
     }
-    
+    func initDataSource() {
+        initMarks()
+        
+    }
+    func initMarks() {
+        func createAreaMarkers(){
+            let areaDatas = AnimalDataManager.shared.areaNameXCoordinate
+            _ = areaDatas.map({
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
+                marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, imageType: .areaType, complementary: 50)
+                marker.map = self.mapView
+                self.areaMarkers.append(marker)
+            })
+            self.hasMarkerCreated.area = true
+        }
+        func createBuildingMarkers(){
+            let areaDatas = AnimalDataManager.shared.buildingNameXCoordinate
+            _ = areaDatas.map({
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
+                marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, imageType: .buildType, complementary: 50)
+                marker.map = self.mapView
+                self.buikdingMarkers.append(marker)
+            })
+            self.hasMarkerCreated.building = true
+        }
+        createAreaMarkers()
+        createBuildingMarkers()
+    }
     
      func checkFirstLoading(position: GMSCameraPosition) -> Bool {
         if GoogleMapManager.shared.isFirstLoading {
@@ -234,34 +263,11 @@ class GoogleMapManager {
     }
 //MARK:  - Init self.areaMarkers&self.buikdingMarkers
    private func showAreaAndBuildingMarkers() {
-    func createAreaMarker(){
-        let areaDatas = AnimalDataManager.shared.areaNameXCoordinate
-        _ = areaDatas.map({
-            let marker = GMSMarker()
-            marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
-            marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, imageType: .areaType, complementary: 50)
-            marker.map = self.mapView
-            self.areaMarkers.append(marker)
-        })
-        self.hasMarkerCreated.area = true
-    }
-    func createBuildingMarkers(){
-        let areaDatas = AnimalDataManager.shared.buildingNameXCoordinate
-        _ = areaDatas.map({
-            let marker = GMSMarker()
-            marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
-            marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, imageType: .buildType, complementary: 50)
-            marker.map = self.mapView
-            self.buikdingMarkers.append(marker)
-        })
-        self.hasMarkerCreated.building = true
-    }
+    
     guard self.hasMarkerCreated.area && self.hasMarkerCreated.building else {
-        createAreaMarker()
-        createBuildingMarkers()
+         print("\(yyxErorr.guardError)\(String.showFileName(filePath:#file)):\(#line)")
         return
     }
-//    print("xxx\(self.areaMarkers)")
     _ = self.areaMarkers.map({
       $0.map = self.mapView
     })

@@ -35,8 +35,8 @@ class GoogleMapViewController: UIViewController {
         locationManager = GoogleMapManager.locationManager
         locationManager.delegate = self
         
-        self.mapView = GoogleMapManager.shared.initZooMapView(model: .release)
-        
+        self.mapView = GoogleMapManager.shared.initMapView(model: .release)
+        GoogleMapManager.shared.initDataSource()
         self.mapView.frame = container.bounds
         self.mapView.delegate = self
         self.container.addSubview(mapView)
