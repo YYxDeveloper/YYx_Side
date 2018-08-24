@@ -32,7 +32,7 @@ class GoogleMapViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     func loadGoogleMapSettingInViewDidAppear() {
-        locationManager = GoogleMapManager.locationManager
+        locationManager = GoogleMapManager.shared.locationManager
         locationManager.delegate = self
         
         self.mapView = GoogleMapManager.shared.initMapView(model: .release)

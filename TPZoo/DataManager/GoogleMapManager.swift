@@ -68,16 +68,16 @@ class GoogleMapManager {
     /**
      plist need setting Privacy - Location When In Use Usage Description
      */
-    static let locationManager = GoogleMapManager.newLocationManager()
+    var locationManager = CLLocationManager()
     
-    static private func newLocationManager() -> CLLocationManager{
+    
+    func initLocationManager()  {
         let locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         locationManager.distanceFilter = 50
         locationManager.startUpdatingLocation()
-        
-        return locationManager
+        self.locationManager = locationManager
     }
     func initMapView(model:model) -> GMSMapView{
        
