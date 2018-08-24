@@ -15,6 +15,9 @@ typealias NameXCoordinate = (Name:String,lat:Double,lon:Double)
 enum ReturnString:String {
     case yyxGuardReturn,yyxNoNewtwork
 }
+enum model {
+    case release,debug
+}
 enum yyxErorr:Error{
     case errorID(id:String)
     case guardError

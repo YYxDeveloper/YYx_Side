@@ -17,22 +17,13 @@ class GoogleMapManager {
     private let debugZoomLevel:Float = 15.0
     private let bearingAngle:Double = 120.0
     private var isFirstLoading = true
-    /**
-     check the data is first loading
-     - area marker
-     - building marker
-     */
     private var hasMarkerCreated:checkLoading = (false,false)
 
     static let verticalGetBackComplementary =  0.0035
     static let horizetalGetBackComplementary = 0.0025
     static let verticalBoaderComplementary =  0.003
     static let horizetalBoaderComplementary =  0.002
-
-
-    enum model {
-        case release,debug
-    }
+    
     enum zoomlevel{
         case level17,level20
     }
@@ -71,7 +62,6 @@ class GoogleMapManager {
     static let shared = GoogleMapManager()
     static let apiKey = "AIzaSyC7OH2HcJ0Iko-bGY1U9r9y56AN1SC70mU"
     var mapView = GMSMapView()
-    var areaMarkers = [GMSMarker]()
     var buikdingMarkers = [GMSMarker]()
 
     /**
@@ -244,15 +234,15 @@ class GoogleMapManager {
 //MARK:  - Init self.areaMarkers&self.buikdingMarkers
    private func showAreaAndBuildingMarkers() {
     func createAreaMarker(){
-        let areaDatas = AnimalDataManager.shared.areaNameXCoordinate
-        _ = areaDatas.map({
-            let marker = GMSMarker()
-            marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
-            marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, imageType: .areaType, complementary: 50)
-            marker.map = self.mapView
-            self.areaMarkers.append(marker)
-        })
-        self.hasMarkerCreated.area = true
+//        let areaDatas = AnimalDataManager.shared.areaNameXCoordinate
+//        _ = areaDatas.map({
+//            let marker = GMSMarker()
+//            marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
+//            marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, imageType: .areaType, complementary: 50)
+//            marker.map = self.mapView
+//            self.areaMarkers.append(marker)
+//        })
+//        self.hasMarkerCreated.area = true
     }
     func createBuildingMarkers(){
         let areaDatas = AnimalDataManager.shared.buildingNameXCoordinate
