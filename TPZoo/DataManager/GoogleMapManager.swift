@@ -148,10 +148,10 @@ class GoogleMapManager {
      func changeMarkertype(with zoomLevel:Float)-> GMSMapView{
         self.mapView.clear()
         switch zoomLevel {
-        case 17.0:
-            GoogleMapManager.shared.addGMSMarker(cordinate: CLLocationCoordinate2DMake(GoogleMapManager.center.lat.rawValue, GoogleMapManager.center.lon.rawValue), zoomLevel: .level17)
-            
-           
+        case 17.0...18.0:
+            GoogleMapManager.shared.addGMSMarker(zoomLevel: .level17)
+        case 19.0...20.0:
+            break
         default:
             print("gggg")
         }
@@ -242,13 +242,13 @@ class GoogleMapManager {
         
         
     }
-    private func addGMSMarker(cordinate:CLLocationCoordinate2D, zoomLevel:zoomlevel){
+    private func addGMSMarker(zoomLevel:zoomlevel){
         
         switch zoomLevel {
         case .level17:
             showAreaAndBuildingMarkers()
         case .level20:
-            break
+            showAnimalsMarkers()
         }
 //        let marker = GMSMarker()
 //        marker.position = cordinate
@@ -261,7 +261,10 @@ class GoogleMapManager {
         
        
     }
-//MARK:  - Init self.areaMarkers&self.buikdingMarkers
+//MARK:  -
+    private func showAnimalsMarkers(){
+        
+    }
    private func showAreaAndBuildingMarkers() {
     
     guard self.hasMarkerCreated.area && self.hasMarkerCreated.building else {
