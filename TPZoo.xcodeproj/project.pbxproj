@@ -68,6 +68,11 @@
 		6553FFF4211BD157002BFAB8 /* SysConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SysConfiguration.swift; sourceTree = "<group>"; };
 		6553FFF6211D3050002BFAB8 /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		6553FFF8211D63C5002BFAB8 /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
+		656152DE212FF91800E79E04 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		656152DF212FF91900E79E04 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		656152E3212FF9D800E79E04 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		656152EB212FFA5100E79E04 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		656152EC212FFA5600E79E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		65670331212283D000C3A4CF /* GoogleMapManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapManager.swift; sourceTree = "<group>"; };
 		6567033821240A5600C3A4CF /* GoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
 		6567033921240A5600C3A4CF /* GoogleMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoogleMapViewController.xib; sourceTree = "<group>"; };
@@ -177,6 +182,7 @@
 				65B726022105BEBD0088DDCB /* LaunchScreen.storyboard */,
 				65B726052105BEBD0088DDCB /* Info.plist */,
 				65B725FD2105BEBC0088DDCB /* TPZoo.xcdatamodeld */,
+				656152E4212FF9D800E79E04 /* Localizable.strings */,
 			);
 			path = TPZoo;
 			sourceTree = "<group>";
@@ -546,10 +552,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		656152E4212FF9D800E79E04 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				656152E3212FF9D800E79E04 /* zh-Hant */,
+				656152EB212FFA5100E79E04 /* en */,
+				656152EC212FFA5600E79E04 /* Base */,
+			);
+			name = Localizable.strings;
+			path = /Users/hsi/Desktop/TPZoo/TPZoo;
+			sourceTree = "<absolute>";
+		};
 		65B725FA2105BEBC0088DDCB /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				65B725FB2105BEBC0088DDCB /* Base */,
+				656152DE212FF91800E79E04 /* zh-Hant */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -558,6 +576,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				65B726032105BEBD0088DDCB /* Base */,
+				656152DF212FF91900E79E04 /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -569,6 +588,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -629,6 +649,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
