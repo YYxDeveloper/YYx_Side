@@ -357,7 +357,7 @@ class GoogleMapManager {
                                          toItem: containerView,
                                          attribute: .top,
                                          multiplier: 1.0,
-                                         constant: 0.0)
+                                         constant: 10.0)
             
             let centerVertically = NSLayoutConstraint(item: iconImageView,
                                                       attribute: .centerX,
