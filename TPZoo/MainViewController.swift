@@ -17,7 +17,10 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.insertGoogleMapVC()       
+        
+//        print(DownloadManager.shared.downloadAnimalsImages())
+        print(DownloadManager.getDocumentsDirectory())
+//        self.insertGoogleMapVC()
     }
     private func insertGoogleMapVC() {
         let vc = GoogleMapViewController.init(nibName: String.init(describing: GoogleMapViewController.self), bundle: nil)

@@ -37,7 +37,6 @@
 		65B726422108012E0088DDCB /* AnimalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B726412108012E0088DDCB /* AnimalDataManager.swift */; };
 		65E3D5922125658F00DCAE52 /* FakeMyLocation.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 65E3D5912125658E00DCAE52 /* FakeMyLocation.gpx */; };
 		A9FBFDF9B4024DD22EB64F07 /* Pods_TPZoo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2996299F7F4E3B7EC80A16F4 /* Pods_TPZoo.framework */; };
-		C28904EF211FF67C000137CE /* AnimalsAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C28904EE211FF67C000137CE /* AnimalsAssets.xcassets */; };
 		CE62CBE4F4582674C94E662D /* Pods_TPZooUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49455C8DB5D4314A0D190C5A /* Pods_TPZooUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,7 +98,7 @@
 		76FDF06FBDA874A8FB84B5C1 /* Pods-TPZoo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPZoo.release.xcconfig"; path = "Pods/Target Support Files/Pods-TPZoo/Pods-TPZoo.release.xcconfig"; sourceTree = "<group>"; };
 		A02C7BFE44629838FDE25BB4 /* Pods_TPZooTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TPZooTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8ABFF9C9E49147385EB6020 /* Pods-TPZooTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPZooTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TPZooTests/Pods-TPZooTests.debug.xcconfig"; sourceTree = "<group>"; };
-		C28904EE211FF67C000137CE /* AnimalsAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AnimalsAssets.xcassets; sourceTree = "<group>"; };
+		C2E3D77C2130F0100070481E /* AnimalsImages.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = AnimalsImages.xcassets; path = /Users/YYxFolder/TPZoo/TPZoo/AnimalsImages.xcassets; sourceTree = "<absolute>"; };
 		CD22843690F7CF10DCC5F78B /* Pods-TPZooUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPZooUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TPZooUITests/Pods-TPZooUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E880777FD646D6E119A3564E /* Pods-TPZooUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPZooUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TPZooUITests/Pods-TPZooUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,7 +177,7 @@
 				65B726342106F8910088DDCB /* Utils */,
 				65B725FA2105BEBC0088DDCB /* Main.storyboard */,
 				65B726002105BEBD0088DDCB /* Assets.xcassets */,
-				C28904EE211FF67C000137CE /* AnimalsAssets.xcassets */,
+				C2E3D77C2130F0100070481E /* AnimalsImages.xcassets */,
 				65B726022105BEBD0088DDCB /* LaunchScreen.storyboard */,
 				65B726052105BEBD0088DDCB /* Info.plist */,
 				65B725FD2105BEBC0088DDCB /* TPZoo.xcdatamodeld */,
@@ -357,7 +356,6 @@
 				65B725FC2105BEBC0088DDCB /* Main.storyboard in Resources */,
 				659B02402126B3C6007F0E18 /* GoogleMapStyle.txt in Resources */,
 				65B7262D2106DFFE0088DDCB /* AnimalsJSONData.txt in Resources */,
-				C28904EF211FF67C000137CE /* AnimalsAssets.xcassets in Resources */,
 				65E3D5922125658F00DCAE52 /* FakeMyLocation.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

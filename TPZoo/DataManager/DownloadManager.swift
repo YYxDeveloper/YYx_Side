@@ -28,17 +28,18 @@ class DownloadManager {
       
         let arr  = AnimalDataManager.shared.animalsImages
         for data in arr{
-            if let url1 = data.url1,let alt1 = data.alt1 {
-                DownloadManager.shared.setupDownloadRequest(URLString: url1, fileName: "\(alt1)Alt2", singleDownload: false)
+            guard let eng = data.aNameEn  else{return}
+            if let url1 = data.url1 {
+                DownloadManager.shared.setupDownloadRequest(URLString: url1, fileName: "\(eng)Alt2", singleDownload: false)
             }
-            if let url2 = data.url2,let alt2 = data.alt2 {
-                DownloadManager.shared.setupDownloadRequest(URLString: url2, fileName: "\(alt2)Alt2", singleDownload: false)
+            if let url2 = data.url2 {
+                DownloadManager.shared.setupDownloadRequest(URLString: url2, fileName: "\(eng)Alt2", singleDownload: false)
             }
-            if let url3 = data.url3,let alt3 = data.alt3 {
-                DownloadManager.shared.setupDownloadRequest(URLString: url3, fileName: "\(alt3)Alt3", singleDownload: false)
+            if let url3 = data.url3 {
+                DownloadManager.shared.setupDownloadRequest(URLString: url3, fileName: "\(eng)Alt3", singleDownload: false)
             }
-            if let url4 = data.url4,let alt4 = data.alt4 {
-                DownloadManager.shared.setupDownloadRequest(URLString: url4, fileName: "\(alt4)Alt4", singleDownload: false)
+            if let url4 = data.url4 {
+                DownloadManager.shared.setupDownloadRequest(URLString: url4, fileName: "\(eng)Alt4", singleDownload: false)
             }
         }
     }
