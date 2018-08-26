@@ -60,7 +60,6 @@
         <attribute name="count" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <fetchRequest name="FetchRequest" entity="AnimalSummary" predicateString="aNameEn CONTAINS &quot;&quot;"/>
     <elements>
         <element name="AnimalCoordinate" positionX="189" positionY="99" width="128" height="43"/>
         <element name="AnimalImages" positionX="142" positionY="324" width="128" height="238"/>
