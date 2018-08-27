@@ -19,7 +19,7 @@ class AnimalDataManager {
     
    
     enum CoreDataType:String {
-        case AnimalSummary,AnimalCoordinate,AnimalImages
+        case AnimalSummary,AnimalMarker,AnimalImages
     }
 //MARK: Property
     static let shared =  AnimalDataManager()
@@ -33,15 +33,15 @@ class AnimalDataManager {
         }
        
     }
-    var animalsCoordinate:[AnimalCoordinate] {
-            if hasCoreDataSaved(type: .AnimalCoordinate) {
+    var animalsCoordinate:[Animalmarker] {
+            if hasCoreDataSaved(type: .AnimalMarker) {
                 return self.loadAnimalsCoordinateCoreData()
             }else{
                 return  self.saveAnimalsCoordinateToCoreData()
             }
     }
     var animalsImages:[AnimalImages] {
-        if hasCoreDataSaved(type: .AnimalCoordinate) {
+        if hasCoreDataSaved(type: .AnimalMarker) {
             return self.loadAnimalImagesFromCoreData()
         }else{
             return  self.saveAnimalImagesToCoreData()
@@ -119,20 +119,20 @@ class AnimalDataManager {
             return loadAnimalsSummaryCoreData()
     }
 //MARK: AnimalsCoordinate private func
-    private func loadAnimalsCoordinateCoreData() -> [AnimalCoordinate]{
+    private func loadAnimalsCoordinateCoreData() -> [Animalmarker]{
       
         
-        let request: NSFetchRequest<AnimalCoordinate> = AnimalCoordinate.fetchRequest()
+        let request: NSFetchRequest<Animalmarker> = Animalmarker.fetchRequest()
         do {
             let arr = try getViewContext().fetch(request)
 //            _ = arr.map({print($0.aNameEn ?? EMPTY_STRING)})
             return arr
         } catch {
             print("\(ERORR_PREFIX)\(error.localizedDescription)")
-            return [AnimalCoordinate]()
+            return [Animalmarker]()
         }
     }
-    private func saveAnimalsCoordinateToCoreData()-> [AnimalCoordinate] {
+    private func saveAnimalsCoordinateToCoreData()-> [Animalmarker] {
         do {
             _ = try getJsonModel().result.results.map({
                 guard let aEngName = $0.aNameEn else {throw yyxErorr.guardError}
@@ -140,7 +140,7 @@ class AnimalDataManager {
                 let coordinates = String.convertCoordinateStringToDouble(targetString: coordinateString)
                 for each in coordinates{
                    
-                    let coordinate = getManagerObject(type: .AnimalCoordinate)
+                    let coordinate = getManagerObject(type: .AnimalMarker)
                     coordinate.setValue(aEngName, forKey: "aNameEn")
                     coordinate.setValue(each.0, forKey: "lon")
                     coordinate.setValue(each.1, forKey: "lat")
@@ -210,8 +210,8 @@ class AnimalDataManager {
             } catch {
                 print("\(ERORR_PREFIX)\(error.localizedDescription)")
             }
-        case .AnimalCoordinate:
-            let request: NSFetchRequest<AnimalCoordinate> = AnimalCoordinate.fetchRequest()
+        case .AnimalMarker:
+            let request: NSFetchRequest<Animalmarker> = Animalmarker.fetchRequest()
             do {
                 enityCount = try getViewContext().count(for: request)
             } catch {
@@ -253,8 +253,8 @@ class AnimalDataManager {
                 print("\(ERORR_PREFIX)\(String.showFileName(filePath:#file)):\(#line)")
                 return NSManagedObject()}
                 return NSManagedObject(entity: imagesEntity, insertInto: getViewContext())
-        case .AnimalCoordinate:
-            guard let imagesEntity = NSEntityDescription.entity(forEntityName: CoreDataType.AnimalCoordinate.rawValue, in: getViewContext()) else {
+        case .AnimalMarker:
+            guard let imagesEntity = NSEntityDescription.entity(forEntityName: CoreDataType.AnimalMarker.rawValue, in: getViewContext()) else {
                 print("\(ERORR_PREFIX)\(String.showFileName(filePath:#file)):\(#line)")
                 return NSManagedObject()}
                 return NSManagedObject(entity: imagesEntity, insertInto: getViewContext())

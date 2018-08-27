@@ -102,9 +102,52 @@ class GoogleMapManager {
         mapView.settings.myLocationButton = true
         mapView.settings.rotateGestures = false
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
         return self.mapView
     }
+    
+    func drawAreaScope() {
+        witchArea(drawingLocationName: .沙漠動物區, areaColor: UIColor(red: 255/255, green: 212/255, blue: 121/255, alpha: 1))
+      
+        
+    }
+    func witchArea(drawingLocationName:locationName.area,areaColor:UIColor){
+        func addPolygonToMapView(coordinates:[CLLocationCoordinate2D]){
+            
+            let areaPath = GMSMutablePath()
+          
+            _ = coordinates.map({areaPath.add($0)})
+            let polygon = GMSPolygon(path: areaPath)
+            polygon.fillColor = areaColor
+            polygon.map = mapView
+        }
+        switch drawingLocationName {
+        case .兒童動物區:
+            break
+        case .沙漠動物區:
+            let p1 = CLLocationCoordinate2D(latitude: 24.995277, longitude: 121.585075)
+            let p2 = CLLocationCoordinate2D(latitude: 24.995264, longitude: 121.585803)
+            let p3 = CLLocationCoordinate2D(latitude: 24.994858, longitude: 121.585817)
+            let p4 = CLLocationCoordinate2D(latitude: 24.994876, longitude: 121.585108)
+            
+          
+            addPolygonToMapView(coordinates: [p1,p2,p3,p4])
+        case .溫帶動物區:
+            break
+        case .澳洲動物區:
+            break
+        case .熱帶雨林區:
+            break
+        case .臺灣動物區:
+            break
+        case .非洲動物區:
+            break
+        case .鳥園區:
+            break
+            
+        }
+        
+    }
+   
     func initDataSource() {
         initMarks()
         
@@ -149,6 +192,7 @@ class GoogleMapManager {
         self.mapView.clear()
         switch zoomLevel {
         case 17.0...18.0:
+            drawAreaScope()
             GoogleMapManager.shared.addGMSMarker(zoomLevel: .level17)
         case 19.0...20.0:
             break
