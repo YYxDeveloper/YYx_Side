@@ -19,7 +19,7 @@ class AnimalDataManager {
     
    
     enum CoreDataType:String {
-        case AnimalSummary,AnimalMarker,AnimalImages
+        case AnimalSummary,AnimalMarker = "Animalmarker",AnimalImages
     }
 //MARK: Property
     static let shared =  AnimalDataManager()
@@ -125,7 +125,7 @@ class AnimalDataManager {
         let request: NSFetchRequest<Animalmarker> = Animalmarker.fetchRequest()
         do {
             let arr = try getViewContext().fetch(request)
-//            _ = arr.map({print($0.aNameEn ?? EMPTY_STRING)})
+            _ = arr.map({print($0.aNameEn ?? EMPTY_STRING)})
             return arr
         } catch {
             print("\(ERORR_PREFIX)\(error.localizedDescription)")
