@@ -107,6 +107,7 @@ class GoogleMapManager {
     
     func drawAreaScope() {
         witchArea(drawingLocationName: .沙漠動物區, areaColor: UIColor(red: 255/255, green: 212/255, blue: 121/255, alpha: 1))
+        witchArea(drawingLocationName: .澳洲動物區, areaColor: UIColor(red: 98/255, green: 187/255, blue: 255/255, alpha: 1))
       
         
     }
@@ -128,13 +129,17 @@ class GoogleMapManager {
             let p2 = CLLocationCoordinate2D(latitude: 24.995264, longitude: 121.585803)
             let p3 = CLLocationCoordinate2D(latitude: 24.994858, longitude: 121.585817)
             let p4 = CLLocationCoordinate2D(latitude: 24.994876, longitude: 121.585108)
-            
-          
             addPolygonToMapView(coordinates: [p1,p2,p3,p4])
         case .溫帶動物區:
             break
         case .澳洲動物區:
-            break
+            let p1 = CLLocationCoordinate2D(latitude: 24.995287, longitude: 121.585925)
+            let p2 = CLLocationCoordinate2D(latitude: 24.995289, longitude: 121.586060)
+            let p3 = CLLocationCoordinate2D(latitude: 24.994297, longitude: 121.586058)
+            let p4 = CLLocationCoordinate2D(latitude: 24.994297, longitude: 121.585004)
+            let p5 = CLLocationCoordinate2D(latitude: 24.994749, longitude: 121.585134)
+            let p6 = CLLocationCoordinate2D(latitude: 24.994769, longitude: 121.585920)
+            addPolygonToMapView(coordinates: [p1,p2,p3,p4,p5,p6])
         case .熱帶雨林區:
             break
         case .臺灣動物區:
