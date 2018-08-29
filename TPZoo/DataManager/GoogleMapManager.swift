@@ -106,8 +106,10 @@ class GoogleMapManager {
     }
     
     func drawAreaScope() {
-        witchArea(drawingLocationName: .沙漠動物區, areaColor: UIColor(red: 255/255, green: 212/255, blue: 121/255, alpha: 1))
-        witchArea(drawingLocationName: .澳洲動物區, areaColor: UIColor(red: 98/255, green: 187/255, blue: 255/255, alpha: 1))
+        witchArea(drawingLocationName: .沙漠動物區, areaColor: UIColor(red: 171/255, green: 166/255, blue: 117/255, alpha: 0.8))
+        witchArea(drawingLocationName: .澳洲動物區, areaColor: UIColor(red: 137/255, green: 155/255, blue: 201/255, alpha: 0.8))
+        witchArea(drawingLocationName: .熱帶雨林區, areaColor: UIColor(red: 95/255, green: 157/255, blue: 49/255, alpha: 0.8))
+        witchArea(drawingLocationName: .臺灣動物區, areaColor: UIColor(red: 206/255, green: 157/255, blue: 195/255, alpha: 0.5))
       
         
     }
@@ -141,9 +143,28 @@ class GoogleMapManager {
             let p6 = CLLocationCoordinate2D(latitude: 24.994769, longitude: 121.585920)
             addPolygonToMapView(coordinates: [p1,p2,p3,p4,p5,p6])
         case .熱帶雨林區:
-            break
+            let p1 = CLLocationCoordinate2D(latitude: 24.995663, longitude: 121.582881)
+            let p2 = CLLocationCoordinate2D(latitude: 24.995973, longitude: 121.583634)
+            let p3 = CLLocationCoordinate2D(latitude: 24.995543, longitude: 121.583961)
+            let p4 = CLLocationCoordinate2D(latitude: 24.994459, longitude: 121.583449)
+            let p5 = CLLocationCoordinate2D(latitude: 24.993835, longitude: 121.583620)
+            let p6 = CLLocationCoordinate2D(latitude: 24.993546, longitude: 121.583515)
+    
+            let p7 = CLLocationCoordinate2D(latitude: 24.993502, longitude: 121.583116)
+            let p8 = CLLocationCoordinate2D(latitude: 24.993609, longitude: 121.582725)
+            let p9 = CLLocationCoordinate2D(latitude: 24.994121, longitude: 121.582450)
+            let p10 = CLLocationCoordinate2D(latitude: 24.994895, longitude: 121.582893)
+            let p11 = CLLocationCoordinate2D(latitude: 24.995203, longitude: 121.583016)
+            let p12 = CLLocationCoordinate2D(latitude: 24.995397, longitude: 121.583007)
+            addPolygonToMapView(coordinates: [p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12])
         case .臺灣動物區:
-            break
+          
+            let p1 = CLLocationCoordinate2D(latitude: 24.997894, longitude: 121.579667)
+            let p2 = CLLocationCoordinate2D(latitude: 24.997048, longitude: 121.580492)
+            let p3 = CLLocationCoordinate2D(latitude: 24.997300, longitude: 121.581378)
+            let p4 = CLLocationCoordinate2D(latitude: 24.998359, longitude: 121.580704)
+            addPolygonToMapView(coordinates: [p1,p2,p3,p4])
+
         case .非洲動物區:
             break
         case .鳥園區:
