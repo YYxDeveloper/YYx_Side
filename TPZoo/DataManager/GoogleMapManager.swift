@@ -112,6 +112,8 @@ class GoogleMapManager {
         witchArea(drawingLocationName: .臺灣動物區, areaColor: UIColor(red: 206/255, green: 157/255, blue: 195/255, alpha: 0.5))
          witchArea(drawingLocationName: .兒童動物區, areaColor: UIColor(red: 246/255, green: 128/255, blue: 24/255, alpha: 0.5))
          witchArea(drawingLocationName: .非洲動物區, areaColor: UIColor(red: 60/255, green: 156/255, blue: 231/255, alpha: 0.5))
+         witchArea(drawingLocationName: .鳥園區, areaColor: UIColor(red: 245/255, green: 113/255, blue: 137/255, alpha: 0.5))
+         witchArea(drawingLocationName: .溫帶動物區, areaColor: UIColor(red: 60/255, green: 146/255, blue: 245/255, alpha: 0.5))
       
         
     }
@@ -147,7 +149,15 @@ class GoogleMapManager {
             let p4 = CLLocationCoordinate2D(latitude: 24.994876, longitude: 121.585108)
             addPolygonToMapView(coordinates: [p1,p2,p3,p4])
         case .溫帶動物區:
-            break
+            let p1 = CLLocationCoordinate2D(latitude: 24.993678, longitude: 121.589657)
+            let p2 = CLLocationCoordinate2D(latitude: 24.992207, longitude: 121.588386)
+            let p3 = CLLocationCoordinate2D(latitude: 24.991929, longitude: 121.588829)
+            let p4 = CLLocationCoordinate2D(latitude: 24.992698, longitude: 121.589942)
+            let p5 = CLLocationCoordinate2D(latitude: 24.993050, longitude: 121.590474)
+            let p6 = CLLocationCoordinate2D(latitude: 24.993208, longitude: 121.590504)
+            
+          
+            addPolygonToMapView(coordinates: [p1,p2,p3,p4,p5,p6])
         case .澳洲動物區:
             let p1 = CLLocationCoordinate2D(latitude: 24.995287, longitude: 121.585925)
             let p2 = CLLocationCoordinate2D(latitude: 24.995289, longitude: 121.586060)
@@ -194,7 +204,18 @@ class GoogleMapManager {
             addPolygonToMapView(coordinates: [p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11])
             
         case .鳥園區:
-            break
+            let p1 = CLLocationCoordinate2D(latitude: 24.995578, longitude: 121.588658)
+            let p2 = CLLocationCoordinate2D(latitude: 24.995005, longitude: 121.590043)
+            let p3 = CLLocationCoordinate2D(latitude: 24.995260, longitude: 121.590390)
+            let p4 = CLLocationCoordinate2D(latitude: 24.994615, longitude: 121.591339)
+            let p5 = CLLocationCoordinate2D(latitude: 24.994718, longitude: 121.591416)
+            let p6 = CLLocationCoordinate2D(latitude: 24.995368, longitude: 121.591345)
+            let p7 = CLLocationCoordinate2D(latitude: 24.995731, longitude: 121.590484)
+            let p8 = CLLocationCoordinate2D(latitude: 24.996278, longitude: 121.589053)
+            let p9 = CLLocationCoordinate2D(latitude: 24.995613, longitude: 121.588582)
+//            let p10 = CLLocationCoordinate2D(latitude: 24.994942, longitude: 121.589113)
+//            let p11 = CLLocationCoordinate2D(latitude: 24.995158, longitude: 121.588674)
+            addPolygonToMapView(coordinates: [p1,p2,p3,p4,p5,p6,p7,p8,p9])
             
         }
         
@@ -397,6 +418,11 @@ class GoogleMapManager {
                   label.backgroundColor = UIColor(red: 206/255, green: 157/255, blue: 195/255, alpha: 1)
             case locationName.area.非洲動物區.rawValue:
                   label.backgroundColor = UIColor(red: 60/255, green: 156/255, blue: 231/255, alpha: 1)
+               
+            case locationName.area.鳥園區.rawValue:
+                 label.backgroundColor = UIColor(red: 245/255, green: 113/255, blue: 137/255, alpha: 1)
+            case locationName.area.溫帶動物區.rawValue:
+                  label.backgroundColor = UIColor(red: 60/255, green: 146/255, blue: 245/255, alpha: 1)
             default:
                  label.backgroundColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
             }
