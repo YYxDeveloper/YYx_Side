@@ -106,12 +106,12 @@ class GoogleMapManager {
     }
     
     func drawAreaScope() {
-        witchArea(drawingLocationName: .沙漠動物區, areaColor: UIColor(red: 171/255, green: 166/255, blue: 117/255, alpha: 0.8))
-        witchArea(drawingLocationName: .澳洲動物區, areaColor: UIColor(red: 137/255, green: 155/255, blue: 201/255, alpha: 0.8))
-        witchArea(drawingLocationName: .熱帶雨林區, areaColor: UIColor(red: 95/255, green: 157/255, blue: 49/255, alpha: 0.8))
+        witchArea(drawingLocationName: .沙漠動物區, areaColor: UIColor(red: 171/255, green: 166/255, blue: 117/255, alpha: 0.5))
+        witchArea(drawingLocationName: .澳洲動物區, areaColor: UIColor(red: 137/255, green: 155/255, blue: 201/255, alpha: 0.5))
+        witchArea(drawingLocationName: .熱帶雨林區, areaColor: UIColor(red: 95/255, green: 157/255, blue: 49/255, alpha: 0.5))
         witchArea(drawingLocationName: .臺灣動物區, areaColor: UIColor(red: 206/255, green: 157/255, blue: 195/255, alpha: 0.5))
          witchArea(drawingLocationName: .兒童動物區, areaColor: UIColor(red: 246/255, green: 128/255, blue: 24/255, alpha: 0.5))
-         witchArea(drawingLocationName: .非洲動物區, areaColor: UIColor(red: 187/255, green: 147/255, blue: 106/255, alpha: 0.5))
+         witchArea(drawingLocationName: .非洲動物區, areaColor: UIColor(red: 60/255, green: 156/255, blue: 231/255, alpha: 0.5))
       
         
     }
@@ -191,7 +191,6 @@ class GoogleMapManager {
             let p9 = CLLocationCoordinate2D(latitude: 24.994537, longitude: 121.588957)
             let p10 = CLLocationCoordinate2D(latitude: 24.994942, longitude: 121.589113)
             let p11 = CLLocationCoordinate2D(latitude: 24.995158, longitude: 121.588674)
-//        let p12 = CLLocationCoordinate2D(latitude: 24.995397, longitude: 121.583007)
             addPolygonToMapView(coordinates: [p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11])
             
         case .鳥園區:
@@ -211,7 +210,7 @@ class GoogleMapManager {
             _ = areaDatas.map({
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
-                marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, imageType: .areaType, complementary: 50)
+                marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, imageType: .areaType, complementary: 50, areaName: $0.Name)
                 marker.map = self.mapView
                 self.areaMarkers.append(marker)
             })
@@ -222,7 +221,7 @@ class GoogleMapManager {
             _ = areaDatas.map({
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
-                marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, imageType: .buildType, complementary: 50)
+                marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, imageType: .buildType, complementary: 50, areaName: $0.Name)
                 marker.map = self.mapView
                 self.buikdingMarkers.append(marker)
             })
@@ -377,16 +376,30 @@ class GoogleMapManager {
         
     }
 
-    func editeIconView(containerSize:CGSize,labelText:String,imageType:locationName, complementary:CGFloat)->UIView{
+    func editeIconView(containerSize:CGSize,labelText:String,imageType:locationName, complementary:CGFloat,areaName:String)->UIView{
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: containerSize.width, height:containerSize.height ))
-        //
         let iconImageView = UIImageView()
-        
-        //
         let label = UILabel()
         
-        func editeLabel(textSize:CGFloat) {
-            label.backgroundColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
+        func editeLabel(textSize:CGFloat,areName:String) {
+            switch areaName {
+            case locationName.area.兒童動物區.rawValue:
+                label.backgroundColor = UIColor(red: 246/255, green: 128/255, blue: 24/255, alpha: 1)
+            case locationName.area.沙漠動物區.rawValue:
+                  label.backgroundColor = UIColor(red: 171/255, green: 166/255, blue: 117/255, alpha: 1)
+            case locationName.area.溫帶動物區.rawValue:
+                  label.backgroundColor = UIColor(red: 246/255, green: 128/255, blue: 24/255, alpha: 1)
+            case locationName.area.澳洲動物區.rawValue:
+                  label.backgroundColor = UIColor(red: 137/255, green: 155/255, blue: 201/255, alpha: 1)
+            case locationName.area.熱帶雨林區.rawValue:
+                  label.backgroundColor = UIColor(red: 95/255, green: 157/255, blue: 49/255, alpha: 1)
+            case locationName.area.臺灣動物區.rawValue:
+                  label.backgroundColor = UIColor(red: 206/255, green: 157/255, blue: 195/255, alpha: 1)
+            case locationName.area.非洲動物區.rawValue:
+                  label.backgroundColor = UIColor(red: 60/255, green: 156/255, blue: 231/255, alpha: 1)
+            default:
+                 label.backgroundColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
+            }
             label.textColor = .white
             label.text = labelText
             label.font.withSize(12)
@@ -486,7 +499,7 @@ class GoogleMapManager {
         
         
         editeIconImage(complementary: complementary, imagetype: imageType)
-        editeLabel(textSize: 30)
+        editeLabel(textSize: 30, areName: areaName)
         return containerView
     }
 }
