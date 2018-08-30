@@ -406,7 +406,7 @@ class GoogleMapManager {
         upAnimation.byValue = -5
         upAnimation.toValue = 20
         upAnimation.autoreverses = true
-        upAnimation.duration = Double(arc4random_uniform(3))
+        upAnimation.duration = Double(arc4random_uniform(4)+1)
         upAnimation.beginTime =  CACurrentMediaTime() + Double(arc4random_uniform(6))
         upAnimation.repeatCount = Float(arc4random_uniform(10))
         
