@@ -107,14 +107,14 @@ class GoogleMapManager {
     }
     
     func drawAreaScope() {
-        witchArea(drawingLocationName: .沙漠動物區, areaColor: UIColor(red: 171/255, green: 166/255, blue: 117/255, alpha: 0.5))
-        witchArea(drawingLocationName: .澳洲動物區, areaColor: UIColor(red: 137/255, green: 155/255, blue: 201/255, alpha: 0.5))
-        witchArea(drawingLocationName: .熱帶雨林區, areaColor: UIColor(red: 95/255, green: 157/255, blue: 49/255, alpha: 0.5))
-        witchArea(drawingLocationName: .臺灣動物區, areaColor: UIColor(red: 206/255, green: 157/255, blue: 195/255, alpha: 0.5))
-         witchArea(drawingLocationName: .兒童動物區, areaColor: UIColor(red: 246/255, green: 128/255, blue: 24/255, alpha: 0.5))
-         witchArea(drawingLocationName: .非洲動物區, areaColor: UIColor(red: 60/255, green: 156/255, blue: 231/255, alpha: 0.5))
-         witchArea(drawingLocationName: .鳥園區, areaColor: UIColor(red: 245/255, green: 113/255, blue: 137/255, alpha: 0.5))
-         witchArea(drawingLocationName: .溫帶動物區, areaColor: UIColor(red: 60/255, green: 146/255, blue: 245/255, alpha: 0.5))
+         witchArea(drawingLocationName: .沙漠動物區, areaColor:editeIconColor(locationName: .沙漠動物區, isLabelColor: false))
+        witchArea(drawingLocationName: .澳洲動物區, areaColor:editeIconColor(locationName: .澳洲動物區, isLabelColor: false))
+        witchArea(drawingLocationName: .熱帶雨林區, areaColor:editeIconColor(locationName: .熱帶雨林區, isLabelColor: false))
+        witchArea(drawingLocationName: .臺灣動物區, areaColor:editeIconColor(locationName: .臺灣動物區, isLabelColor: false))
+         witchArea(drawingLocationName: .兒童動物區, areaColor:editeIconColor(locationName: .兒童動物區, isLabelColor: false))
+         witchArea(drawingLocationName: .非洲動物區, areaColor:editeIconColor(locationName: .非洲動物區, isLabelColor: false))
+         witchArea(drawingLocationName: .鳥園區, areaColor:editeIconColor(locationName: .鳥園區, isLabelColor: false))
+           witchArea(drawingLocationName: .溫帶動物區, areaColor:editeIconColor(locationName: .溫帶動物區, isLabelColor: false))
       
         
     }
@@ -233,7 +233,7 @@ class GoogleMapManager {
             _ = areaDatas.map({
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
-                marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, imageType: .areaType, complementary: 50, areaName: $0.Name)
+                marker.iconView = self.editeAreaXBuildingIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, imageType: .areaType, complementary: 50, areaName: $0.Name)
                 marker.map = self.mapView
                 self.areaMarkers.append(marker)
             })
@@ -244,7 +244,7 @@ class GoogleMapManager {
             _ = areaDatas.map({
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
-                marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, imageType: .buildType, complementary: 50, areaName: $0.Name)
+                marker.iconView = self.editeAreaXBuildingIconView(containerSize: CGSize(width: 100, height: 100), labelText: $0.Name, imageType: .buildType, complementary: 50, areaName: $0.Name)
                 marker.map = self.mapView
                 self.buikdingMarkers.append(marker)
             })
@@ -256,7 +256,7 @@ class GoogleMapManager {
                 guard let name = $0.aNameCh else{return}
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
-                marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: name, imageType: .buildType, complementary: 50, areaName: name)
+                marker.iconView = self.editeAreaXBuildingIconView(containerSize: CGSize(width: 100, height: 100), labelText: name, imageType: .buildType, complementary: 50, areaName: name)
                 marker.map = self.mapView
                 self.dessertAnimalMarkers.append(marker)
             })
@@ -400,21 +400,40 @@ class GoogleMapManager {
         })
     }
    private func showAreaAndBuildingMarkers() {
-    
+    func danceBaby(view:UIView){
+        let upAnimation = CABasicAnimation.init(keyPath: "transform.translation.y")
+        upAnimation.fromValue = 0
+        upAnimation.byValue = -5
+        upAnimation.toValue = 20
+        upAnimation.autoreverses = true
+        upAnimation.duration = Double(arc4random_uniform(3))
+        upAnimation.beginTime =  CACurrentMediaTime() + Double(arc4random_uniform(6))
+        upAnimation.repeatCount = Float(arc4random_uniform(10))
+        
+        view.layer.add(upAnimation, forKey: "translation.y")
+    }
     guard self.hasMarkerCreated.area && self.hasMarkerCreated.building else {
          print("\(yyxErorr.guardError)\(String.showFileName(filePath:#file)):\(#line)")
         return
     }
         _ = self.areaMarkers.map({
             $0.map = self.mapView
+            guard let view = $0.iconView else{
+                print("\(ReturnString.yyxGuardReturn.rawValue)\(String.showFileName(filePath:#file)):\(#line)")
+                return}
+           danceBaby(view: view)
         })
         _ = self.buikdingMarkers.map({
             $0.map = self.mapView
+            guard let view = $0.iconView else{
+                print("\(ReturnString.yyxGuardReturn.rawValue)\(String.showFileName(filePath:#file)):\(#line)")
+                return}
+            danceBaby(view: view)
         })
         
     }
 
-    func editeIconView(containerSize:CGSize,labelText:String,imageType:locationName, complementary:CGFloat,areaName:String)->UIView{
+    func editeAreaXBuildingIconView(containerSize:CGSize,labelText:String,imageType:locationName, complementary:CGFloat,areaName:String)->UIView{
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: containerSize.width, height:containerSize.height ))
         let iconImageView = UIImageView()
         let label = UILabel()
@@ -422,24 +441,23 @@ class GoogleMapManager {
         func editeLabel(textSize:CGFloat,areName:String) {
             switch areaName {
             case locationName.area.兒童動物區.rawValue:
-                label.backgroundColor = UIColor(red: 246/255, green: 128/255, blue: 24/255, alpha: 1)
+                label.backgroundColor = editeIconColor(locationName: .兒童動物區, isLabelColor: true)
             case locationName.area.沙漠動物區.rawValue:
-                  label.backgroundColor = UIColor(red: 171/255, green: 166/255, blue: 117/255, alpha: 1)
+                label.backgroundColor = editeIconColor(locationName: .沙漠動物區, isLabelColor: true)
             case locationName.area.溫帶動物區.rawValue:
-                  label.backgroundColor = UIColor(red: 60/255, green: 146/255, blue: 245/255, alpha: 1)
+                label.backgroundColor = editeIconColor(locationName: .溫帶動物區, isLabelColor: true)
             case locationName.area.澳洲動物區.rawValue:
-                  label.backgroundColor = UIColor(red: 137/255, green: 155/255, blue: 201/255, alpha: 1)
+                label.backgroundColor = editeIconColor(locationName: .澳洲動物區, isLabelColor: true)
             case locationName.area.熱帶雨林區.rawValue:
-                  label.backgroundColor = UIColor(red: 95/255, green: 157/255, blue: 49/255, alpha: 1)
+                label.backgroundColor = editeIconColor(locationName: .熱帶雨林區, isLabelColor: true)
             case locationName.area.臺灣動物區.rawValue:
-                  label.backgroundColor = UIColor(red: 206/255, green: 157/255, blue: 195/255, alpha: 1)
+                label.backgroundColor = editeIconColor(locationName: .臺灣動物區, isLabelColor: true)
             case locationName.area.非洲動物區.rawValue:
-                  label.backgroundColor = UIColor(red: 60/255, green: 156/255, blue: 231/255, alpha: 1)
-               
+                label.backgroundColor = editeIconColor(locationName: .非洲動物區, isLabelColor: true)
             case locationName.area.鳥園區.rawValue:
-                 label.backgroundColor = UIColor(red: 245/255, green: 113/255, blue: 137/255, alpha: 1)
+                label.backgroundColor = editeIconColor(locationName: .鳥園區, isLabelColor: true)
             case locationName.area.溫帶動物區.rawValue:
-                  label.backgroundColor = UIColor(red: 60/255, green: 146/255, blue: 245/255, alpha: 1)
+                label.backgroundColor = editeIconColor(locationName: .溫帶動物區, isLabelColor: true)
             default:
                  label.backgroundColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
             }
@@ -544,5 +562,158 @@ class GoogleMapManager {
         editeIconImage(complementary: complementary, imagetype: imageType)
         editeLabel(textSize: 30, areName: areaName)
         return containerView
+    }
+    func editeAnimalIconView(containerSize:CGSize,labelText:String,imageType:locationName, complementary:CGFloat,areaName:String)->UIView{
+        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: containerSize.width, height:containerSize.height ))
+        let iconImageView = UIImageView()
+        let label = UILabel()
+        
+        func editeLabel(textSize:CGFloat,areName:String) {
+            switch areaName {
+            case locationName.area.兒童動物區.rawValue:
+                label.backgroundColor = editeIconColor(locationName: .兒童動物區, isLabelColor: true)
+            case locationName.area.沙漠動物區.rawValue:
+                label.backgroundColor = UIColor(red: 171/255, green: 166/255, blue: 117/255, alpha: 1)
+            case locationName.area.溫帶動物區.rawValue:
+                label.backgroundColor = UIColor(red: 60/255, green: 146/255, blue: 245/255, alpha: 1)
+            case locationName.area.澳洲動物區.rawValue:
+                label.backgroundColor = UIColor(red: 137/255, green: 155/255, blue: 201/255, alpha: 1)
+            case locationName.area.熱帶雨林區.rawValue:
+                label.backgroundColor = UIColor(red: 95/255, green: 157/255, blue: 49/255, alpha: 1)
+            case locationName.area.臺灣動物區.rawValue:
+                label.backgroundColor = UIColor(red: 206/255, green: 157/255, blue: 195/255, alpha: 1)
+            case locationName.area.非洲動物區.rawValue:
+                label.backgroundColor = UIColor(red: 60/255, green: 156/255, blue: 231/255, alpha: 1)
+                
+            case locationName.area.鳥園區.rawValue:
+                label.backgroundColor = UIColor(red: 245/255, green: 113/255, blue: 137/255, alpha: 1)
+            case locationName.area.溫帶動物區.rawValue:
+                label.backgroundColor = UIColor(red: 60/255, green: 146/255, blue: 245/255, alpha: 1)
+            default:
+                label.backgroundColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
+            }
+            label.textColor = .white
+            label.text = labelText
+            label.font.withSize(12)
+            label.textAlignment = .center
+            label.layer.cornerRadius = 10
+            label.clipsToBounds = true
+            containerView.addSubview(label)
+            label.translatesAutoresizingMaskIntoConstraints = false
+            let top = NSLayoutConstraint(item: label,
+                                         attribute: .top,
+                                         relatedBy: .equal,
+                                         toItem: iconImageView,
+                                         attribute: .bottom,
+                                         multiplier: 1.0,
+                                         constant: 0.0)
+            
+            let centerVertically = NSLayoutConstraint(item: label,
+                                                      attribute: .centerX,
+                                                      relatedBy: .equal,
+                                                      toItem: iconImageView,
+                                                      attribute: .centerX,
+                                                      multiplier: 1.0,
+                                                      constant: 0.0)
+            let left = NSLayoutConstraint(item: label,
+                                          attribute: .left,
+                                          relatedBy: .equal,
+                                          toItem: containerView,
+                                          attribute: .left,
+                                          multiplier: 1.0,
+                                          constant: 5.0)
+            let right = NSLayoutConstraint(item: label,
+                                           attribute: .right,
+                                           relatedBy: .equal,
+                                           toItem: containerView,
+                                           attribute: .right,
+                                           multiplier: 1.0,
+                                           constant: -5.0)
+            NSLayoutConstraint(item: label,
+                               attribute: .height,
+                               relatedBy: .equal,
+                               toItem: nil,
+                               attribute: .notAnAttribute,
+                               multiplier: 1.0,
+                               constant: textSize).isActive = true
+            
+            NSLayoutConstraint.activate([top,left,right,centerVertically])
+            
+            
+            
+        }
+        //
+        func editeIconImage(complementary:CGFloat, imagetype:locationName){
+            switch imageType {
+            case .areaType:
+                iconImageView.image = UIImage(named: "Zoom17Map")
+            case .buildType:
+                iconImageView.image = UIImage(named: "Zoom17Building")
+            }
+            containerView.addSubview(iconImageView)
+            iconImageView.translatesAutoresizingMaskIntoConstraints = false
+            
+            let top = NSLayoutConstraint(item: iconImageView,
+                                         attribute: .top,
+                                         relatedBy: .equal,
+                                         toItem: containerView,
+                                         attribute: .top,
+                                         multiplier: 1.0,
+                                         constant: 10.0)
+            
+            let centerVertically = NSLayoutConstraint(item: iconImageView,
+                                                      attribute: .centerX,
+                                                      relatedBy: .equal,
+                                                      toItem: containerView,
+                                                      attribute: .centerX,
+                                                      multiplier: 1.0,
+                                                      constant: 0.0)
+            
+            NSLayoutConstraint.activate([top, centerVertically])
+            
+            
+            NSLayoutConstraint(item: iconImageView,
+                               attribute: .width,
+                               relatedBy: .equal,
+                               toItem: nil,
+                               attribute: .notAnAttribute,
+                               multiplier: 1.0,
+                               constant: containerSize.width - complementary).isActive = true
+            
+            NSLayoutConstraint(item: iconImageView,
+                               attribute: .height,
+                               relatedBy: .equal,
+                               toItem: nil,
+                               attribute: .notAnAttribute,
+                               multiplier: 1.0,
+                               constant: containerSize.height - complementary).isActive = true
+        }
+        
+        
+        editeIconImage(complementary: complementary, imagetype: imageType)
+        editeLabel(textSize: 30, areName: areaName)
+        return containerView
+    }
+    func editeIconColor(locationName:locationName.area,isLabelColor:Bool) -> UIColor {
+        switch locationName {
+            case .兒童動物區:
+                 return isLabelColor == true ? #colorLiteral(red: 0.2232869805, green: 0.5006997992, blue: 1, alpha: 1):#colorLiteral(red: 0.2232869805, green: 0.5006997992, blue: 1, alpha: 0.500588613)
+            case .沙漠動物區:
+                 return isLabelColor == true ? #colorLiteral(red: 0.2460802942, green: 0.7351186348, blue: 0.7505750317, alpha: 1):#colorLiteral(red: 0.2460802942, green: 0.7351186348, blue: 0.7505750317, alpha: 0.5241331336)
+            case .溫帶動物區:
+                 return isLabelColor == true ? #colorLiteral(red: 1, green: 0.159293146, blue: 0.2126889069, alpha: 1):#colorLiteral(red: 1, green: 0.159293146, blue: 0.2126889069, alpha: 0.5138859161)
+            case .澳洲動物區:
+                 return isLabelColor == true ? #colorLiteral(red: 1, green: 0.7263575811, blue: 0.6150251292, alpha: 0.9788099315):#colorLiteral(red: 1, green: 0.7263575811, blue: 0.6150251292, alpha: 0.5310092038)
+            case .熱帶雨林區:
+                 return isLabelColor == true ? #colorLiteral(red: 0.244634054, green: 0.7505750317, blue: 0.4197635666, alpha: 1):#colorLiteral(red: 0.244634054, green: 0.7505750317, blue: 0.4197635666, alpha: 0.4766427654)
+            case .臺灣動物區:
+                 return isLabelColor == true ? #colorLiteral(red: 0.9074783419, green: 0.5780187922, blue: 1, alpha: 1):#colorLiteral(red: 0.9074783419, green: 0.5780187922, blue: 1, alpha: 0.5030233305)
+            case .非洲動物區:
+                 return isLabelColor == true ? #colorLiteral(red: 0.4901543412, green: 0.3970325962, blue: 1, alpha: 1):#colorLiteral(red: 0.4901543412, green: 0.3970325962, blue: 1, alpha: 0.517578125)
+            case .鳥園區:
+                 return isLabelColor == true ? #colorLiteral(red: 0.5808130371, green: 0.6388013355, blue: 1, alpha: 1):#colorLiteral(red: 0.5808130371, green: 0.6388013355, blue: 1, alpha: 0.4745558647)
+        default:
+          return  #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        }
     }
 }
