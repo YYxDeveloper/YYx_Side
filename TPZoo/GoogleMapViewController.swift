@@ -11,11 +11,8 @@ import GoogleMaps
 
 class GoogleMapViewController: UIViewController {
     var locationManager: CLLocationManager!
-    var mapView = GMSMapView(){
-        didSet{
-            GoogleMapManager.shared.mapView = self.mapView
-        }
-    }
+    var mapView = GMSMapView()
+        
     /**
      first loading delegate will callback twice
      */
