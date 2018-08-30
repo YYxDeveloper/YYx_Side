@@ -65,6 +65,7 @@ class GoogleMapManager {
     private var areaMarkers = [GMSMarker]()
     private var buikdingMarkers = [GMSMarker]()
     private var dessertAnimalMarkers = [GMSMarker]()
+    private var australiaAnimalMarkers = [GMSMarker]()
 
     /**
      plist need setting Privacy - Location When In Use Usage Description
@@ -250,18 +251,34 @@ class GoogleMapManager {
             })
             self.hasMarkerCreated.building = true
         }
-        func createDesertMarkers(){
-            let datas = AnimalDataManager.shared.dessertAnimalMarkerDatas
+        func createDessertAnimalsMarkers(){
+            let datas = AnimalDataManager.shared.desertAnimalMarkerDatas
             _ = datas.map({
-                guard let name = $0.aNameCh else{return}
+                guard let name = $0.aNameCh else{
+                    print("\(ReturnString.yyxGuardReturn.rawValue)\(String.showFileName(filePath:#file)):\(#line)")
+                    return}
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
-                marker.iconView = self.editeAreaXBuildingIconView(containerSize: CGSize(width: 100, height: 100), labelText: name, imageType: .buildType, complementary: 50, areaName: name)
+                marker.iconView = self.editeAnimalIconView(containerSize: CGSize(width: 100, height: 100), labelText: name, imageType: .buildType, complementary: 50, areaName: locationName.area.沙漠動物區.rawValue)
                 marker.map = self.mapView
                 self.dessertAnimalMarkers.append(marker)
             })
         }
-        createDesertMarkers()
+        func createAustraliaAnimalMarkers(){
+            let datas = AnimalDataManager.shared.australiaAnimalMarkerDatas
+            _ = datas.map({
+                guard let name = $0.aNameCh else{
+                    print("\(ReturnString.yyxGuardReturn.rawValue)\(String.showFileName(filePath:#file)):\(#line)")
+                    return}
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
+                marker.iconView = self.editeAnimalIconView(containerSize: CGSize(width: 100, height: 100), labelText: name, imageType: .buildType, complementary: 50, areaName: locationName.area.澳洲動物區.rawValue)
+                marker.map = self.mapView
+                self.dessertAnimalMarkers.append(marker)
+            })
+        }
+        createAustraliaAnimalMarkers()
+        createDessertAnimalsMarkers()
         createAreaMarkers()
         createBuildingMarkers()
     }
@@ -573,24 +590,23 @@ class GoogleMapManager {
             case locationName.area.兒童動物區.rawValue:
                 label.backgroundColor = editeIconColor(locationName: .兒童動物區, isLabelColor: true)
             case locationName.area.沙漠動物區.rawValue:
-                label.backgroundColor = UIColor(red: 171/255, green: 166/255, blue: 117/255, alpha: 1)
+                label.backgroundColor = editeIconColor(locationName: .沙漠動物區, isLabelColor: true)
             case locationName.area.溫帶動物區.rawValue:
-                label.backgroundColor = UIColor(red: 60/255, green: 146/255, blue: 245/255, alpha: 1)
+                label.backgroundColor = editeIconColor(locationName: .溫帶動物區, isLabelColor: true)
             case locationName.area.澳洲動物區.rawValue:
-                label.backgroundColor = UIColor(red: 137/255, green: 155/255, blue: 201/255, alpha: 1)
+                label.backgroundColor = editeIconColor(locationName: .澳洲動物區, isLabelColor: true)
             case locationName.area.熱帶雨林區.rawValue:
-                label.backgroundColor = UIColor(red: 95/255, green: 157/255, blue: 49/255, alpha: 1)
+                label.backgroundColor = editeIconColor(locationName: .熱帶雨林區, isLabelColor: true)
             case locationName.area.臺灣動物區.rawValue:
-                label.backgroundColor = UIColor(red: 206/255, green: 157/255, blue: 195/255, alpha: 1)
+                label.backgroundColor = editeIconColor(locationName: .臺灣動物區, isLabelColor: true)
             case locationName.area.非洲動物區.rawValue:
-                label.backgroundColor = UIColor(red: 60/255, green: 156/255, blue: 231/255, alpha: 1)
-                
+                label.backgroundColor = editeIconColor(locationName: .非洲動物區, isLabelColor: true)
             case locationName.area.鳥園區.rawValue:
-                label.backgroundColor = UIColor(red: 245/255, green: 113/255, blue: 137/255, alpha: 1)
+                label.backgroundColor = editeIconColor(locationName: .鳥園區, isLabelColor: true)
             case locationName.area.溫帶動物區.rawValue:
-                label.backgroundColor = UIColor(red: 60/255, green: 146/255, blue: 245/255, alpha: 1)
+                label.backgroundColor = editeIconColor(locationName: .溫帶動物區, isLabelColor: true)
             default:
-                label.backgroundColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
+                label.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
             }
             label.textColor = .white
             label.text = labelText
@@ -643,13 +659,9 @@ class GoogleMapManager {
             
         }
         //
-        func editeIconImage(complementary:CGFloat, imagetype:locationName){
-            switch imageType {
-            case .areaType:
-                iconImageView.image = UIImage(named: "Zoom17Map")
-            case .buildType:
-                iconImageView.image = UIImage(named: "Zoom17Building")
-            }
+        func editeIconImage(complementary:CGFloat){
+          
+             iconImageView.image = UIImage(named: "redDot")
             containerView.addSubview(iconImageView)
             iconImageView.translatesAutoresizingMaskIntoConstraints = false
             
@@ -690,7 +702,7 @@ class GoogleMapManager {
         }
         
         
-        editeIconImage(complementary: complementary, imagetype: imageType)
+        editeIconImage(complementary: complementary)
         editeLabel(textSize: 30, areName: areaName)
         return containerView
     }
