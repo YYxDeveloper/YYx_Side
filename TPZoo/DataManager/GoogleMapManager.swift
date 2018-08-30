@@ -409,7 +409,7 @@ class GoogleMapManager {
             case locationName.area.沙漠動物區.rawValue:
                   label.backgroundColor = UIColor(red: 171/255, green: 166/255, blue: 117/255, alpha: 1)
             case locationName.area.溫帶動物區.rawValue:
-                  label.backgroundColor = UIColor(red: 246/255, green: 128/255, blue: 24/255, alpha: 1)
+                  label.backgroundColor = UIColor(red: 60/255, green: 146/255, blue: 245/255, alpha: 1)
             case locationName.area.澳洲動物區.rawValue:
                   label.backgroundColor = UIColor(red: 137/255, green: 155/255, blue: 201/255, alpha: 1)
             case locationName.area.熱帶雨林區.rawValue:
