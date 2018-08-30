@@ -54,6 +54,13 @@ class AnimalDataManager {
             return  self.saveAnimalMarkersToCoreData(witchLocation: .澳洲動物區)
         }
     }
+    var taiwenAnimalMarkerDatas:[Animalmarker] {
+        if hasCoreDataSaved(type: .AnimalMarker) {
+            return self.loadAnimalMarkersFromCoreData(witchLocation: .臺灣動物區)
+        }else{
+            return  self.saveAnimalMarkersToCoreData(witchLocation: .臺灣動物區)
+        }
+    }
     var animalsImages:[AnimalImages] {
         if hasCoreDataSaved(type: .AnimalMarker) {
             return self.loadAnimalImagesFromCoreData()
@@ -149,6 +156,15 @@ class AnimalDataManager {
             }
         case .澳洲動物區:
             let predicate: NSPredicate = NSPredicate(format: "aLocation CONTAINS[cd] %@", "澳洲")
+            request.predicate = predicate
+            do {
+                return try getViewContext().fetch(request)
+            } catch {
+                print("\(ERORR_PREFIX)\(error.localizedDescription)")
+                return [Animalmarker]()
+            }
+        case .臺灣動物區:
+            let predicate: NSPredicate = NSPredicate(format: "aLocation CONTAINS[cd] %@", "臺灣")
             request.predicate = predicate
             do {
                 return try getViewContext().fetch(request)

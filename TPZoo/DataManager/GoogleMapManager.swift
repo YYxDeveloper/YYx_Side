@@ -66,7 +66,7 @@ class GoogleMapManager {
     private var buikdingMarkers = [GMSMarker]()
     private var dessertAnimalMarkers = [GMSMarker]()
     private var australiaAnimalMarkers = [GMSMarker]()
-
+    private var taiwenAnimalMarkers = [GMSMarker]()
     /**
      plist need setting Privacy - Location When In Use Usage Description
      */
@@ -259,7 +259,7 @@ class GoogleMapManager {
                     return}
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
-                marker.iconView = self.editeAnimalIconView(containerSize: CGSize(width: 100, height: 100), labelText: name, imageType: .buildType, complementary: 50, areaName: locationName.area.沙漠動物區.rawValue)
+                marker.iconView = self.editeAnimalIconView(containerSize: CGSize(width: 100, height: 100), labelText: name, complementary: 50, areaName: locationName.area.沙漠動物區.rawValue)
                 marker.map = self.mapView
                 self.dessertAnimalMarkers.append(marker)
             })
@@ -272,11 +272,25 @@ class GoogleMapManager {
                     return}
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
-                marker.iconView = self.editeAnimalIconView(containerSize: CGSize(width: 100, height: 100), labelText: name, imageType: .buildType, complementary: 50, areaName: locationName.area.澳洲動物區.rawValue)
+                marker.iconView = self.editeAnimalIconView(containerSize: CGSize(width: 100, height: 100), labelText: name, complementary: 50, areaName: locationName.area.澳洲動物區.rawValue)
                 marker.map = self.mapView
-                self.dessertAnimalMarkers.append(marker)
+                self.australiaAnimalMarkers.append(marker)
             })
         }
+        func createTaiwnAnimalMarkers(){
+            let datas = AnimalDataManager.shared.taiwenAnimalMarkerDatas
+            _ = datas.map({
+                guard let name = $0.aNameCh else{
+                    print("\(ReturnString.yyxGuardReturn.rawValue)\(String.showFileName(filePath:#file)):\(#line)")
+                    return}
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
+                marker.iconView = self.editeAnimalIconView(containerSize: CGSize(width: 100, height: 100), labelText: name, complementary: 50, areaName: locationName.area.澳洲動物區.rawValue)
+                marker.map = self.mapView
+                self.taiwenAnimalMarkers.append(marker)
+            })
+        }
+        createTaiwnAnimalMarkers()
         createAustraliaAnimalMarkers()
         createDessertAnimalsMarkers()
         createAreaMarkers()
@@ -415,6 +429,13 @@ class GoogleMapManager {
         _ = self.dessertAnimalMarkers.map({
             $0.map = self.mapView
         })
+        _ = self.australiaAnimalMarkers.map({
+            $0.map = self.mapView
+        })
+        _ = self.taiwenAnimalMarkers.map({
+            $0.map = self.mapView
+        })
+      
     }
    private func showAreaAndBuildingMarkers() {
     func danceBaby(view:UIView){
@@ -580,7 +601,7 @@ class GoogleMapManager {
         editeLabel(textSize: 30, areName: areaName)
         return containerView
     }
-    func editeAnimalIconView(containerSize:CGSize,labelText:String,imageType:locationName, complementary:CGFloat,areaName:String)->UIView{
+    func editeAnimalIconView(containerSize:CGSize,labelText:String, complementary:CGFloat,areaName:String)->UIView{
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: containerSize.width, height:containerSize.height ))
         let iconImageView = UIImageView()
         let label = UILabel()
