@@ -62,8 +62,8 @@ class GoogleMapManager {
     static let shared = GoogleMapManager()
     static let apiKey = "AIzaSyC7OH2HcJ0Iko-bGY1U9r9y56AN1SC70mU"
     var mapView = GMSMapView()
-    var areaMarkers = [GMSMarker]()
-    var buikdingMarkers = [GMSMarker]()
+    private var areaMarkers = [GMSMarker]()
+    private var buikdingMarkers = [GMSMarker]()
 
     /**
      plist need setting Privacy - Location When In Use Usage Description
