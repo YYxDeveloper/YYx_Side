@@ -709,7 +709,7 @@ class GoogleMapManager {
             case .臺灣動物區:
                  return isLabelColor == true ? #colorLiteral(red: 0.9074783419, green: 0.5780187922, blue: 1, alpha: 1):#colorLiteral(red: 0.9074783419, green: 0.5780187922, blue: 1, alpha: 0.5030233305)
             case .非洲動物區:
-                 return isLabelColor == true ? #colorLiteral(red: 0.4901543412, green: 0.3970325962, blue: 1, alpha: 1):#colorLiteral(red: 0.4901543412, green: 0.3970325962, blue: 1, alpha: 0.517578125)
+                 return isLabelColor == true ? #colorLiteral(red: 0.08842880031, green: 0.4583259157, blue: 0.9073009201, alpha: 1):#colorLiteral(red: 0.08842880031, green: 0.4583259157, blue: 0.9073009201, alpha: 0.5457245291)
             case .鳥園區:
                  return isLabelColor == true ? #colorLiteral(red: 0.5808130371, green: 0.6388013355, blue: 1, alpha: 1):#colorLiteral(red: 0.5808130371, green: 0.6388013355, blue: 1, alpha: 0.4745558647)
         default:
