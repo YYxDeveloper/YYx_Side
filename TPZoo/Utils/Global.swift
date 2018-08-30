@@ -25,7 +25,7 @@ enum yyxErorr:Error{
 enum locationName{
     case areaType,buildType
     enum area:String{
-        case 臺灣動物區,溫帶動物區,兒童動物區,熱帶雨林區,澳洲動物區,沙漠動物區,非洲動物區,鳥園區
+        case 臺灣動物區,溫帶動物區,兒童動物區,熱帶雨林區,澳洲動物區,沙漠動物區,非洲動物區,鳥園區,all
     }
     
     enum building:String {

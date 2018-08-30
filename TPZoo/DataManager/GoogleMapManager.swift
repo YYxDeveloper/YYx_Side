@@ -216,7 +216,8 @@ class GoogleMapManager {
 //            let p10 = CLLocationCoordinate2D(latitude: 24.994942, longitude: 121.589113)
 //            let p11 = CLLocationCoordinate2D(latitude: 24.995158, longitude: 121.588674)
             addPolygonToMapView(coordinates: [p1,p2,p3,p4,p5,p6,p7,p8,p9])
-            
+        case .all:
+            break
         }
         
     }

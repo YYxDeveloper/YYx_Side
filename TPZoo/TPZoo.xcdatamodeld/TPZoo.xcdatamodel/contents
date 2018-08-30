@@ -18,6 +18,7 @@
     <entity name="Animalmarker" representedClassName="Animalmarker" syncable="YES" codeGenerationType="class">
         <attribute name="aFamily" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="aLocation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="aNameCh" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="aNameEn" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lat" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lon" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -63,8 +64,8 @@
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Animalmarker" positionX="189" positionY="99" width="128" height="120"/>
         <element name="AnimalImages" positionX="142" positionY="324" width="128" height="238"/>
+        <element name="Animalmarker" positionX="189" positionY="99" width="128" height="135"/>
         <element name="AnimalSummary" positionX="-54" positionY="-9" width="128" height="613"/>
     </elements>
 </model>
