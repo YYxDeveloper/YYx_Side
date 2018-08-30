@@ -25,7 +25,7 @@ class GoogleMapManager {
     static let horizetalBoaderComplementary =  0.002
     
     enum zoomlevel{
-        case level17,level20
+        case level17ShowBuilding,level18ShowAnimals
     }
     enum center:Double {
         case lat = 24.99620900530806
@@ -64,6 +64,7 @@ class GoogleMapManager {
     var mapView = GMSMapView()
     private var areaMarkers = [GMSMarker]()
     private var buikdingMarkers = [GMSMarker]()
+    private var dessertAnimalMarkers = [GMSMarker]()
 
     /**
      plist need setting Privacy - Location When In Use Usage Description
@@ -249,6 +250,18 @@ class GoogleMapManager {
             })
             self.hasMarkerCreated.building = true
         }
+        func createDesertMarkers(){
+            let datas = AnimalDataManager.shared.dessertAnimalMarkerDatas
+            _ = datas.map({
+                guard let name = $0.aNameCh else{return}
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
+                marker.iconView = self.editeIconView(containerSize: CGSize(width: 100, height: 100), labelText: name, imageType: .buildType, complementary: 50, areaName: name)
+                marker.map = self.mapView
+                self.dessertAnimalMarkers.append(marker)
+            })
+        }
+        createDesertMarkers()
         createAreaMarkers()
         createBuildingMarkers()
     }
@@ -267,9 +280,10 @@ class GoogleMapManager {
         switch zoomLevel {
         case 17.0...18.0:
             drawAreaScope()
-            GoogleMapManager.shared.addGMSMarker(zoomLevel: .level17)
-        case 19.0...20.0:
-            break
+            GoogleMapManager.shared.addGMSMarker(zoomLevel: .level17ShowBuilding)
+        case 18.0...20.0:
+            GoogleMapManager.shared.addGMSMarker(zoomLevel: .level18ShowAnimals)
+            
         default:
             print("gggg")
         }
@@ -363,9 +377,9 @@ class GoogleMapManager {
     private func addGMSMarker(zoomLevel:zoomlevel){
         
         switch zoomLevel {
-        case .level17:
+        case .level17ShowBuilding:
             showAreaAndBuildingMarkers()
-        case .level20:
+        case .level18ShowAnimals:
             showAnimalsMarkers()
         }
 //        let marker = GMSMarker()
@@ -381,7 +395,9 @@ class GoogleMapManager {
     }
 //MARK:  -
     private func showAnimalsMarkers(){
-        
+        _ = self.dessertAnimalMarkers.map({
+            $0.map = self.mapView
+        })
     }
    private func showAreaAndBuildingMarkers() {
     
@@ -389,12 +405,12 @@ class GoogleMapManager {
          print("\(yyxErorr.guardError)\(String.showFileName(filePath:#file)):\(#line)")
         return
     }
-    _ = self.areaMarkers.map({
-      $0.map = self.mapView
-    })
-    _ = self.buikdingMarkers.map({
-        $0.map = self.mapView
-    })
+        _ = self.areaMarkers.map({
+            $0.map = self.mapView
+        })
+        _ = self.buikdingMarkers.map({
+            $0.map = self.mapView
+        })
         
     }
 

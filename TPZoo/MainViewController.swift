@@ -18,6 +18,9 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+      print("xxx\(AnimalDataManager.shared.dessertAnimalMarkerDatas)")
+
         self.insertGoogleMapVC()
     }
     private func insertGoogleMapVC() {

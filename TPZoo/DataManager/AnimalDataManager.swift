@@ -33,12 +33,19 @@ class AnimalDataManager {
         }
        
     }
-    var animalsCoordinate:[Animalmarker] {
+    var animalMarkers:[Animalmarker] {
             if hasCoreDataSaved(type: .AnimalMarker) {
-                return self.loadAnimalsCoordinateCoreData()
+                return self.loadAnimalMarkersFromCoreData(witchLocation: .all)
             }else{
-                return  self.saveAnimalsCoordinateToCoreData()
+                return  self.saveAnimalMarkersToCoreData(witchLocation: .all)
             }
+    }
+    var dessertAnimalMarkerDatas:[Animalmarker] {
+        if hasCoreDataSaved(type: .AnimalMarker) {
+           return self.loadAnimalMarkersFromCoreData(witchLocation: .沙漠動物區)
+        }else{
+            return  self.saveAnimalMarkersToCoreData(witchLocation: .沙漠動物區)
+        }
     }
     var animalsImages:[AnimalImages] {
         if hasCoreDataSaved(type: .AnimalMarker) {
@@ -47,8 +54,8 @@ class AnimalDataManager {
             return  self.saveAnimalImagesToCoreData()
         }
     }
+  
     
-   
 //MARK: AnimalSummary private func
     private func loadAnimalsSummaryCoreData() -> [AnimalSummary]{
         guard hasCoreDataSaved(type: .AnimalSummary) else {
@@ -119,31 +126,48 @@ class AnimalDataManager {
             return loadAnimalsSummaryCoreData()
     }
 //MARK: AnimalsCoordinate private func
-    private func loadAnimalsCoordinateCoreData() -> [Animalmarker]{
-      
-        
+    private func loadAnimalMarkersFromCoreData(witchLocation:locationName.area) -> [Animalmarker]{
         let request: NSFetchRequest<Animalmarker> = Animalmarker.fetchRequest()
-        do {
-            let arr = try getViewContext().fetch(request)
-            _ = arr.map({print($0.aNameEn ?? EMPTY_STRING)})
-            return arr
-        } catch {
-            print("\(ERORR_PREFIX)\(error.localizedDescription)")
-            return [Animalmarker]()
+        
+        
+        switch witchLocation {
+        case .沙漠動物區:
+            let predicate: NSPredicate = NSPredicate(format: "aLocation CONTAINS[cd] %@", "沙漠")
+            request.predicate = predicate
+            do {
+                return try getViewContext().fetch(request)
+            } catch {
+                print("\(ERORR_PREFIX)\(error.localizedDescription)")
+                return [Animalmarker]()
+            }
+        default:
+            do {
+                return try getViewContext().fetch(request)
+            } catch {
+                print("\(ERORR_PREFIX)\(error.localizedDescription)")
+                return [Animalmarker]()
+            }
         }
+       
     }
-    private func saveAnimalsCoordinateToCoreData()-> [Animalmarker] {
+    private func saveAnimalMarkersToCoreData(witchLocation:locationName.area)-> [Animalmarker] {
         do {
             _ = try getJsonModel().result.results.map({
                 guard let aEngName = $0.aNameEn else {throw yyxErorr.guardError}
+                guard let aLocation = $0.aLocation else {throw yyxErorr.guardError}
                 guard  let coordinateString = $0.aGeo else{throw yyxErorr.guardError}
+                guard  let aNameCh = $0.aNameCh else{throw yyxErorr.guardError}
+
                 let coordinates = String.convertCoordinateStringToDouble(targetString: coordinateString)
+                
                 for each in coordinates{
                    
                     let coordinate = getManagerObject(type: .AnimalMarker)
                     coordinate.setValue(aEngName, forKey: "aNameEn")
                     coordinate.setValue(each.0, forKey: "lon")
                     coordinate.setValue(each.1, forKey: "lat")
+                    coordinate.setValue(aLocation, forKey: "aLocation")
+                    coordinate.setValue(aNameCh, forKey: "aNameCh")
                      try getViewContext().save()
                 }
             })
@@ -151,7 +175,7 @@ class AnimalDataManager {
             print(error.localizedDescription)
             print("\(String.showFileName(filePath: #file)):\(#line)")
         }
-        return  self.loadAnimalsCoordinateCoreData()
+        return  self.loadAnimalMarkersFromCoreData(witchLocation: witchLocation)
     }
 //MARK: AnimalImages private func
      private func saveAnimalImagesToCoreData() -> [AnimalImages] {
