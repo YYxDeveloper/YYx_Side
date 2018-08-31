@@ -19,9 +19,9 @@ class GoogleMapManager {
     private var isFirstLoading = true
     private var hasMarkerCreated:checkLoading = (false,false)
 
-    static let verticalGetBackComplementary =  0.0035
-    static let horizetalGetBackComplementary = 0.0025
-    static let verticalBoaderComplementary =  0.003
+    static let verticalGetBackComplementary =  0.003
+    static let horizetalGetBackComplementary = 0.002
+    static let verticalBoaderComplementary =  0.0025
     static let horizetalBoaderComplementary =  0.002
     
     enum zoomlevel{
@@ -33,8 +33,8 @@ class GoogleMapManager {
     }
     enum coordinate:Double {
         case bottomLimitPoint   = 24.989200
-        case topLimitPoint      = 25.001500//+越外
-        case leftLimitPoint     = 121.578600
+        case topLimitPoint      = 25.002000//+越外
+        case leftLimitPoint     = 121.578000
         case rightLimitPoint    = 121.593457//+越外
     }
     enum blackCoordinate{
@@ -77,6 +77,7 @@ class GoogleMapManager {
         let locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
         locationManager.distanceFilter = 50
         locationManager.startUpdatingLocation()
         self.locationManager = locationManager
@@ -285,7 +286,7 @@ class GoogleMapManager {
                     return}
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
-                marker.iconView = self.editeAnimalIconView(containerSize: CGSize(width: 100, height: 100), labelText: name, complementary: 50, areaName: locationName.area.澳洲動物區.rawValue)
+                marker.iconView = self.editeAnimalIconView(containerSize: CGSize(width: 100, height: 100), labelText: name, complementary: 50, areaName: locationName.area.臺灣動物區.rawValue)
                 marker.map = self.mapView
                 self.taiwenAnimalMarkers.append(marker)
             })
