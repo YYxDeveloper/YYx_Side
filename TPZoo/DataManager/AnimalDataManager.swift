@@ -68,6 +68,20 @@ class AnimalDataManager {
             return  self.saveAnimalMarkersToCoreData(witchLocation: .兒童動物區)
         }
     }
+    var birdAnimalMarkerDatas:[Animalmarker] {
+        if hasCoreDataSaved(type: .AnimalMarker) {
+            return self.loadAnimalMarkersFromCoreData(witchLocation: .鳥園區)
+        }else{
+            return  self.saveAnimalMarkersToCoreData(witchLocation: .鳥園區)
+        }
+    }
+    var arficaAnimalMarkerDatas:[Animalmarker] {
+        if hasCoreDataSaved(type: .AnimalMarker) {
+            return self.loadAnimalMarkersFromCoreData(witchLocation: .非洲動物區)
+        }else{
+            return  self.saveAnimalMarkersToCoreData(witchLocation: .非洲動物區)
+        }
+    }
     var animalsImages:[AnimalImages] {
         if hasCoreDataSaved(type: .AnimalMarker) {
             return self.loadAnimalImagesFromCoreData()
@@ -181,6 +195,24 @@ class AnimalDataManager {
             }
         case .兒童動物區:
             let predicate: NSPredicate = NSPredicate(format: "aLocation CONTAINS[cd] %@", "兒童")
+            request.predicate = predicate
+            do {
+                return try getViewContext().fetch(request)
+            } catch {
+                print("\(ERORR_PREFIX)\(error.localizedDescription)")
+                return [Animalmarker]()
+            }
+        case .鳥園區:
+            let predicate: NSPredicate = NSPredicate(format: "aLocation CONTAINS[cd] %@", "鳥園")
+            request.predicate = predicate
+            do {
+                return try getViewContext().fetch(request)
+            } catch {
+                print("\(ERORR_PREFIX)\(error.localizedDescription)")
+                return [Animalmarker]()
+            }
+        case .非洲動物區:
+            let predicate: NSPredicate = NSPredicate(format: "aLocation CONTAINS[cd] %@", "非洲")
             request.predicate = predicate
             do {
                 return try getViewContext().fetch(request)

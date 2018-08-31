@@ -68,7 +68,8 @@ class GoogleMapManager {
     private var australiaAnimalMarkers = [GMSMarker]()
     private var taiwenAnimalMarkers = [GMSMarker]()
     private var childAnimalMarkers = [GMSMarker]()
-
+    private var birdAnimalMarker = [GMSMarker]()
+    private var arficaAnimalMarker = [GMSMarker]()
     /**
      plist need setting Privacy - Location When In Use Usage Description
      */
@@ -325,6 +326,52 @@ class GoogleMapManager {
                 }
             })
         }
+        func createBirdAnimalMarkers(){
+            func allowAppendName(name:String)-> Bool{
+                let stopList = ["狐?","桃園豬","白羅曼鵝","絨鼠"]
+                
+                return !stopList.contains(name)
+            }
+            let datas = AnimalDataManager.shared.birdAnimalMarkerDatas
+            _ = datas.map({
+                guard let name = $0.aNameCh else{
+                    print("\(ReturnString.yyxGuardReturn.rawValue)\(String.showFileName(filePath:#file)):\(#line)")
+                    return}
+                
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
+                marker.iconView = self.editeAnimalIconView(labelText: name, areaName: locationName.area.鳥園區.rawValue)
+                
+                if allowAppendName(name: name){
+                    self.birdAnimalMarker.append(marker)
+                    marker.map = self.mapView
+                }
+            })
+        }
+        func createArficanimalMarkers(){
+            func allowAppendName(name:String)-> Bool{
+                let stopList = ["狐?","桃園豬","白羅曼鵝","絨鼠"]
+                
+                return !stopList.contains(name)
+            }
+            let datas = AnimalDataManager.shared.arficaAnimalMarkerDatas
+            _ = datas.map({
+                guard let name = $0.aNameCh else{
+                    print("\(ReturnString.yyxGuardReturn.rawValue)\(String.showFileName(filePath:#file)):\(#line)")
+                    return}
+                
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
+                marker.iconView = self.editeAnimalIconView(labelText: name, areaName: locationName.area.非洲動物區.rawValue)
+                
+                if allowAppendName(name: name){
+                    self.arficaAnimalMarker.append(marker)
+                    marker.map = self.mapView
+                }
+            })
+        }
+        createArficanimalMarkers()
+        createBirdAnimalMarkers()
         createChildAnimalMarkers()
         createTaiwnAnimalMarkers()
         createAustraliaAnimalMarkers()
@@ -447,7 +494,8 @@ class GoogleMapManager {
         case .level17ShowBuilding:
             showAreaAndBuildingMarkers()
         case .level18ShowAnimals:
-            showAnimalsMarkers()
+            break
+//            showAnimalsMarkers()
         }
 //        let marker = GMSMarker()
 //        marker.position = cordinate
@@ -472,6 +520,12 @@ class GoogleMapManager {
             $0.map = self.mapView
         })
         _ = self.childAnimalMarkers.map({
+            $0.map = self.mapView
+        })
+        _ = self.birdAnimalMarker.map({
+            $0.map = self.mapView
+        })
+        _ = self.arficaAnimalMarker.map({
             $0.map = self.mapView
         })
     }
