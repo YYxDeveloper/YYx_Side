@@ -260,7 +260,7 @@ class GoogleMapManager {
                     return}
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
-                marker.iconView = self.editeAnimalIconView(containerSize: CGSize(width: 100, height: 100), labelText: name, complementary: 50, areaName: locationName.area.沙漠動物區.rawValue)
+                marker.iconView = self.editeAnimalIconView(labelText: name, areaName: locationName.area.沙漠動物區.rawValue)
                 marker.map = self.mapView
                 self.dessertAnimalMarkers.append(marker)
             })
@@ -273,7 +273,7 @@ class GoogleMapManager {
                     return}
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
-                marker.iconView = self.editeAnimalIconView(containerSize: CGSize(width: 100, height: 100), labelText: name, complementary: 50, areaName: locationName.area.澳洲動物區.rawValue)
+                marker.iconView = self.editeAnimalIconView(labelText: name, areaName: locationName.area.澳洲動物區.rawValue)
                 marker.map = self.mapView
                 self.australiaAnimalMarkers.append(marker)
             })
@@ -292,7 +292,7 @@ class GoogleMapManager {
                 
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
-                marker.iconView = self.editeAnimalIconView(containerSize: CGSize(width: 100, height: 100), labelText: name, complementary: 50, areaName: locationName.area.臺灣動物區.rawValue)
+                 marker.iconView = self.editeAnimalIconView(labelText: name, areaName: locationName.area.臺灣動物區.rawValue)
                 marker.map = self.mapView
                 if allowAppendName(name: name){
                     self.taiwenAnimalMarkers.append(marker)
@@ -611,8 +611,8 @@ class GoogleMapManager {
         editeLabel(textSize: 30, areName: areaName)
         return containerView
     }
-    func editeAnimalIconView(containerSize:CGSize,labelText:String, complementary:CGFloat,areaName:String)->UIView{
-        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: containerSize.width, height:containerSize.height ))
+    func editeAnimalIconView(labelText:String,areaName:String)->UIView{
+        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 100, height:100 ))
         let iconImageView = UIImageView()
         let label = UILabel()
         
@@ -722,7 +722,7 @@ class GoogleMapManager {
                                toItem: nil,
                                attribute: .notAnAttribute,
                                multiplier: 1.0,
-                               constant: containerSize.width - complementary).isActive = true
+                               constant: 50).isActive = true
             
             NSLayoutConstraint(item: iconImageView,
                                attribute: .height,
@@ -730,11 +730,11 @@ class GoogleMapManager {
                                toItem: nil,
                                attribute: .notAnAttribute,
                                multiplier: 1.0,
-                               constant: containerSize.height - complementary).isActive = true
+                               constant: 50).isActive = true
         }
         
         
-        editeIconImage(complementary: complementary)
+        editeIconImage(complementary: 50)
         editeLabel(textSize: 30, areName: areaName)
         return containerView
     }
