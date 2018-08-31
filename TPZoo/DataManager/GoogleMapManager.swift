@@ -67,6 +67,8 @@ class GoogleMapManager {
     private var dessertAnimalMarkers = [GMSMarker]()
     private var australiaAnimalMarkers = [GMSMarker]()
     private var taiwenAnimalMarkers = [GMSMarker]()
+    private var childAnimalMarkers = [GMSMarker]()
+
     /**
      plist need setting Privacy - Location When In Use Usage Description
      */
@@ -293,13 +295,37 @@ class GoogleMapManager {
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
                  marker.iconView = self.editeAnimalIconView(labelText: name, areaName: locationName.area.臺灣動物區.rawValue)
-                marker.map = self.mapView
+               
                 if allowAppendName(name: name){
                     self.taiwenAnimalMarkers.append(marker)
+                     marker.map = self.mapView
                 }
                 
             })
         }
+        func createChildAnimalMarkers(){
+            func allowAppendName(name:String)-> Bool{
+                let stopList = ["狐?","桃園豬","白羅曼鵝","絨鼠"]
+
+                return !stopList.contains(name)
+            }
+            let datas = AnimalDataManager.shared.childAnimalMarkerDatas
+            _ = datas.map({
+                guard let name = $0.aNameCh else{
+                    print("\(ReturnString.yyxGuardReturn.rawValue)\(String.showFileName(filePath:#file)):\(#line)")
+                    return}
+                
+                let marker = GMSMarker()
+                marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
+                marker.iconView = self.editeAnimalIconView(labelText: name, areaName: locationName.area.兒童動物區.rawValue)
+                
+                if allowAppendName(name: name){
+                    self.childAnimalMarkers.append(marker)
+                    marker.map = self.mapView
+                }
+            })
+        }
+        createChildAnimalMarkers()
         createTaiwnAnimalMarkers()
         createAustraliaAnimalMarkers()
         createDessertAnimalsMarkers()
@@ -445,7 +471,9 @@ class GoogleMapManager {
         _ = self.taiwenAnimalMarkers.map({
             $0.map = self.mapView
         })
-      
+        _ = self.childAnimalMarkers.map({
+            $0.map = self.mapView
+        })
     }
    private func showAreaAndBuildingMarkers() {
     func danceBaby(view:UIView){

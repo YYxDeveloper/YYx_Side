@@ -19,7 +19,7 @@ class MainViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         
-      print("xxx\(AnimalDataManager.shared.desertAnimalMarkerDatas)")
+//      print("xxx\(AnimalDataManager.shared.desertAnimalMarkerDatas)")
 
         self.insertGoogleMapVC()
     }
