@@ -279,16 +279,25 @@ class GoogleMapManager {
             })
         }
         func createTaiwnAnimalMarkers(){
+            func allowAppendName(name:String)-> Bool{
+                let stopList = ["水鹿","臺灣八哥"]
+                
+                return !stopList.contains(name)
+            }
             let datas = AnimalDataManager.shared.taiwenAnimalMarkerDatas
             _ = datas.map({
                 guard let name = $0.aNameCh else{
                     print("\(ReturnString.yyxGuardReturn.rawValue)\(String.showFileName(filePath:#file)):\(#line)")
                     return}
+                
                 let marker = GMSMarker()
                 marker.position = CLLocationCoordinate2DMake($0.lat, $0.lon)
                 marker.iconView = self.editeAnimalIconView(containerSize: CGSize(width: 100, height: 100), labelText: name, complementary: 50, areaName: locationName.area.臺灣動物區.rawValue)
                 marker.map = self.mapView
-                self.taiwenAnimalMarkers.append(marker)
+                if allowAppendName(name: name){
+                    self.taiwenAnimalMarkers.append(marker)
+                }
+                
             })
         }
         createTaiwnAnimalMarkers()
@@ -633,6 +642,7 @@ class GoogleMapManager {
             label.textColor = .white
             label.text = labelText
             label.font.withSize(12)
+           
             label.textAlignment = .center
             label.layer.cornerRadius = 10
             label.clipsToBounds = true
