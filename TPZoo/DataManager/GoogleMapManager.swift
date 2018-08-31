@@ -641,8 +641,8 @@ class GoogleMapManager {
             }
             label.textColor = .white
             label.text = labelText
-            label.font.withSize(12)
-           
+            label.font = label.font.withSize(14)
+
             label.textAlignment = .center
             label.layer.cornerRadius = 10
             label.clipsToBounds = true
